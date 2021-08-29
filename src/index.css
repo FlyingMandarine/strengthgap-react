@@ -1,13 +1,20 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
+
+html {
+  background: url("images/SG-background.jpeg") no-repeat center center fixed;
+  /* TO-DO: Remember to give attribution! Link to the image for more info: https://unsplash.com/photos/cGNCepznaV8
+  TO-DO: Attribution to give in credits somewhere perhaps? "Photo by <a href="https://unsplash.com/photos/KFIjzXYg1RM">Jeremy Bishop</a> on <a href="https://unsplash.com/">Unsplash</a>" */
+  background-size: cover;
+
+  font: 10px 'Roboto', sans-serif;
+}
+
+/* #getStartedButton:hover {
+  background-color: red !important;
+} */
