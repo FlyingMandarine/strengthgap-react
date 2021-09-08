@@ -2,7 +2,7 @@ import React from 'react'
 import BottomPanel from './BottomPanel'
 import TopPanel from './TopPanel'
 
-const MobileLanding1 = ({ onClick }) => {
+const MobileLanding1 = ({ changePage }) => {
     const divStyle = {
         backgroundColor: 'white',
         fontSize: 24,
@@ -23,7 +23,7 @@ const MobileLanding1 = ({ onClick }) => {
     return (
         <div style={divStyle}>
             <TopPanel />
-            <BottomPanel onClick={onClick}/>
+            <BottomPanel changePage={changePage}/>
         </div>
     )
 }

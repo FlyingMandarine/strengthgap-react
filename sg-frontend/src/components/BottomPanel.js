@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BottomPanel = (onClick) => {
+const BottomPanel = ({ changePage }) => {
     const h2Style = {
         fontSize: 24,
         marginTop: 55
@@ -63,7 +63,7 @@ const BottomPanel = (onClick) => {
             A common struggle for people who have just started working out is to ensure that the program they follow will target all muscle groups.<br></br><br></br>
             Not doing so - for instance, including chest exercises but no back exercises - can lead to muscle imbalances that can be detrimental to your health in the long term.
             </p>
-            <button style={getStartedButtonStyle} id="getStartedButton" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={onClick}>Get started</button>
+            <button style={getStartedButtonStyle} id="getStartedButton" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={changePage}>Get started</button>
             <p style={footerLinkStyle} id="footer-link">A Tool by <a style={footerAStyle} href="mailto:hermenaultpatrice@gmail.com">Patrice Hermenault</a></p>
         </div>
     )
