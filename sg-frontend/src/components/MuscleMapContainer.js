@@ -1,13 +1,16 @@
 import React from 'react'
+import TopPanel from './presentational/TopPanel'
 import { MuscleMapBack, MuscleMapFront } from './MuscleMap'
+import Title from './Title'
 
 const MuscleMapContainer = () => {
     const muscleMapStyle = {
-        margin: '30px 0 22px'
+        //margin: '30px 0 22px'
     }
 
     return (
-        <div>
+        <TopPanel>
+            <Title />
             <div style={muscleMapStyle}>
                 <MuscleMapFront mapPosition={'top-left'} />
                 <MuscleMapBack mapPosition={'top-left'} />
@@ -22,7 +25,7 @@ const MuscleMapContainer = () => {
                 <MuscleMapBack mapPosition={'bottom-right'} />
                 <MuscleMapFront mapPosition={'bottom-right'} />
             </div>
-        </div>
+        </TopPanel>
     )
 }
 

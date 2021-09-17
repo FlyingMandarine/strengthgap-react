@@ -1,8 +1,8 @@
 import React from 'react'
-import MuscleMapContainer from './MuscleMapContainer'
-import IntroText from './IntroText'
+import MobileHomeBottom from './MobileHomeBottom'
+import MobileHomeTop from './MobileHomeTop'
 
-const MobileLanding1 = ({ changePage }) => {
+const MobileHome = () => {
     const divStyle = {
         backgroundColor: 'white',
         fontSize: 24,
@@ -22,10 +22,10 @@ const MobileLanding1 = ({ changePage }) => {
 
     return (
         <div style={divStyle}>
-            <MuscleMapContainer />
-            <IntroText changePage={changePage} />
+            <MobileHomeTop />
+            <MobileHomeBottom />
         </div>
     )
 }
 
-export default MobileLanding1
+export default MobileHome
