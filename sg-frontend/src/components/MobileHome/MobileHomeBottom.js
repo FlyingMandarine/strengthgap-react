@@ -20,8 +20,12 @@ const MobileHomeBottom = () => {
         <BottomPanel>
             <div id="submit-panel">
                 <p id="completion-text">Muscles targeted: <span id="completion">0%</span></p>
-                <MuscleMapFront />
-                <MuscleMapBack />
+                <MuscleMapFront
+                    muscleWidth={132} muscleHeight={256} mapPosition={''}
+                />
+                <MuscleMapBack
+                    muscleWidth={132} muscleHeight={256} mapPosition={''}
+                />
             </div>
             <div>
                 <p style={footerLinkStyle} id="footer-link">A Tool by <a style={footerAStyle} href="mailto:hermenaultpatrice@gmail.com">Patrice Hermenault</a></p>

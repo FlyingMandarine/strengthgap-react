@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Title from '../Title'
 import TopPanel from '../presentational/TopPanel'
+import musclesWorked from '../musclesWorked'
+import miteux from '../musclesWorked'
+import { allMuscles } from '../musclesWorked'
 
 const MobileHomeTop = () => {
     const [ exercise, setExercise ] = useState('Select')
@@ -29,9 +32,8 @@ const MobileHomeTop = () => {
     }, [])
 
     const addedExercisesListDivStyle = {
-        backgroundColor: 'red',
         maxHeight: 100,
-        overflowY: 'scroll'
+        overflowY: 'auto'
     }
 
     const ulStyle = {
@@ -74,6 +76,28 @@ const MobileHomeTop = () => {
         )
     }
 
+    const updateMuscleMap = (event) => {
+        console.log(allMuscles)
+        allMuscles.forEach(muscle => {
+            console.log(muscle)
+            document.getElementById(muscle).style.fill = 'black'
+        })
+        musclesWorked[event.target.value].forEach(muscle => {
+            document.getElementById(muscle).style.fill = 'red'
+        })
+        // if (event.target.value === 'Ab Wheel Rollout') {
+        //     document.querySelector('#Abdominals').style.fill = 'red'
+        // } else {
+        //     document.querySelector('#Abdominals').style.fill = 'black'
+        // }
+    }
+
+    const selectExercise = (event) => {
+        setExercise(event.target.value)
+
+        updateMuscleMap(event)
+    }
+
     return (
             <TopPanel>
                 <Title />
@@ -89,7 +113,7 @@ const MobileHomeTop = () => {
                 </div>
                 
                 <p id="addnew-text">+ Add new</p>
-                <select name="exercise" id="workout" onChange={(event) => setExercise(event.target.value)}>
+                <select name="exercise" id="workout" onChange={(event) => selectExercise(event)}>
                     {exerciseList.map(e => <option key={e}>{e}</option>)}
                 </select>
                 {exercise === 'Select' ?
