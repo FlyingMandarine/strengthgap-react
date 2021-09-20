@@ -1,4 +1,5 @@
 const supertest = require('supertest')
+const mongoose = require('mongoose')
 const app = require('../app')
 const api = supertest(app)
 
@@ -8,4 +9,8 @@ describe('test test test', () => {
             .get('/api/workouts')
             .expect(200)
     })
+})
+
+afterAll(() => {
+    mongoose.connection.close()
 })
