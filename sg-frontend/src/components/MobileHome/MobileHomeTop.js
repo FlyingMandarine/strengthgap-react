@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
+
 import Title from '../Title'
 import TopPanel from '../presentational/TopPanel'
-import musclesWorked from '../musclesWorked'
-import miteux from '../musclesWorked'
-import { allMuscles } from '../musclesWorked'
+
+import { allMuscles, mostMuscles, allExercises, musclesWorked } from '../musclesWorked'
+import { customBlue, customPurple, customTurquoise } from '../colors'
 
 const MobileHomeTop = () => {
     const [ exercise, setExercise ] = useState('Select')
@@ -11,25 +12,89 @@ const MobileHomeTop = () => {
     const [ exerciseList, setExerciseList ] = useState([])
 
     useEffect(() => {
-        setExerciseList([
-            'Select',
-            'Ab Wheel Rollout',
-            'Arnold Press',
-            'Back Extension',
-            'Behind The Back Barbell Shrug',
-            'Behind The Back Cable Curl',
-            'Behind The Neck Press',
-            'Belt Squat',
-            'Bench Dips',
-            'Bench Pin Press',
-            'Bench Press',
-            'Bench Pull',
-            'Bent Arm Barbell Pullover',
-            'Bent Over Row',
-            'Bicycle Crunch',
-            'Box Squat',
-        ])
+        setExerciseList(allExercises)
     }, [])
+
+    // Effect hook to update the muscles showing up whenever
+    // a new exercise is selected
+    useEffect(() => {
+        
+        const updateMuscleMap = (exerciseSelected) => {
+            if (!exerciseSelected) {
+                return
+            }
+
+            // First, we reset to default state by filling all muscle groups black.
+            allMuscles.forEach(muscle => {
+                document.getElementById(muscle).style.fill = 'black'
+            })
+    
+            // We then go through every exercise already added to the user's history,
+            // filling each exercise's muscle groups as required.
+            addedExercisesList.forEach(ex => {
+                musclesWorked[ex].forEach(muscle => {
+                    document.getElementById(muscle).style.fill = customTurquoise
+                })
+            })
+
+            // We stop there if the user has chosen 'Select' as it is not a valid exercise.
+            if (exerciseSelected === 'Select') {
+                return
+            }
+
+            // Otherwise, we fill the selected exercise's muscle groups in blue, unless a previous exercise
+            // has already targeted those muscles, in which case we fill those purple instead).
+            musclesWorked[exerciseSelected].forEach(muscle => {
+                if (document.getElementById(muscle).style.fill === 'rgb(37, 162, 162)') {
+                    document.getElementById(muscle).style.fill = customPurple
+                }
+                else {
+                    document.getElementById(muscle).style.fill = customBlue
+                }
+            })
+        }
+
+        updateMuscleMap(exercise)
+
+    }, [exercise, addedExercisesList])
+
+    // Effect hook to calculage percentage whenever a new exercise
+    // is added or removed
+    useEffect(() => {
+        const calculatePercentage = () => {
+            let percentageCounter = 0
+            const percentageText = document.getElementById('completionPercentage')
+
+            // For each muscle group, we check if they are filled in anything other than black
+            // (i.e. if it has been targeted by any exercise in addedExercisesList).
+            // We increase the percentageCounter by 1 each time.
+            mostMuscles.forEach(function(item) {
+                if (document.getElementById(item).style.fill !== 'black') {
+                    percentageCounter++
+                }
+            })
+
+            // There are 14 muscle groups in the body, so each muscle group filled should add
+            // about 7.14% to our percentage counter. Let's round it down to 7.
+            percentageCounter = percentageCounter * 7
+
+            if (percentageCounter === 98) {
+                percentageCounter = 100;
+            }
+
+            if (percentageCounter < 33) {
+                percentageText.style.color = '#909090';
+            } else if (percentageCounter < 66) {
+                percentageText.style.color = '#4b7474';
+            } else {
+                percentageText.style.color = customTurquoise;
+            }
+
+            percentageText.textContent = percentageCounter + '%';
+        }
+        
+        calculatePercentage()
+    }, [addedExercisesList])
 
     const addedExercisesListDivStyle = {
         maxHeight: 100,
@@ -64,6 +129,7 @@ const MobileHomeTop = () => {
         setAddedExercisesList(addedExercisesList.filter(e => e !== exerciseToRemove))
         const newExerciseList = exerciseList.concat(exerciseToRemove)
         reorderAlphabetically(newExerciseList)
+        setExercise('Select')
     }
 
     const displayAddedExercisesList = () => {
@@ -76,49 +142,27 @@ const MobileHomeTop = () => {
         )
     }
 
-    const updateMuscleMap = (event) => {
-        console.log(allMuscles)
-        allMuscles.forEach(muscle => {
-            console.log(muscle)
-            document.getElementById(muscle).style.fill = 'black'
-        })
-        musclesWorked[event.target.value].forEach(muscle => {
-            document.getElementById(muscle).style.fill = 'red'
-        })
-        // if (event.target.value === 'Ab Wheel Rollout') {
-        //     document.querySelector('#Abdominals').style.fill = 'red'
-        // } else {
-        //     document.querySelector('#Abdominals').style.fill = 'black'
-        // }
-    }
-
-    const selectExercise = (event) => {
-        setExercise(event.target.value)
-
-        updateMuscleMap(event)
-    }
-
     return (
             <TopPanel>
                 <Title />
                 <p>Today's session:</p>
-                <div style={addedExercisesListDivStyle} id="history-container">
+                <div style={ addedExercisesListDivStyle }>
                     {
                         addedExercisesList.length === 0 ?
-                            <p className="history history-exercise" id="history-select-exercise">No exercise added</p>:
-                            <ul style={ulStyle}>
+                            <p>No exercise added</p>:
+                            <ul style={ ulStyle }>
                                 {displayAddedExercisesList()}
                             </ul>
                     }
                 </div>
-                
-                <p id="addnew-text">+ Add new</p>
-                <select name="exercise" id="workout" onChange={(event) => selectExercise(event)}>
-                    {exerciseList.map(e => <option key={e}>{e}</option>)}
+
+                <p>+ Add new</p>
+                <select name='exercise' onChange={ (event) => setExercise(event.target.value) }>
+                    { exerciseList.map(e => <option key={e}>{e}</option>) }
                 </select>
-                {exercise === 'Select' ?
-                    <button type="button" id="add" className="mainpage leftpanel-btn" disabled>Add exercise</button> :
-                    <button type="button" id="add" className="mainpage leftpanel-btn" onClick={addExercise}>Add exercise</button>
+                { exercise === 'Select' ?
+                    <button type='button' disabled>Add exercise</button> :
+                    <button type='button' onClick={ addExercise }>Add exercise</button>
                 }
             </TopPanel>
     )
