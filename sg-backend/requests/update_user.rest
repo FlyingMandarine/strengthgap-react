@@ -1,0 +1,7 @@
+PUT http://localhost:3001/api/users/614a180820f3a8016c3ebe54
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkZseWluZ1Rlc3QxIiwiaWQiOiI2MTQ5ZWRlZmRkZTkzMzM4NDg4MzZiYWMiLCJpYXQiOjE2MzIyNDczNzIsImV4cCI6MTYzMjI1MDk3Mn0.8Id4-ZXsDe-JjeqPRKuADUduIR_a27tGb_WTUW14bkk
+
+{
+    "username": "FlyingTest2"
+}
