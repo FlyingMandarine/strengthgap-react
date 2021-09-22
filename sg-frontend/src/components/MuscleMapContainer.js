@@ -1,7 +1,6 @@
 import React from 'react'
-import TopPanel from './presentational/TopPanel'
 import { MuscleMapBack, MuscleMapFront } from './MuscleMap'
-import Title from './Title'
+import Title from './presentational/Title'
 
 const MuscleMapContainer = () => {
     const muscleMapStyle = {
@@ -9,7 +8,7 @@ const MuscleMapContainer = () => {
     }
 
     return (
-        <TopPanel>
+        <>
             <Title />
             <div style={muscleMapStyle}>
                 <MuscleMapFront mapPosition={'-top-left'}
@@ -45,7 +44,7 @@ const MuscleMapContainer = () => {
                     muscleWidth={52} muscleHeight={102}
                 />
             </div>
-        </TopPanel>
+        </>
     )
 }
 

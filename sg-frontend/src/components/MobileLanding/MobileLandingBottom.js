@@ -1,7 +1,8 @@
 import React from 'react'
-import BottomPanel from './presentational/BottomPanel'
+import BottomPanel from '../presentational/BottomPanel'
 
-const IntroText = (props) => {
+const MobileLandingBottom = (props) => {
+
     const h2Style = {
         fontSize: 24,
         marginTop: 55
@@ -64,4 +65,4 @@ const IntroText = (props) => {
     )
 }
 
-export default IntroText
+export default MobileLandingBottom

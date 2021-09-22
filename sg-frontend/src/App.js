@@ -1,10 +1,13 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { useSelector, useDispatch } from 'react-redux'
-import MobileLanding1 from './components/MobileLanding1'
-import MobileHome from './components/MobileHome/MobileHome'
 
+import { useSelector, useDispatch } from 'react-redux'
 import { changeCurrentPage } from './reducers/pageReducer'
+
+import MobileLanding1 from './components/MobileLanding/MobileLanding1'
+import MobileHome from './components/MobileHome/MobileHome'
+import Login from './components/Login/Login'
+
 
 const App = () => {
     const dispatch = useDispatch()
@@ -20,16 +23,18 @@ const App = () => {
 
     if (currentPage === 'MobileLanding1') {
         return (
-            <div>
+            <>
                 {isMobile && <MobileLanding1 changePage={changePage}/>}
                 {isDesktop && <p>DESKTOP VERSION NEEDED</p>}
-            </div>
+            </>
         )
     } else if (currentPage === 'MobileHome') {
         return (
-            <div>
-                <MobileHome />
-            </div>
+            <MobileHome />
+        )
+    } else if (currentPage === 'Login') {
+        return (
+            <Login />
         )
     }
 }

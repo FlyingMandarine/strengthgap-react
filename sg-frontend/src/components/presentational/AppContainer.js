@@ -1,8 +1,7 @@
 import React from 'react'
-import MuscleMapContainer from './MuscleMapContainer'
-import IntroText from './IntroText'
 
-const MobileLanding1 = ({ changePage }) => {
+const AppContainer = (props) => {
+
     const divStyle = {
         backgroundColor: 'white',
         fontSize: 24,
@@ -22,10 +21,9 @@ const MobileLanding1 = ({ changePage }) => {
 
     return (
         <div style={divStyle}>
-            <MuscleMapContainer />
-            <IntroText changePage={changePage} />
+            { props.children }
         </div>
     )
 }
 
-export default MobileLanding1
+export default AppContainer

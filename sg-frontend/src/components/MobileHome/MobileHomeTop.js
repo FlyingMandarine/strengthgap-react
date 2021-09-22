@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import Title from '../Title'
+import Title from '../presentational/Title'
 import TopPanel from '../presentational/TopPanel'
 
-import { allMuscles, mostMuscles, allExercises, musclesWorked } from '../musclesWorked'
-import { customBlue, customPurple, customTurquoise } from '../colors'
+import { allMuscles, mostMuscles, allExercises, musclesWorked } from '../utils/musclesWorked'
+import { customBlue, customPurple, customTurquoise } from '../utils/colors'
 
 const MobileHomeTop = () => {
     const [ exercise, setExercise ] = useState('Select')

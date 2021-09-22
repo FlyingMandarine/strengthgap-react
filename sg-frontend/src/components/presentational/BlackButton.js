@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BlackButton = ({ text }) => {
+const BlackButton = ({ text, loginPage }) => {
 
     const blackButtonStyle = {
         color: 'white',
@@ -29,7 +29,15 @@ const BlackButton = ({ text }) => {
     }
 
     return (
-        <button id='blackButton' style={ blackButtonStyle } onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>{text}</button>
+        <button
+            id='blackButton'
+            style={ blackButtonStyle }
+            onMouseEnter={ handleMouseEnter }
+            onMouseLeave={ handleMouseLeave }
+            onClick={ loginPage }
+        >
+            {text}
+        </button>
     )
 }
 
