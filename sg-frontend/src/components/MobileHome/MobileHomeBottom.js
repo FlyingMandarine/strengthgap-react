@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../reducers/pageReducer'
 
 import BottomPanel from '../presentational/BottomPanel'
@@ -11,6 +11,7 @@ import { MuscleMapFront, MuscleMapBack } from '../MuscleMap'
 
 const MobileHomeBottom = () => {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const percentageParaStyle = {
         fontSize: 16
@@ -33,10 +34,6 @@ const MobileHomeBottom = () => {
         color: 'white'
     }
 
-    const loginPage = () => {
-        dispatch(changeCurrentPage('Login'))
-    }
-
     return (
         <BottomPanel>
             <div>
@@ -49,7 +46,16 @@ const MobileHomeBottom = () => {
                 />
             </div>
             <div>
-                <span style={ buttonSpanStyle }><BlackButton text='Log in' loginPage={ loginPage } /> or <WhiteButton text='Sign up' /></span>
+                { user === null
+                    ?
+                    <span style={ buttonSpanStyle }>
+                        <BlackButton text='Log in' changePage={ () => dispatch(changeCurrentPage('Login')) } /> 
+                        or
+                        <WhiteButton text='Sign up' changePage={ () => dispatch(changeCurrentPage('Sign up')) } />
+                    </span>
+                    :
+                    <BlackButton text='Save session' />
+                }
             </div>
             <div>
                 <p style={footerLinkStyle} id="footer-link">A Tool by <a style={footerAStyle} href="mailto:hermenaultpatrice@gmail.com">Patrice Hermenault</a></p>

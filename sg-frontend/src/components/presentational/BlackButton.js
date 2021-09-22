@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BlackButton = ({ text, loginPage }) => {
+const BlackButton = ({ text, changePage }) => {
 
     const blackButtonStyle = {
         color: 'white',
@@ -34,7 +34,7 @@ const BlackButton = ({ text, loginPage }) => {
             style={ blackButtonStyle }
             onMouseEnter={ handleMouseEnter }
             onMouseLeave={ handleMouseLeave }
-            onClick={ loginPage }
+            onClick={ changePage }
         >
             {text}
         </button>

@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { changeCurrentPage } from './reducers/pageReducer'
+import { changeUser } from './reducers/userReducer'
 
 import MobileLanding1 from './components/MobileLanding/MobileLanding1'
 import MobileHome from './components/MobileHome/MobileHome'
@@ -16,6 +17,14 @@ const App = () => {
     const isDesktop = useMediaQuery({ query: '(min-width: 1225px)' })
 
     const currentPage = useSelector(state => state.page)
+    const user = useSelector(state => state.user)
+
+    // If the user is logged in and the app is restarted, we check if there is
+    // a user stored in localStorage; if so, we store the username in the store.
+    if (user === null && window.localStorage.getItem('loggedSGUser')) {
+        const storageInfo = JSON.parse(window.localStorage.getItem('loggedSGUser'))
+        dispatch(changeUser(storageInfo.username))
+    }
 
     const changePage = () => (
         dispatch(changeCurrentPage('MobileHome'))
@@ -24,6 +33,11 @@ const App = () => {
     if (currentPage === 'MobileLanding1') {
         return (
             <>
+                {
+                    user === null ?
+                        'user is null':
+                        'user is not null'
+                }
                 {isMobile && <MobileLanding1 changePage={changePage}/>}
                 {isDesktop && <p>DESKTOP VERSION NEEDED</p>}
             </>
