@@ -25,19 +25,6 @@ const MobileLandingBottom = (props) => {
         border: 'solid 1px black',
     }
 
-    const footerLinkStyle = {
-        position: 'fixed',
-        bottom: '-5%',
-        left: '28%',
-
-        fontSize: 13,
-        color: 'white',
-    }
-
-    const footerAStyle = {
-        color: 'white'
-    }
-
     const handleMouseEnter = () => {
         if (document.querySelector('#getStartedButton')) {
             document.querySelector('#getStartedButton').style.backgroundColor = '#25A2A2'
@@ -60,7 +47,6 @@ const MobileLandingBottom = (props) => {
                 Not doing so - for instance, including chest exercises but no back exercises - can lead to muscle imbalances that can be detrimental to your health in the long term.
                 </p>
                 <button style={ getStartedButtonStyle } id='getStartedButton' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave } onClick={ props.changePage }>Get started</button>
-                <p style={ footerLinkStyle }>A Tool by <a style={ footerAStyle } href="mailto:hermenaultpatrice@gmail.com">Patrice Hermenault</a></p>
         </BottomPanel>
     )
 }

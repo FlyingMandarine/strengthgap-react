@@ -1,8 +1,10 @@
 import React from 'react'
 
-import AppContainer from '../presentational/AppContainer'
 import MobileLandingBottom from './MobileLandingBottom'
 import MobileLandingTop from './MobileLandingTop'
+
+import AppContainer from '../presentational/AppContainer'
+import Footer from '../presentational/Footer'
 import Menu from '../Menu/Menu'
 
 const MobileLanding1 = ({ changePage }) => {
@@ -12,6 +14,7 @@ const MobileLanding1 = ({ changePage }) => {
             <Menu />
             <MobileLandingTop />
             <MobileLandingBottom changePage={changePage} />
+            <Footer />
         </AppContainer>
     )
 }

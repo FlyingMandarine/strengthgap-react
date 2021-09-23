@@ -8,6 +8,7 @@ import BlackButton from '../presentational/BlackButton'
 import WhiteButton from '../presentational/WhiteButton'
 
 import { MuscleMapFront, MuscleMapBack } from '../MuscleMap'
+import DemoInvite from '../Menu/DemoInvite'
 
 const MobileHomeBottom = () => {
     const dispatch = useDispatch()
@@ -19,19 +20,6 @@ const MobileHomeBottom = () => {
 
     const buttonSpanStyle = {
         fontSize: 14
-    }
-
-    const footerLinkStyle = {
-        position: 'fixed',
-        bottom: '-5%',
-        left: '28%',
-
-        fontSize: 13,
-        color: 'white',
-    }
-
-    const footerAStyle = {
-        color: 'white'
     }
 
     return (
@@ -52,13 +40,11 @@ const MobileHomeBottom = () => {
                         <BlackButton text='Log in' handleClick={ () => dispatch(changeCurrentPage('Login')) } /> 
                         or
                         <WhiteButton text='Sign up' handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
+                        <DemoInvite />
                     </span>
                     :
                     <BlackButton text='Save session' />
                 }
-            </div>
-            <div>
-                <p style={footerLinkStyle} id="footer-link">A Tool by <a style={footerAStyle} href="mailto:hermenaultpatrice@gmail.com">Patrice Hermenault</a></p>
             </div>
         </BottomPanel>
     )
