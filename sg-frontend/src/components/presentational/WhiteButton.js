@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WhiteButton = ({ text, changePage }) => {
+const WhiteButton = ({ text, handleClick }) => {
 
     const whiteButtonStyle = {
         color: 'black',
@@ -36,7 +36,7 @@ const WhiteButton = ({ text, changePage }) => {
             style={ whiteButtonStyle }
             onMouseEnter={ handleMouseEnter }
             onMouseLeave={ handleMouseLeave }
-            onClick={ changePage }    
+            onClick={ handleClick }    
         >
             {text}
         </button>

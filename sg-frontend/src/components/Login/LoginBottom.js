@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { changeCurrentPage } from '../../reducers/pageReducer'
 
 import BottomPanel from '../presentational/BottomPanel'
+import BlackButton from '../presentational/BlackButton'
+import WhiteButton from '../presentational/WhiteButton'
 
 import { changeUser } from '../../reducers/userReducer'
 import loginService from '../../services/login'
@@ -12,22 +14,18 @@ const LoginBottom = () => {
 
     const submitLogin = async (event) => {
         event.preventDefault()
-        console.log('Attempting to log in...')
 
         try {
-            const user = await loginService.login({
+            const userToLogIn = await loginService.login({
                 username: event.target.username.value,
                 password: event.target.password.value,
             })
 
             window.localStorage.setItem(
-                'loggedSGUser', JSON.stringify(user)
+                'loggedSGUser', JSON.stringify(userToLogIn)
             )
 
             dispatch(changeUser(event.target.username.value))
-
-            console.log('User logged in successfully')
-
             dispatch(changeCurrentPage('MobileHome'))
 
         } catch (exception) {
@@ -35,20 +33,22 @@ const LoginBottom = () => {
         }
     }
 
+    const redirectToSignUp = (event) => {
+        event.preventDefault()
+        dispatch(changeCurrentPage('SignUp'))
+    }
+
     return (
         <BottomPanel>
             <p>User Login</p>
 
             <form onSubmit={ submitLogin }>
-                <input name='username' placeholder='Username' />
-
-                <input type='password' name='password' placeholder='Password' />
-
-                <div>
-                    <button type='submit'>Log in</button> or <button>Sign up</button>
-                </div>
+                <input name='username' placeholder='Username' /><br />
+                <input type='password' name='password' placeholder='Password' /><br />
+                <BlackButton text='Log in' />
+                <WhiteButton text='Sign up' handleClick={ redirectToSignUp } />
+                {/* <button>Log in</button> or <button onClick={ redirectToSignUp }>Sign up</button> */}
             </form>
-
         </BottomPanel>
     )
 }

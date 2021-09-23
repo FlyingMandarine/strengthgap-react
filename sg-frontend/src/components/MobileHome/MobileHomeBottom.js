@@ -49,9 +49,9 @@ const MobileHomeBottom = () => {
                 { user === null
                     ?
                     <span style={ buttonSpanStyle }>
-                        <BlackButton text='Log in' changePage={ () => dispatch(changeCurrentPage('Login')) } /> 
+                        <BlackButton text='Log in' handleClick={ () => dispatch(changeCurrentPage('Login')) } /> 
                         or
-                        <WhiteButton text='Sign up' changePage={ () => dispatch(changeCurrentPage('Sign up')) } />
+                        <WhiteButton text='Sign up' handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
                     </span>
                     :
                     <BlackButton text='Save session' />

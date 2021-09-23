@@ -1,14 +1,25 @@
 import React from 'react'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { changeCurrentPage } from '../reducers/pageReducer'
+
 import { MuscleMapBack, MuscleMapFront } from './MuscleMap'
 import Title from './presentational/Title'
 
 const MuscleMapContainer = () => {
+    const dispatch = useDispatch()
+    const currentPage = useSelector(state => state.page)
+
     const muscleMapStyle = {
         //margin: '30px 0 22px'
     }
 
     return (
         <>
+            {
+                currentPage !== 'MobileLanding1' &&
+                <div onClick={ () => dispatch(changeCurrentPage('MobileHome')) }>Back</div>
+            }
             <Title />
             <div style={muscleMapStyle}>
                 <MuscleMapFront mapPosition={'-top-left'}
