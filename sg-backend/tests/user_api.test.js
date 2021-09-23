@@ -167,7 +167,6 @@ describe('User-related tests', () => {
             const loggedInUser = await User.findOne({ username: result.body.username })
 
             // Then updating the password to a new one
-
             await api
                 .put(`/api/users/${loggedInUser.id}`)
                 .set('Authorization', 'bearer ' + result.body.token)
@@ -179,7 +178,7 @@ describe('User-related tests', () => {
             await api
                 .post('/api/login')
                 .send(userWithNewPassword)
-                .expect(401)
+                .expect(200)
         })
 
         test('Changing a user\'s password doesn\'t work if the wrong user is logged in', async () => {

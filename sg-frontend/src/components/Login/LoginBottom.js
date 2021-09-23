@@ -47,7 +47,6 @@ const LoginBottom = () => {
                 <input type='password' name='password' placeholder='Password' /><br />
                 <BlackButton text='Log in' />
                 <WhiteButton text='Sign up' handleClick={ redirectToSignUp } />
-                {/* <button>Log in</button> or <button onClick={ redirectToSignUp }>Sign up</button> */}
             </form>
         </BottomPanel>
     )

@@ -53,8 +53,8 @@ const Menu = () => {
                         <>
                             <div>History</div>
                             <div onClick={ logOut }>Log out</div>
-                            <div>Change password</div>
-                            <div>Delete profile</div>
+                            <div onClick={ () => dispatch(changeCurrentPage('ChangePassword')) }>Change password</div>
+                            <div onClick={ () => dispatch(changeCurrentPage('DeleteProfile')) }>Delete profile</div>
                         </>
                 }
             </div>

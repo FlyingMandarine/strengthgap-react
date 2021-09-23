@@ -66,13 +66,17 @@ usersRouter.put('/:id', async (request, response, next) => {
 
     const body = request.body
 
+    const saltRounds = 10
+    const passwordHash = await bcrypt.hash(body.password, saltRounds)
+
     const user = {
-        username: body.username
+        username: body.username,
+        passwordHash: passwordHash,
     }
 
     User.findByIdAndUpdate(request.params.id, user, { new: true })
         .then(updatedUser => {
-            response.json(updatedUser)
+            return response.json(updatedUser)
         })
         .catch(error => next(error))
 })

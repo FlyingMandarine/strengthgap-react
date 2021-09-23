@@ -9,6 +9,8 @@ import MobileLanding1 from './components/MobileLanding/MobileLanding1'
 import MobileHome from './components/MobileHome/MobileHome'
 import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
+import PasswordChange from './components/PasswordChange/PasswordChange'
+import ProfileDelete from './components/ProfileDelete/ProfileDelete'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -47,6 +49,14 @@ const App = () => {
     } else if (currentPage === 'SignUp') {
         return (
             <SignUp />
+        )
+    } else if (currentPage === 'ChangePassword') {
+        return (
+            <PasswordChange />
+        )
+    } else if (currentPage === 'DeleteProfile') {
+        return (
+            <ProfileDelete />
         )
     }
 }

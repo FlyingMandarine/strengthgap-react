@@ -17,12 +17,12 @@ const SignUpBottom = () => {
 
         if (username.length < 4) {
             validationFailed = true
-            console.log('Your username needs to be at least 4 characters long.')
+            console.log('Your username must be at least 4 characters long.')
         }
 
         if (password.length < 8) {
             validationFailed = true
-            console.log('Your passwords needs to be at least 8 characters long.')
+            console.log('Your password must be at least 8 characters long.')
         }
 
         if (password !== confirmPassword) {
@@ -86,10 +86,9 @@ const SignUpBottom = () => {
             <form onSubmit={ submitSignUp }>
                 <input name='username' placeholder='Username' /><br />
                 <input type='password' name='password' placeholder='Password' /><br />
-                <input type='confirmPassword' name='confirmPassword' placeholder='Confirm Password' /><br />
+                <input type='password' name='confirmPassword' placeholder='Confirm Password' /><br />
                 <BlackButton text='Sign up' />
                 <WhiteButton text='Log in' handleClick={ redirectToLogin } />
-                {/* <button>Sign up</button> or <button onClick={redirectToLogin }>Log in</button> */}
             </form>
         </BottomPanel>
     )
