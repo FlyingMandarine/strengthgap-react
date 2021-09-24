@@ -27,7 +27,7 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
         const percentage = document.getElementById('completionPercentage').textContent
 
         const sessionToSave = {
-            user: user,
+            username: user,
             exercises: session,
             percent: percentage
         }

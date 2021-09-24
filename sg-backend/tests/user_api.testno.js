@@ -118,7 +118,7 @@ describe('User-related tests', () => {
             expect(userIds).not.toContain(userToDelete.id)
         })
 
-        test('Deleting someone else\'s profile fails', async () => {
+        test('Deleting someone else\'s profile fails with 401', async () => {
             const usersAtStart = await helper.usersInDb()
             const userToDelete = usersAtStart[1]
 

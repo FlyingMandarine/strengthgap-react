@@ -1,3 +1,4 @@
+const Session = require('../models/session')
 const User = require('../models/user')
 
 const initialUsers = [
@@ -15,12 +16,78 @@ const initialUsers = [
     },
 ]
 
+const initialSessions = [
+    {
+        username: 'FlyingTest1',
+        exercises: [
+            'Ab Wheel Rollout',
+            'Behind The Back Cable Curl',
+            'Bent Arm Barbell Pullover'
+        ],
+        percent: '21%'
+    },
+    {
+        username: 'FlyingTest1',
+        exercises: [],
+        percent: '0%'
+    },
+    {
+        username: 'FlyingTest1',
+        exercises: [
+            'Ab Wheel Rollout',
+            'Cable Pull Through',
+            'Clean and Jerk',
+            'Behind The Back Cable Curl',
+            'Box Squat',
+            'Bench Pin Press',
+            'Bent Over Row',
+            'Bench Dips'
+        ],
+        percent: '84%'
+    },
+    {
+        username: 'FlyingTest2',
+        exercises: [
+            'Ab Wheel Rollout',
+            'Cable Pull Through',
+            'Clean and Jerk',
+            'Behind The Back Cable Curl',
+            'Box Squat',
+            'Bench Pin Press',
+            'Bent Over Row',
+            'Bench Dips'
+        ],
+        percent: '84%'
+    },
+    {
+        username: 'FlyingTest3',
+        exercises: [
+            'Ab Wheel Rollout',
+            'Cable Pull Through',
+            'Clean and Jerk',
+            'Behind The Back Cable Curl',
+            'Box Squat',
+            'Bench Pin Press',
+            'Bent Over Row',
+            'Bench Dips'
+        ],
+        percent: '84%'
+    }
+]
+
 const usersInDb = async () => {
     const users = await User.find({})
     return users.map(u => u.toJSON())
 }
 
+const sessionsInDb = async () => {
+    const sessions = await Session.find({})
+    return sessions.map(s => s.toJSON())
+}
+
 module.exports = {
     initialUsers,
-    usersInDb
+    initialSessions,
+    usersInDb,
+    sessionsInDb,
 }

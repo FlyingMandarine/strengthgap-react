@@ -5,8 +5,8 @@ const app = express()
 const cors = require('cors')
 
 const loginRouter = require('./controllers/login')
+const sessionsRouter = require('./controllers/sessions')
 const usersRouter = require('./controllers/users')
-const workoutsRouter = require('./controllers/workouts')
 
 const middleware = require('./utils/middleware')
 const mongoose = require('mongoose')
@@ -27,7 +27,7 @@ app.use(express.json())
 
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
-app.use('/api/workouts', workoutsRouter)
+app.use('/api/sessions', sessionsRouter)
 
 if (process.env.NODE_ENV === 'test') {
     const testingRouter = require('./controllers/testing')
