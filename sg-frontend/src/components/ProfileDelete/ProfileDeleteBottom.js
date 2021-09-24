@@ -73,7 +73,7 @@ const ProfileDeleteBottom = () => {
     }
 
     return (
-        <BottomPanel>
+        <BottomPanel bgColor={ 'white' }>
             <p>Are you sure you want to delete your profile?</p>
 
             <form onSubmit={ deleteProfile }>

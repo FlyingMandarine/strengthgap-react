@@ -60,7 +60,7 @@ const PasswordChangeBottom = () => {
     }
 
     return (
-        <BottomPanel>
+        <BottomPanel bgColor={ 'white' }>
             <p>Change password</p>
 
             <form onSubmit={ changePassword }>

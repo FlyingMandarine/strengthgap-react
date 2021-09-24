@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../reducers/pageReducer'
 import { logOutUser } from '../../reducers/userReducer'
 
+import { customTurquoise } from '../utils/colors'
+
 const Menu = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user)
@@ -21,6 +23,10 @@ const Menu = () => {
     const buttonStyle = {
         position: 'absolute',
         right: 0,
+    }
+
+    const demoInviteDivStyle = {
+        backgroundColor: customTurquoise
     }
 
     const toggleMenu = () => {
@@ -47,11 +53,12 @@ const Menu = () => {
                         ?
                         <>
                             <div onClick={ () => dispatch(changeCurrentPage('Login')) }>Log in</div>
-                            <div onClick={ () => dispatch(changeCurrentPage('SignUp')) }>Sign up</div>    
+                            <div onClick={ () => dispatch(changeCurrentPage('SignUp')) }>Sign up</div>   
+                            <div style={ demoInviteDivStyle }>Employer? Try this demo account.</div> 
                         </>
                         :
                         <>
-                            <div>History</div>
+                            <div onClick={ () => dispatch(changeCurrentPage('History')) }>History</div>
                             <div onClick={ logOut }>Log out</div>
                             <div onClick={ () => dispatch(changeCurrentPage('ChangePassword')) }>Change password</div>
                             <div onClick={ () => dispatch(changeCurrentPage('DeleteProfile')) }>Delete profile</div>

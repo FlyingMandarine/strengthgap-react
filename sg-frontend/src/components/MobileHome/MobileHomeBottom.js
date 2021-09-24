@@ -10,9 +10,10 @@ import WhiteButton from '../presentational/WhiteButton'
 import { MuscleMapFront, MuscleMapBack } from '../MuscleMap'
 import DemoInvite from '../Menu/DemoInvite'
 
-const MobileHomeBottom = () => {
+const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user)
+    const session = useSelector(state => state.session)
 
     const percentageParaStyle = {
         fontSize: 16
@@ -22,8 +23,20 @@ const MobileHomeBottom = () => {
         fontSize: 14
     }
 
+    const saveSession = () => {
+        const percentage = document.getElementById('completionPercentage').textContent
+
+        const sessionToSave = {
+            user: user,
+            exercises: session,
+            percent: percentage
+        }
+
+        console.log('sessionToSave is', sessionToSave)
+    }
+
     return (
-        <BottomPanel>
+        <BottomPanel bgColor={ '#f4f4f4' }>
             <div>
                 <p style={ percentageParaStyle }>Muscles targeted: <span id="completionPercentage">0%</span></p>
                 <MuscleMapFront
@@ -40,10 +53,12 @@ const MobileHomeBottom = () => {
                         <BlackButton text='Log in' handleClick={ () => dispatch(changeCurrentPage('Login')) } /> 
                         or
                         <WhiteButton text='Sign up' handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
-                        <DemoInvite />
+                        {
+                            demoInviteActive === true && <DemoInvite deactivateDemo={ deactivateDemo } />
+                        }
                     </span>
                     :
-                    <BlackButton text='Save session' />
+                    <BlackButton text='Save session' handleClick={ saveSession } />
                 }
             </div>
         </BottomPanel>

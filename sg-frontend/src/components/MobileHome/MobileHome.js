@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import AppContainer from '../presentational/AppContainer'
 import Footer from '../presentational/Footer'
@@ -9,11 +9,23 @@ import MobileHomeTop from './MobileHomeTop'
 
 const MobileHome = () => {
 
+    const [ demoInviteActive, setDemoInviteActive ] = useState(false)
+
+    const activateDemo = () => {
+        if (demoInviteActive === false) {
+            setDemoInviteActive(true)
+        }
+    }
+
+    const deactivateDemo = () => {
+        setDemoInviteActive(null)
+    }
+
     return (
         <AppContainer>
             <Menu />
-            <MobileHomeTop />
-            <MobileHomeBottom />
+            <MobileHomeTop activateDemo={activateDemo} />
+            <MobileHomeBottom demoInviteActive={ demoInviteActive } deactivateDemo={ deactivateDemo } />
             <Footer />
         </AppContainer>
     )

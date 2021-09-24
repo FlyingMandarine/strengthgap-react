@@ -16,6 +16,8 @@ const pageReducer = (state = 'MobileLanding1', action) => {
             return 'ChangePassword'
         case 'DeleteProfile':
             return 'DeleteProfile'
+        case 'History':
+            return 'History'
         default:
             return state
     }

@@ -5,7 +5,7 @@ import MuscleMapContainer from '../MuscleMapContainer'
 
 const PasswordChangeTop = () => {
     return (
-        <TopPanel>
+        <TopPanel bgColor={ '#f4f4f4' }>
             <MuscleMapContainer />
         </TopPanel>
     )

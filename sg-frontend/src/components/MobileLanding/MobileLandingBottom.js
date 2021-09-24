@@ -40,7 +40,7 @@ const MobileLandingBottom = (props) => {
     }
 
     return (
-        <BottomPanel>
+        <BottomPanel bgColor={ 'white' }>
                 <h2 style={ h2Style }>A Tool to Check<br></br>for Muscle Imbalance</h2>
                 <p style={ descriptionStyle }>
                 A common struggle for people who have just started working out is to ensure that the program they follow will target all muscle groups.<br></br><br></br>

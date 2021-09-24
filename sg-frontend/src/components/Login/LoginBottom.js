@@ -39,7 +39,7 @@ const LoginBottom = () => {
     }
 
     return (
-        <BottomPanel>
+        <BottomPanel bgColor={ 'white' }>
             <p>User Login</p>
 
             <form onSubmit={ submitLogin }>

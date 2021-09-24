@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { updateSession } from '../../reducers/sessionReducer'
+
 import Title from '../presentational/Title'
 import TopPanel from '../presentational/TopPanel'
 
 import { allMuscles, mostMuscles, allExercises, musclesWorked } from '../utils/musclesWorked'
 import { customBlue, customPurple, customTurquoise } from '../utils/colors'
 
-const MobileHomeTop = () => {
+const MobileHomeTop = ({ activateDemo }) => {
+    const dispatch = useDispatch()
+    const session = useSelector(state => state.session)
+
     const [ exercise, setExercise ] = useState('Select')
-    const [ addedExercisesList, setAddedExercisesList ] = useState([])
     const [ exerciseList, setExerciseList ] = useState([])
 
     useEffect(() => {
@@ -31,7 +36,7 @@ const MobileHomeTop = () => {
     
             // We then go through every exercise already added to the user's history,
             // filling each exercise's muscle groups as required.
-            addedExercisesList.forEach(ex => {
+            session.forEach(ex => {
                 musclesWorked[ex].forEach(muscle => {
                     document.getElementById(muscle).style.fill = customTurquoise
                 })
@@ -56,7 +61,7 @@ const MobileHomeTop = () => {
 
         updateMuscleMap(exercise)
 
-    }, [exercise, addedExercisesList])
+    }, [ exercise, session ])
 
     // Effect hook to calculage percentage whenever a new exercise
     // is added or removed
@@ -66,7 +71,7 @@ const MobileHomeTop = () => {
             const percentageText = document.getElementById('completionPercentage')
 
             // For each muscle group, we check if they are filled in anything other than black
-            // (i.e. if it has been targeted by any exercise in addedExercisesList).
+            // (i.e. if it has been targeted by any exercise in 'session').
             // We increase the percentageCounter by 1 each time.
             mostMuscles.forEach(function(item) {
                 if (document.getElementById(item).style.fill !== 'black') {
@@ -94,7 +99,7 @@ const MobileHomeTop = () => {
         }
         
         calculatePercentage()
-    }, [addedExercisesList])
+    }, [ session ])
 
     const addedExercisesListDivStyle = {
         maxHeight: 100,
@@ -119,14 +124,15 @@ const MobileHomeTop = () => {
     }
 
     const addExercise = () => {
-        const newAddedExercisesList = addedExercisesList.concat(exercise)
-        setAddedExercisesList(newAddedExercisesList)
+        activateDemo()
+        const updatedSession = session.concat(exercise)
+        dispatch(updateSession(updatedSession))
         setExerciseList(exerciseList.filter(e => e !== exercise))
         setExercise('Select')
     }
 
     const removeExercise = (exerciseToRemove) => {
-        setAddedExercisesList(addedExercisesList.filter(e => e !== exerciseToRemove))
+        dispatch(updateSession(session.filter(e => e !== exerciseToRemove)))
         const newExerciseList = exerciseList.concat(exerciseToRemove)
         reorderAlphabetically(newExerciseList)
         setExercise('Select')
@@ -134,7 +140,7 @@ const MobileHomeTop = () => {
 
     const displayAddedExercisesList = () => {
         return (
-            addedExercisesList.map(e =>
+            session.map(e =>
                 <li key={e}>
                     {e}<button onClick={() => removeExercise(e)}>Remove</button>
                 </li>
@@ -143,15 +149,15 @@ const MobileHomeTop = () => {
     }
 
     return (
-            <TopPanel>
+            <TopPanel bgColor={ 'white' }>
                 <Title />
                 <p>Today's session:</p>
                 <div style={ addedExercisesListDivStyle }>
                     {
-                        addedExercisesList.length === 0 ?
+                        session.length === 0 ?
                             <p>No exercise added</p>:
                             <ul style={ ulStyle }>
-                                {displayAddedExercisesList()}
+                                { displayAddedExercisesList() }
                             </ul>
                     }
                 </div>

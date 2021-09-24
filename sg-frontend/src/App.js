@@ -11,6 +11,7 @@ import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
 import PasswordChange from './components/PasswordChange/PasswordChange'
 import ProfileDelete from './components/ProfileDelete/ProfileDelete'
+import History from './components/History/History'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -57,6 +58,10 @@ const App = () => {
     } else if (currentPage === 'DeleteProfile') {
         return (
             <ProfileDelete />
+        )
+    } else if (currentPage === 'History') {
+        return (
+            <History />
         )
     }
 }

@@ -5,7 +5,7 @@ import TopPanel from '../presentational/TopPanel'
 
 const MobileLandingTop = () => {
     return (
-        <TopPanel>
+        <TopPanel bgColor={ '#f4f4f4' }>
             <MuscleMapContainer />
         </TopPanel>
     )

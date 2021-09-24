@@ -80,7 +80,7 @@ const SignUpBottom = () => {
     }
 
     return (
-        <BottomPanel>
+        <BottomPanel bgColor={ 'white' }>
             <p>Sign up</p>
 
             <form onSubmit={ submitSignUp }>
