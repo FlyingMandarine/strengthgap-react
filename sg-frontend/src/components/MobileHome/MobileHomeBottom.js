@@ -3,6 +3,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../reducers/pageReducer'
 
+import sessionService from '../../services/sessions'
+
 import BottomPanel from '../presentational/BottomPanel'
 import BlackButton from '../presentational/BlackButton'
 import WhiteButton from '../presentational/WhiteButton'
@@ -23,7 +25,7 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
         fontSize: 14
     }
 
-    const saveSession = () => {
+    const saveSession = async () => {
         const percentage = document.getElementById('completionPercentage').textContent
 
         const sessionToSave = {
@@ -32,7 +34,11 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
             percent: percentage
         }
 
-        console.log('sessionToSave is', sessionToSave)
+        await sessionService.recordSession(sessionToSave)
+
+        console.log('Session saved successfully.')
+
+        dispatch(changeCurrentPage('History'))
     }
 
     return (

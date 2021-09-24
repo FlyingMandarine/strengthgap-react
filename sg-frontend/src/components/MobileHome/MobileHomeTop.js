@@ -164,7 +164,7 @@ const MobileHomeTop = ({ activateDemo }) => {
 
                 <p>+ Add new</p>
                 <select name='exercise' onChange={ (event) => setExercise(event.target.value) }>
-                    { exerciseList.map(e => <option key={e}>{e}</option>) }
+                    { exerciseList.map(e => <option key={ e }>{ e }</option>) }
                 </select>
                 { exercise === 'Select' ?
                     <button type='button' disabled>Add exercise</button> :
