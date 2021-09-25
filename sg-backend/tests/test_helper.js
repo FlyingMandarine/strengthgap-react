@@ -24,12 +24,14 @@ const initialSessions = [
             'Behind The Back Cable Curl',
             'Bent Arm Barbell Pullover'
         ],
-        percent: '21%'
+        percent: '21%',
+        date: Date.toLocaleString()
     },
     {
         username: 'FlyingTest1',
         exercises: [],
-        percent: '0%'
+        percent: '0%',
+        miteux: 'papa',
     },
     {
         username: 'FlyingTest1',
@@ -43,7 +45,8 @@ const initialSessions = [
             'Bent Over Row',
             'Bench Dips'
         ],
-        percent: '84%'
+        percent: '84%',
+        miteux: 'papa',
     },
     {
         username: 'FlyingTest2',
@@ -57,7 +60,8 @@ const initialSessions = [
             'Bent Over Row',
             'Bench Dips'
         ],
-        percent: '84%'
+        percent: '84%',
+        miteux: 'papa',
     },
     {
         username: 'FlyingTest3',
@@ -71,7 +75,8 @@ const initialSessions = [
             'Bent Over Row',
             'Bench Dips'
         ],
-        percent: '84%'
+        percent: '84%',
+        miteux: 'papa',
     }
 ]
 

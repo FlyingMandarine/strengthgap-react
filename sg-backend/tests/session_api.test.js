@@ -10,6 +10,8 @@ const User = require('../models/user')
 
 describe('Workout history-related tests', () => {
     beforeEach(async () => {
+        console.log(Date.now())
+
         await User.deleteMany({})
 
         const passwordHash = await bcrypt.hash('secretpassword', 10)
@@ -67,7 +69,7 @@ describe('Workout history-related tests', () => {
                     'Bent Over Row',
                     'Bench Dips'
                 ],
-                percent: '70%'
+                percent: '70%',
             }
 
             await api

@@ -61,7 +61,7 @@ usersRouter.put('/:id', async (request, response, next) => {
     const currentUser = await User.findById(decodedToken.id)
 
     if (request.params.id !== currentUser.id) {
-        response.status(401).json({ error: 'incorrect token used' })
+        return response.status(401).json({ error: 'incorrect token used' })
     }
 
     const body = request.body
@@ -74,11 +74,12 @@ usersRouter.put('/:id', async (request, response, next) => {
         passwordHash: passwordHash,
     }
 
-    User.findByIdAndUpdate(request.params.id, user, { new: true })
-        .then(updatedUser => {
-            return response.json(updatedUser)
-        })
-        .catch(error => next(error))
+    try {
+        const updatedUser = await User.findByIdAndUpdate(request.params.id, user, { new: true })
+        return response.json(updatedUser)
+    } catch (error) {
+        next(error)
+    }
 })
 
 module.exports = usersRouter

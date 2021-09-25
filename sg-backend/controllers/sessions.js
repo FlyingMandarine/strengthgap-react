@@ -17,6 +17,7 @@ sessionsRouter.post('/', async (request, response) => {
         username: body.username,
         exercises: body.exercises,
         percent: body.percent,
+        date: String
     })
 
     const savedSession = await session.save()
@@ -44,11 +45,9 @@ sessionsRouter.delete('/:id', async (request, response) => {
     const session = await Session.findById(request.params.id)
 
     if (user.username === session.username) {
-        console.log('Authorized!')
         await Session.findByIdAndRemove(request.params.id)
         response.status(204).end()
     } else {
-        console.log('Unauthorized!')
         response.status(401).end()
     }
 })

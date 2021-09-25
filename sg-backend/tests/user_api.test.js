@@ -202,7 +202,6 @@ describe('User-related tests', () => {
             const user2 = await User.findOne({ username: 'FlyingTest2' })
 
             // Then updating the password to a new one
-
             await api
                 .put(`/api/users/${user2.id}`)
                 .set('Authorization', 'bearer ' + result.body.token)
