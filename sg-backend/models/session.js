@@ -7,8 +7,7 @@ const sessionSchema = new mongoose.Schema({
     },
     exercises: Array,
     percent: String,
-    date: Date,
-    miteux: String,
+    date: Date
 })
 
 sessionSchema.set('toJSON', {

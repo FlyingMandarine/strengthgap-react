@@ -25,13 +25,13 @@ const initialSessions = [
             'Bent Arm Barbell Pullover'
         ],
         percent: '21%',
-        date: Date.toLocaleString()
+        date: Date.now()
     },
     {
         username: 'FlyingTest1',
         exercises: [],
         percent: '0%',
-        miteux: 'papa',
+        date: Date.now()
     },
     {
         username: 'FlyingTest1',
@@ -46,7 +46,7 @@ const initialSessions = [
             'Bench Dips'
         ],
         percent: '84%',
-        miteux: 'papa',
+        date: Date.now()
     },
     {
         username: 'FlyingTest2',
@@ -61,7 +61,7 @@ const initialSessions = [
             'Bench Dips'
         ],
         percent: '84%',
-        miteux: 'papa',
+        date: Date.now()
     },
     {
         username: 'FlyingTest3',
@@ -76,7 +76,7 @@ const initialSessions = [
             'Bench Dips'
         ],
         percent: '84%',
-        miteux: 'papa',
+        date: Date.now()
     }
 ]
 

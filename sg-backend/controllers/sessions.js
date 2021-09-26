@@ -17,7 +17,7 @@ sessionsRouter.post('/', async (request, response) => {
         username: body.username,
         exercises: body.exercises,
         percent: body.percent,
-        date: String
+        date: Date.now()
     })
 
     const savedSession = await session.save()

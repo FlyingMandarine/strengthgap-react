@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { updateSession } from '../../reducers/sessionReducer'
+import { updateSession, emptySession } from '../../reducers/sessionReducer'
 
 import Title from '../presentational/Title'
 import TopPanel from '../presentational/TopPanel'
@@ -16,12 +16,18 @@ const MobileHomeTop = ({ activateDemo }) => {
     const [ exercise, setExercise ] = useState('Select')
     const [ exerciseList, setExerciseList ] = useState([])
 
+    // Empty the session on component unmount.
+    useEffect(() => {
+        return () => {
+            dispatch(emptySession())
+        }
+    }, [ dispatch ])
+
     useEffect(() => {
         setExerciseList(allExercises)
     }, [])
 
-    // Effect hook to update the muscles showing up whenever
-    // a new exercise is selected
+    // Update the muscles showing up whenever a new exercise is selected
     useEffect(() => {
         
         const updateMuscleMap = (exerciseSelected) => {
@@ -63,8 +69,7 @@ const MobileHomeTop = ({ activateDemo }) => {
 
     }, [ exercise, session ])
 
-    // Effect hook to calculage percentage whenever a new exercise
-    // is added or removed
+    // Calculage percentage whenever a new exercise is added or removed
     useEffect(() => {
         const calculatePercentage = () => {
             let percentageCounter = 0

@@ -10,9 +10,8 @@ const User = require('../models/user')
 
 describe('Workout history-related tests', () => {
     beforeEach(async () => {
-        console.log(Date.now())
-
         await User.deleteMany({})
+        await Session.deleteMany({})
 
         const passwordHash = await bcrypt.hash('secretpassword', 10)
 
@@ -23,8 +22,6 @@ describe('Workout history-related tests', () => {
         await user1.save()
         await user2.save()
         await user3.save()
-
-        await Session.deleteMany({})
 
         const session1 = new Session(helper.initialSessions[0])
         const session2 = new Session(helper.initialSessions[1])
