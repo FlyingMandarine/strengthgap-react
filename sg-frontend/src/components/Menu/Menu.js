@@ -1,0 +1,77 @@
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { changeCurrentPage } from '../../reducers/pageReducer'
+import { logOutUser } from '../../reducers/userReducer'
+
+import { customTurquoise } from '../utils/colors'
+
+const Menu = () => {
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
+
+    const [ menuOpen, setMenuOpen ] = useState(false)
+
+    const menuBarsStyle = {
+        padding: '18px 15px'
+    }
+
+    const divStyle = {
+        position: 'absolute',
+        height: 595,
+        width: '100%',
+        color: 'white',
+        backgroundColor: 'black'
+    }
+
+    const buttonStyle = {
+        position: 'absolute',
+        right: 0,
+    }
+
+    const demoInviteDivStyle = {
+        backgroundColor: customTurquoise
+    }
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
+    }
+
+    const logOut = () => {
+        window.localStorage.removeItem('loggedSGUser')
+        dispatch(logOutUser())
+        setMenuOpen(false)
+    }
+
+    return (
+        <>
+        { menuOpen === false
+            ?
+            <span style={ buttonStyle } onClick={ toggleMenu }><i style={ menuBarsStyle } className="fas fa-bars"></i></span>
+            :
+            <div style={ divStyle }>
+                <span style={ buttonStyle } onClick={ toggleMenu }><i style={ menuBarsStyle } className="fas fa-times"></i></span>
+                <div onClick={ () => dispatch(changeCurrentPage('MobileHome')) }>Home</div>
+                {
+                    user === null
+                        ?
+                        <>
+                            <div onClick={ () => dispatch(changeCurrentPage('Login')) }>Log in</div>
+                            <div onClick={ () => dispatch(changeCurrentPage('SignUp')) }>Sign up</div>   
+                            <div style={ demoInviteDivStyle }>Employer? Try this demo account.</div> 
+                        </>
+                        :
+                        <>
+                            <div onClick={ () => dispatch(changeCurrentPage('History')) }>History</div>
+                            <div onClick={ logOut }>Log out</div>
+                            <div onClick={ () => dispatch(changeCurrentPage('ChangePassword')) }>Change password</div>
+                            <div onClick={ () => dispatch(changeCurrentPage('DeleteProfile')) }>Delete profile</div>
+                        </>
+                }
+            </div>
+        }
+        </>
+    )
+}
+
+export default Menu

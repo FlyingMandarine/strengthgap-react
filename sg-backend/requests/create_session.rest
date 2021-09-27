@@ -1,0 +1,12 @@
+POST http://localhost:3001/api/sessions
+Content-Type: application/json
+
+{
+    "username": "FlyingTest1",
+    "exercises": [
+        "Ab Wheel Rollout",
+        "Behind The Back Cable Curl",
+        "Bent Arm Barbell Pullover"
+    ],
+    "percent": "21%"
+}

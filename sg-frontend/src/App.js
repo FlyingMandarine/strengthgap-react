@@ -1,21 +1,67 @@
-import React, { useState } from 'react'
-import MobileLanding1 from './components/MobileLanding1'
-import MobileHome from './components/MobileHome'
+import React from 'react'
+import { useMediaQuery } from 'react-responsive'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { changeCurrentPage } from './reducers/pageReducer'
+import { changeUser } from './reducers/userReducer'
+
+import MobileLanding1 from './components/MobileLanding/MobileLanding1'
+import MobileHome from './components/MobileHome/MobileHome'
+import Login from './components/Login/Login'
+import SignUp from './components/SignUp/SignUp'
+import PasswordChange from './components/PasswordChange/PasswordChange'
+import ProfileDelete from './components/ProfileDelete/ProfileDelete'
+import History from './components/History/History'
 
 const App = () => {
-    const [ page, setPage ] = useState('MobileLanding1')
+    const dispatch = useDispatch()
+    const currentPage = useSelector(state => state.page)
+    const user = useSelector(state => state.user)
 
-    const changePage = () => {
-        setPage('MobileHome')
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    const isDesktop = useMediaQuery({ query: '(min-width: 1225px)' })
+
+    // If the user is logged in and the app is restarted, we check if there is
+    // a user stored in localStorage; if so, we store the username in the store.
+    if (user === null && window.localStorage.getItem('loggedSGUser')) {
+        const storageInfo = JSON.parse(window.localStorage.getItem('loggedSGUser'))
+        dispatch(changeUser(storageInfo.username))
     }
 
-    if (page === 'MobileLanding1') {
+    const changePage = () => (
+        dispatch(changeCurrentPage('MobileHome'))
+    )
+
+    if (currentPage === 'MobileLanding1') {
         return (
-            <MobileLanding1 onClick={changePage} />
+            <>
+                {isMobile && <MobileLanding1 changePage={changePage}/>}
+                {isDesktop && <p>DESKTOP VERSION NEEDED</p>}
+            </>
         )
-    } else if (page === 'MobileHome') {
+    } else if (currentPage === 'MobileHome') {
         return (
             <MobileHome />
+        )
+    } else if (currentPage === 'Login') {
+        return (
+            <Login />
+        )
+    } else if (currentPage === 'SignUp') {
+        return (
+            <SignUp />
+        )
+    } else if (currentPage === 'ChangePassword') {
+        return (
+            <PasswordChange />
+        )
+    } else if (currentPage === 'DeleteProfile') {
+        return (
+            <ProfileDelete />
+        )
+    } else if (currentPage === 'History') {
+        return (
+            <History />
         )
     }
 }
