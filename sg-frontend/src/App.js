@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { changeCurrentPage } from './reducers/pageReducer'
 import { changeUser } from './reducers/userReducer'
 
-import MobileLanding1 from './components/MobileLanding/MobileLanding1'
+import MobileLanding from './components/MobileLanding/MobileLanding'
 import MobileHome from './components/MobileHome/MobileHome'
 import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
@@ -32,10 +32,10 @@ const App = () => {
         dispatch(changeCurrentPage('MobileHome'))
     )
 
-    if (currentPage === 'MobileLanding1') {
+    if (currentPage === 'MobileLanding') {
         return (
             <>
-                {isMobile && <MobileLanding1 changePage={changePage}/>}
+                {isMobile && <MobileLanding changePage={changePage}/>}
                 {isDesktop && <p>DESKTOP VERSION NEEDED</p>}
             </>
         )

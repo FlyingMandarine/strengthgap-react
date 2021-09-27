@@ -11,13 +11,13 @@ const MuscleMapContainer = () => {
     const currentPage = useSelector(state => state.page)
 
     const muscleMapStyle = {
-        //margin: '30px 0 22px'
+        margin: '30px 0 22px'
     }
 
     return (
         <>
             {
-                currentPage !== 'MobileLanding1' &&
+                currentPage !== 'MobileLanding' &&
                 <div onClick={ () => dispatch(changeCurrentPage('MobileHome')) }>Back</div>
             }
             <Title />

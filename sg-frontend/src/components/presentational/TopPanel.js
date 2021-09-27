@@ -5,7 +5,8 @@ const TopPanel = (props) => {
     const topPanelStyle = {
         backgroundColor: props.bgColor,
         height: '50%',
-        borderBottom: 'solid 2px black'
+        borderBottom: 'solid 2px black',
+        borderRadius: '6px 6px 0 0'
     }
 
     return (

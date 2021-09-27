@@ -4,7 +4,6 @@ const AppContainer = (props) => {
 
     const divStyle = {
         backgroundColor: 'white',
-        fontSize: 24,
         display: 'flex',
         flexDirection: 'column',
         position: 'fixed',
