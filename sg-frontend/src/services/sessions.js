@@ -11,6 +11,16 @@ const recordSession = async (session) => {
     return response.data
 }
 
-const exports = { fetchSessions, recordSession }
+const removeSession = async (tokenString, id) => {
+    const token = `bearer ${tokenString}`
+
+    const config = {
+        headers: { Authorization: token }
+    }
+    const response = await axios.delete(`${baseUrl}/${id}`, config)
+    return response.data
+}
+
+const exports = { fetchSessions, recordSession, removeSession }
 
 export default exports

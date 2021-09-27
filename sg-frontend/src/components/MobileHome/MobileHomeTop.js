@@ -89,18 +89,18 @@ const MobileHomeTop = ({ activateDemo }) => {
             percentageCounter = percentageCounter * 7
 
             if (percentageCounter === 98) {
-                percentageCounter = 100;
+                percentageCounter = 100
             }
 
             if (percentageCounter < 33) {
-                percentageText.style.color = '#909090';
+                percentageText.style.color = '#909090'
             } else if (percentageCounter < 66) {
-                percentageText.style.color = '#4b7474';
+                percentageText.style.color = '#4b7474'
             } else {
-                percentageText.style.color = customTurquoise;
+                percentageText.style.color = customTurquoise
             }
 
-            percentageText.textContent = percentageCounter + '%';
+            percentageText.textContent = percentageCounter + '%'
         }
         
         calculatePercentage()

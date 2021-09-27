@@ -12,6 +12,10 @@ const Menu = () => {
 
     const [ menuOpen, setMenuOpen ] = useState(false)
 
+    const menuBarsStyle = {
+        padding: '18px 15px'
+    }
+
     const divStyle = {
         position: 'absolute',
         height: 595,
@@ -43,10 +47,10 @@ const Menu = () => {
         <>
         { menuOpen === false
             ?
-            <button style={ buttonStyle } onClick={ toggleMenu }>OPEN</button>
+            <span style={ buttonStyle } onClick={ toggleMenu }><i style={ menuBarsStyle } className="fas fa-bars"></i></span>
             :
             <div style={ divStyle }>
-                <button style={ buttonStyle } onClick={ toggleMenu }>CLOSE</button>
+                <span style={ buttonStyle } onClick={ toggleMenu }><i style={ menuBarsStyle } className="fas fa-times"></i></span>
                 <div onClick={ () => dispatch(changeCurrentPage('MobileHome')) }>Home</div>
                 {
                     user === null
@@ -67,7 +71,6 @@ const Menu = () => {
             </div>
         }
         </>
-        
     )
 }
 

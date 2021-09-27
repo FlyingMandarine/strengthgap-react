@@ -13,11 +13,14 @@ sessionsRouter.get('/:username', async (request, response) => {
 sessionsRouter.post('/', async (request, response) => {
     const body = request.body
 
+    const currentDate = new Date()
+    const convertedDate = currentDate.toLocaleString()
+
     const session = new Session({
         username: body.username,
         exercises: body.exercises,
         percent: body.percent,
-        date: Date.now()
+        date: convertedDate
     })
 
     const savedSession = await session.save()

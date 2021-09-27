@@ -27,16 +27,15 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
 
     const saveSession = async () => {
         const percentage = document.getElementById('completionPercentage').textContent
+        const formattedPercentage = percentage.substring(0, percentage.length - 1)
 
         const sessionToSave = {
             username: user,
             exercises: session,
-            percent: percentage
+            percent: formattedPercentage
         }
 
         await sessionService.recordSession(sessionToSave)
-
-        console.log('Session saved successfully.')
 
         dispatch(changeCurrentPage('History'))
     }

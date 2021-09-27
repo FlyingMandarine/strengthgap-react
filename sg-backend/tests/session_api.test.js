@@ -66,7 +66,7 @@ describe('Workout history-related tests', () => {
                     'Bent Over Row',
                     'Bench Dips'
                 ],
-                percent: '70%',
+                percent: 70,
             }
 
             await api

@@ -1,6 +1,9 @@
 const Session = require('../models/session')
 const User = require('../models/user')
 
+const currentDate = new Date()
+const convertedDate = currentDate.toLocaleString()
+
 const initialUsers = [
     {
         username: 'FlyingTest1',
@@ -24,14 +27,14 @@ const initialSessions = [
             'Behind The Back Cable Curl',
             'Bent Arm Barbell Pullover'
         ],
-        percent: '21%',
-        date: Date.now()
+        percent: '21',
+        date: convertedDate
     },
     {
         username: 'FlyingTest1',
         exercises: [],
-        percent: '0%',
-        date: Date.now()
+        percent: '0',
+        date: convertedDate
     },
     {
         username: 'FlyingTest1',
@@ -45,8 +48,8 @@ const initialSessions = [
             'Bent Over Row',
             'Bench Dips'
         ],
-        percent: '84%',
-        date: Date.now()
+        percent: '84',
+        date: convertedDate
     },
     {
         username: 'FlyingTest2',
@@ -60,8 +63,8 @@ const initialSessions = [
             'Bent Over Row',
             'Bench Dips'
         ],
-        percent: '84%',
-        date: Date.now()
+        percent: '84',
+        date: convertedDate
     },
     {
         username: 'FlyingTest3',
@@ -75,8 +78,8 @@ const initialSessions = [
             'Bent Over Row',
             'Bench Dips'
         ],
-        percent: '84%',
-        date: Date.now()
+        percent: '84',
+        date: convertedDate
     }
 ]
 

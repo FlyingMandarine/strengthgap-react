@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WhiteButton = ({ text, handleClick }) => {
+const WhiteButton = ({ text, handleClick, disabled }) => {
 
     const whiteButtonStyle = {
         color: 'black',
@@ -31,15 +31,27 @@ const WhiteButton = ({ text, handleClick }) => {
     }
 
     return (
-        <button
-            id='whiteButton'
-            style={ whiteButtonStyle }
-            onMouseEnter={ handleMouseEnter }
-            onMouseLeave={ handleMouseLeave }
-            onClick={ handleClick }    
-        >
-            {text}
-        </button>
+        <>
+        { disabled === true ?
+            <button
+                id='whiteButton'
+                style={ whiteButtonStyle }
+                disabled
+            >
+                { text }
+            </button>
+            :
+            <button
+                id='whiteButton'
+                style={ whiteButtonStyle }
+                onMouseEnter={ handleMouseEnter }
+                onMouseLeave={ handleMouseLeave }
+                onClick={ handleClick }
+            >
+                { text }
+            </button>
+        }
+        </>
     )
 }
 
