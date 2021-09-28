@@ -1,39 +1,32 @@
 import React from 'react'
 
-const RedButton = ({ text, handleClick }) => {
+const RedButton = ({ text, handleClick, width, height }) => {
 
     const redButtonStyle = {
         color: 'white',
-        backgroundColor: 'red',
-        width: 150,
-        height: 38,
-
-        fontSize: 21,
-
-        border: 'solid 1px black',
-        borderRadius: 4
+        backgroundColor: 'maroon',
+        width: width,
+        height: height,
+        fontSize: 18,
+        border: 'solid 1px maroon',
+        borderRadius: 4,
     }
 
-    const handleMouseEnter = () => {
-        if (document.querySelector('#redButton')) {
-            document.querySelector('#redButton').style.backgroundColor = 'maroon'
-            document.querySelector('#redButton').style.border = 'solid 1px maroon'
-        }
+    const handleMouseEnter = (e) => {
+        e.target.style.backgroundColor = 'red'
+        e.target.style.border = 'solid 1px red'
     }
 
-    const handleMouseLeave = () => {
-        if (document.querySelector('#redButton')) {
-            document.querySelector('#redButton').style.backgroundColor = 'red'
-            document.querySelector('#redButton').style.border = 'solid 1px red'
-        }
+    const handleMouseLeave = (e) => {
+        e.target.style.backgroundColor = 'maroon'
+        e.target.style.border = 'solid 1px maroon'
     }
 
     return (
         <button
-            id='redButton'
             style={ redButtonStyle }
-            onMouseEnter={ handleMouseEnter }
-            onMouseLeave={ handleMouseLeave }
+            onMouseEnter={ (e) => handleMouseEnter(e) }
+            onMouseLeave={ (e) => handleMouseLeave(e) }
             onClick={ handleClick }
         >
             {text}

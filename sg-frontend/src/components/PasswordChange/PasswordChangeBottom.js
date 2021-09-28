@@ -11,6 +11,26 @@ const PasswordChangeBottom = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user)
 
+    const titleStyle = {
+        fontSize: 24,
+        marginTop: 50,
+        marginBottom: 30,
+    }
+
+    const inputStyle = {
+        border: '1px solid darkblue',
+        borderRadius: 4,
+        paddingLeft: 12,
+        marginBottom: 24,
+        width: '100%',
+        height: 40,
+    }
+
+    const buttonsDivStyle = {
+        fontSize: 16,
+        marginTop: 26,
+    }    
+
     const validatePasswordChange = (newPassword, confirmNewPassword) => {
         let validationFailed
 
@@ -61,12 +81,13 @@ const PasswordChangeBottom = () => {
 
     return (
         <BottomPanel bgColor={ 'white' }>
-            <p>Change password</p>
-
+            <p style={ titleStyle }>Change password</p>
             <form onSubmit={ changePassword }>
-                <input type='password' name='newPassword' placeholder='New Password' /><br />
-                <input type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
-                <BlackButton text='Confirm' />
+                <input style={ inputStyle }  type='password' name='newPassword' placeholder='New Password' /><br />
+                <input style={ inputStyle }  type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
+                <div style={ buttonsDivStyle }>
+                    <BlackButton text='Confirm' fontSize={ 16 } width={ 130 } height={ 50 } />
+                </div>
             </form>
         </BottomPanel>
     )

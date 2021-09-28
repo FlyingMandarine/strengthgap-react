@@ -7,6 +7,7 @@ const BottomPanel = (props) => {
         height: '50%',
         borderTop: 'solid 1px black',
         padding: '0 29px',
+        borderRadius: '0 0 6px 6px'
     }
 
     return (

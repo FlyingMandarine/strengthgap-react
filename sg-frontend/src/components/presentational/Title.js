@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Title = () => {
+const Title = ({ marginTop }) => {
 
     const titleStyle = {
         fontSize: 34,
         paddingLeft: 24,
-        marginTop: 70
+        marginTop: marginTop
     }
 
     return (
-        <h1 style={titleStyle}>Strength Gap</h1>
+        <h1 style={ titleStyle }>Strength Gap</h1>
     )
 }
 

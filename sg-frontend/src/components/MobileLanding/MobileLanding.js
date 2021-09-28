@@ -7,7 +7,7 @@ import AppContainer from '../presentational/AppContainer'
 import Footer from '../presentational/Footer'
 import Menu from '../Menu/Menu'
 
-const MobileLanding1 = ({ changePage }) => {
+const MobileLanding = ({ changePage }) => {
 
     return (
         <AppContainer>
@@ -19,4 +19,4 @@ const MobileLanding1 = ({ changePage }) => {
     )
 }
 
-export default MobileLanding1
+export default MobileLanding

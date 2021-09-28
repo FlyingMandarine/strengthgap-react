@@ -13,6 +13,26 @@ import userService from '../../services/users'
 const ProfileDeleteBottom = () => {
     const dispatch = useDispatch()
 
+    const titleStyle = {
+        fontSize: 22,
+        marginTop: 50,
+        marginBottom: 30,
+    }
+
+    const inputStyle = {
+        border: '1px solid darkblue',
+        borderRadius: 4,
+        paddingLeft: 12,
+        marginBottom: 24,
+        width: '100%',
+        height: 40,
+    }
+
+    const buttonsDivStyle = {
+        fontSize: 16,
+        marginTop: 26,
+    }
+
     const validateProfileDelete = (username, password) => {
         let validationFailed
 
@@ -74,12 +94,14 @@ const ProfileDeleteBottom = () => {
 
     return (
         <BottomPanel bgColor={ 'white' }>
-            <p>Are you sure you want to delete your profile?</p>
+            <p style={ titleStyle }>Enter your username and password to delete your profile.</p>
 
             <form onSubmit={ deleteProfile }>
-                <input type='username' name='username' placeholder='Username' /><br />
-                <input type='password' name='password' placeholder='Password' /><br />
-                <RedButton text='Delete profile' />
+                <input style={ inputStyle } type='username' name='username' placeholder='Username' /><br />
+                <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
+                <div style={ buttonsDivStyle }>
+                    <RedButton text='Delete profile' fontSize={ 16 } width={ 150 } height={ 38 } />
+                </div>
             </form>
         </BottomPanel>
     )
