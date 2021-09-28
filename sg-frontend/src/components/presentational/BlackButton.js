@@ -1,15 +1,16 @@
 import React from 'react'
 
-const BlackButton = ({ text, handleClick, disabled, width, height }) => {
+const BlackButton = ({ text, handleClick, disabled, fontSize, width, height, icon }) => {
 
     const blackButtonStyle = {
         color: 'white',
         backgroundColor: 'black',
         width: width,
         height: height,
-        fontSize: 18,
+        fontSize: fontSize,
         border: 'solid 1px black',
-        borderRadius: 4
+        borderRadius: 4,
+        cursor: 'pointer',
     }
 
     const disabledBlackButtonStyle = {
@@ -17,9 +18,15 @@ const BlackButton = ({ text, handleClick, disabled, width, height }) => {
         backgroundColor: 'grey',
         width: width,
         height: height,
-        fontSize: 18,
+        fontSize: fontSize,
         border: 'solid 1px grey',
-        borderRadius: 4
+        borderRadius: 4,
+    }
+
+    const iconStyle = {
+        fontSize: 16,
+        marginRight: 10,
+        pointerEvents: 'none',
     }
 
     const handleMouseEnter = (e) => {
@@ -48,6 +55,10 @@ const BlackButton = ({ text, handleClick, disabled, width, height }) => {
                 onMouseLeave={ (e) => handleMouseLeave(e) }
                 onClick={ handleClick }
             >
+                {
+                    icon &&
+                    <i style={ iconStyle } className={ icon } />
+                }
                 { text }
             </button>
         }

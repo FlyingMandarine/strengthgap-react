@@ -23,7 +23,7 @@ const MobileLandingBottom = (props) => {
                 A common struggle for people who have just started working out is to ensure that the program they follow will target all muscle groups.<br></br><br></br>
                 Not doing so - for instance, including chest exercises but no back exercises - can lead to muscle imbalances that can be detrimental to your health in the long term.
                 </p>
-                <BlackButton text={ 'Get started' } width={ 324 } height={ 55 } handleClick={ props.changePage } />
+                <BlackButton text={ 'Get started' } fontSize={ 18 } width={ 324 } height={ 55 } handleClick={ props.changePage } />
         </BottomPanel>
     )
 }

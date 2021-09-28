@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 
 import sessionService from '../../services/sessions'
@@ -15,22 +15,22 @@ const History = () => {
     const [ history, setHistory ] = useState([])
     const [ currentSession, setCurrentSession ] = useState([])
 
+    // Since updateHistory is a dependency of the useEffect hook, it needs to be
+    // wrapped in a useCallback hook to prevent it from being called indefinitely.
+    const updateHistory = useCallback((newHistory) => {
+        setHistory(newHistory)
+
+        setNewSession([])
+    }, [])
+
     useEffect(() => {
         const getHistory = async () => {
             const newHistory = await sessionService.fetchSessions(user)
             updateHistory(newHistory)
         }
 
-        console.log('test')
-
         getHistory()
-    }, [ user ])
-
-    const updateHistory = (newHistory) => {
-        setHistory(newHistory)
-
-        setNewSession([])
-    }
+    }, [ user, updateHistory ])
     
     const setNewSession = (newSession) => {
         setCurrentSession(newSession)

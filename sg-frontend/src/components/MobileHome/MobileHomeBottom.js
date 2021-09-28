@@ -50,7 +50,7 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     return (
         <BottomPanel bgColor={ '#f4f4f4' }>
             <div>
-                <p style={ percentageParaStyle }>Muscles targeted: <span id="completionPercentage">0%</span></p>
+                <p style={ percentageParaStyle }>Muscles targeted: <strong><span id="completionPercentage">0%</span></strong></p>
                 <MuscleMapFront
                     muscleWidth={ 132 } muscleHeight={ 256 } mapPosition={ '' }
                 />
@@ -62,13 +62,13 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
                 { user === null
                     ?
                     <span>
-                        <BlackButton text='Log in' width={ 146 } height={ 38 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
+                        <BlackButton text='Log in' fontSize={ 16 } width={ 146 } height={ 38 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
                         <span style={ orStyle }>or</span>
-                        <WhiteButton text='Sign up' width={ 146 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } /><br />
+                        <WhiteButton text='Sign up' fontSize={ 16 } width={ 146 } height={ 38 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } /><br />
                         to submit your workout.
                     </span>
                     :
-                    <BlackButton text='Save session' width={ 150 } height={ 38 } handleClick={ saveSession } />
+                    <BlackButton text='Save session' fontSize={ 16 } width={ 150 } height={ 38 } handleClick={ saveSession } />
                 }
             </div>
         </BottomPanel>

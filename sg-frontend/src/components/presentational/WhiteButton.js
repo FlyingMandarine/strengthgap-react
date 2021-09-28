@@ -1,15 +1,33 @@
 import React from 'react'
 
-const WhiteButton = ({ text, handleClick, disabled, width }) => {
+const WhiteButton = ({ text, handleClick, disabled, fontSize, width, height, icon }) => {
 
     const whiteButtonStyle = {
         color: 'black',
         backgroundColor: 'white',
         width: width,
-        height: 38,
-        fontSize: 16,
+        height: height,
+        fontSize: fontSize,
         border: 'solid 1px black',
-        borderRadius: 4
+        borderRadius: 4,
+        cursor: 'pointer',
+    }
+
+    const disabledWhiteButtonStyle = {
+        color: 'black',
+        backgroundColor: 'grey',
+        width: width,
+        height: height,
+        fontSize: fontSize,
+        border: 'solid 1px grey',
+        borderRadius: 4,
+    }
+
+    const iconStyle = {
+        fontSize: 14,
+        marginRight: 6,
+        marginLeft: 6,
+        pointerEvents: 'none',
     }
 
     const handleMouseEnter = (e) => {
@@ -28,9 +46,13 @@ const WhiteButton = ({ text, handleClick, disabled, width }) => {
         <>
         { disabled === true ?
             <button
-                style={ whiteButtonStyle }
+                style={ disabledWhiteButtonStyle }
                 disabled
             >
+                {
+                    icon &&
+                    <i style={ iconStyle } className={ icon } />
+                }
                 { text }
             </button>
             :
@@ -40,6 +62,10 @@ const WhiteButton = ({ text, handleClick, disabled, width }) => {
                 onMouseLeave={ (e) => handleMouseLeave(e) }
                 onClick={ handleClick }
             >
+                {
+                    icon &&
+                    <i style={ iconStyle } className={ icon } />
+                }
                 { text }
             </button>
         }

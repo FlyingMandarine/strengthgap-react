@@ -10,6 +10,18 @@ const MuscleMapContainer = () => {
     const dispatch = useDispatch()
     const currentPage = useSelector(state => state.page)
 
+    const backDiv = {
+        position: 'absolute',
+        fontSize: 17,
+        margin: '26px 0 0 22px',
+        cursor: 'pointer',
+    }
+
+    const chevronStyle = {
+        fontSize: 12,
+        marginRight: 8,
+    }
+
     const muscleMapStyle = {
         margin: '30px 0 22px'
     }
@@ -18,7 +30,7 @@ const MuscleMapContainer = () => {
         <>
             {
                 currentPage !== 'MobileLanding' &&
-                <div onClick={ () => dispatch(changeCurrentPage('MobileHome')) }>Back</div>
+                <div style={ backDiv } onClick={ () => dispatch(changeCurrentPage('MobileHome')) }><i style={ chevronStyle } className='fas fa-chevron-left' />Back</div>
             }
             <Title marginTop={ 70 } />
             <div style={muscleMapStyle}>

@@ -12,6 +12,30 @@ import loginService from '../../services/login'
 const LoginBottom = () => {
     const dispatch = useDispatch()
 
+    const titleStyle = {
+        fontSize: 24,
+        marginTop: 50,
+        marginBottom: 30,
+    }
+
+    const inputStyle = {
+        border: '1px solid darkblue',
+        borderRadius: 4,
+        paddingLeft: 12,
+        marginBottom: 24,
+        width: '100%',
+        height: 40,
+    }
+
+    const buttonsDivStyle = {
+        fontSize: 16,
+        marginTop: 26,
+    }
+
+    const orStyle = {
+        margin: '0 25px',
+    }
+
     const submitLogin = async (event) => {
         event.preventDefault()
 
@@ -40,13 +64,16 @@ const LoginBottom = () => {
 
     return (
         <BottomPanel bgColor={ 'white' }>
-            <p>User Login</p>
+            <p style={ titleStyle }>User Login</p>
 
             <form onSubmit={ submitLogin }>
-                <input name='username' placeholder='Username' /><br />
-                <input type='password' name='password' placeholder='Password' /><br />
-                <BlackButton text='Log in' />
-                <WhiteButton text='Sign up' handleClick={ redirectToSignUp } />
+                <input style={ inputStyle } name='username' placeholder='Username' /><br />
+                <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
+                <div style={ buttonsDivStyle }>
+                    <BlackButton text='Log in' fontSize={ 16 } width={ 130 } height={ 50 } />
+                    <span style={ orStyle }>or</span>
+                    <WhiteButton text='Sign up' fontSize={ 16 } width={ 130 } height={ 50 } handleClick={ redirectToSignUp } />
+                </div>
             </form>
         </BottomPanel>
     )

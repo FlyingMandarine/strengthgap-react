@@ -12,6 +12,30 @@ import loginService from '../../services/login'
 const SignUpBottom = () => {
     const dispatch = useDispatch()
 
+    const titleStyle = {
+        fontSize: 24,
+        marginTop: 50,
+        marginBottom: 30,
+    }
+
+    const inputStyle = {
+        border: '1px solid darkblue',
+        borderRadius: 4,
+        paddingLeft: 12,
+        marginBottom: 24,
+        width: '100%',
+        height: 40,
+    }
+
+    const buttonsDivStyle = {
+        fontSize: 16,
+        marginTop: 26,
+    }
+
+    const orStyle = {
+        margin: '0 25px',
+    }
+
     const validateSignUp = (username, password, confirmPassword) => {
         let validationFailed
 
@@ -81,14 +105,17 @@ const SignUpBottom = () => {
 
     return (
         <BottomPanel bgColor={ 'white' }>
-            <p>Sign up</p>
+            <p style={ titleStyle }>Sign up</p>
 
             <form onSubmit={ submitSignUp }>
-                <input name='username' placeholder='Username' /><br />
-                <input type='password' name='password' placeholder='Password' /><br />
-                <input type='password' name='confirmPassword' placeholder='Confirm Password' /><br />
-                <BlackButton text='Sign up' />
-                <WhiteButton text='Log in' handleClick={ redirectToLogin } />
+                <input style={ inputStyle } name='username' placeholder='Username' /><br />
+                <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
+                <input style={ inputStyle } type='password' name='confirmPassword' placeholder='Confirm Password' /><br />
+                <div style={ buttonsDivStyle }>
+                    <BlackButton text='Sign up' fontSize={ 16 } width={ 130 } height={ 50 } />
+                    <span style={ orStyle }>or</span>
+                    <WhiteButton text='Log in' fontSize={ 16 } width={ 130 } height={ 50 } handleClick={ redirectToLogin } />
+                </div>
             </form>
         </BottomPanel>
     )

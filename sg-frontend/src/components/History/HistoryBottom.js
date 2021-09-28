@@ -2,7 +2,6 @@ import React from 'react'
 
 import { useDispatch } from 'react-redux'
 import { changeCurrentPage } from '../../reducers/pageReducer'
-import { logOutUser } from '../../reducers/userReducer'
 
 import removeService from '../../services/sessions'
 
@@ -16,15 +15,21 @@ const HistoryBottom = ({ history, updateHistory, currentSession, setNewSession }
     const dispatch = useDispatch()
 
     const percentageParaStyle = {
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'center',
+        margin: '22px 0 28px',
     }
 
     const percentageSpanStyle = {
         color: '#909090'
     }
 
-    const buttonSpanStyle = {
-        fontSize: 14
+    const emptySpan = {
+        margin: '0 10px',
+    }
+
+    const buttonsDivStyle = {
+        marginTop: 24,
     }
 
     const deleteSession = async () => {
@@ -47,7 +52,7 @@ const HistoryBottom = ({ history, updateHistory, currentSession, setNewSession }
     return (
         <BottomPanel bgColor={ '#f4f4f4' }>
             <div>
-                <p style={ percentageParaStyle }>Muscles targeted: <span style={ percentageSpanStyle } id="completionPercentage">0%</span></p>
+                <p style={ percentageParaStyle }>Muscles targeted: <strong><span style={ percentageSpanStyle } id="completionPercentage">0%</span></strong></p>
                 <MuscleMapFront
                     muscleWidth={132} muscleHeight={256} mapPosition={''}
                 />
@@ -55,16 +60,14 @@ const HistoryBottom = ({ history, updateHistory, currentSession, setNewSession }
                     muscleWidth={132} muscleHeight={256} mapPosition={''}
                 />
             </div>
-            <div>
-                <span style={ buttonSpanStyle }>
-                    {
-                        currentSession.length === 0 ?
-                            <WhiteButton text='Delete session' disabled={ true } />:
-                            <WhiteButton text='Delete session' handleClick={ deleteSession } />
-                    }
-                    or
-                    <BlackButton text='New session' handleClick={ () => dispatch(changeCurrentPage('MobileHome')) } />
-                </span>
+            <div style={ buttonsDivStyle }>
+                {
+                    currentSession.length === 0 ?
+                        <WhiteButton text='Delete session' fontSize={ 16 } width={ 150 } height={ 50 } icon={ 'fas fa-trash-alt' } disabled={ true } />:
+                        <WhiteButton text='Delete session' fontSize={ 16 } width={ 150 } height={ 50 } icon={ 'fas fa-trash-alt' } handleClick={ deleteSession } />
+                }
+                <span style={ emptySpan }></span>
+                <BlackButton text='New session' fontSize={ 16 } width={ 150 } height={ 50 } icon={ 'fas fa-plus' } handleClick={ () => dispatch(changeCurrentPage('MobileHome')) } />
             </div>
         </BottomPanel>
     )

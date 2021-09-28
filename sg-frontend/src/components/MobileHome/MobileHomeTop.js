@@ -117,7 +117,7 @@ const MobileHomeTop = ({ activateDemo }) => {
         maxHeight: 130,
         overflowY: 'auto',
         border: '1px solid darkblue',
-        borderRadius: 6,
+        borderRadius: 4,
         margin: '0 24px',
     }
 
@@ -144,7 +144,7 @@ const MobileHomeTop = ({ activateDemo }) => {
 
     const exerciseSelectStyle = {
         border: '1px solid darkblue',
-        borderRadius: 6,
+        borderRadius: 4,
         margin: '0 24px',
         width: '87%',
         height: 39,
@@ -227,8 +227,8 @@ const MobileHomeTop = ({ activateDemo }) => {
                 </select>
                 <div style={ addExerciseDiv }>
                     { exercise === 'No exercise selected' ?
-                        <BlackButton text='Add exercise' disabled={ true } width={ 150 } height={ 38 } />:
-                        <BlackButton text='Add exercise' width={ 150 } height={ 38 } handleClick={ addExercise } /> 
+                        <BlackButton text='Add exercise' fontSize={ 16 } width={ 150 } height={ 38 } disabled={ true } />:
+                        <BlackButton text='Add exercise' fontSize={ 16 } width={ 150 } height={ 38 } handleClick={ addExercise } /> 
                     }
                 </div>
             </TopPanel>

@@ -16,7 +16,7 @@ const Menu = () => {
         position: 'absolute',
         right: 0,
         fontSize: 27,
-        padding: '18px 19px',
+        margin: '18px 19px',
         cursor: 'pointer',
     }
 
@@ -24,7 +24,7 @@ const Menu = () => {
         position: 'absolute',
         right: 0,
         fontSize: 27,
-        padding: '18px 22px',
+        margin: '18px 19px',
         cursor: 'pointer',
     }
 
@@ -75,7 +75,7 @@ const Menu = () => {
         backgroundColor: customTurquoise,
         width: 305,
         height: 60,
-        lineHeight: 4,
+        lineHeight: 4.4,
         fontSize: 14,
         marginTop: 20,
         marginLeft: -3,
