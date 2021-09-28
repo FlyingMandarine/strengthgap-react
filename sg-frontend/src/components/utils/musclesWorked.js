@@ -12,7 +12,7 @@ export const mostMuscles = [
 ]
 
 export const allExercises = [
-    'Select',
+    'No exercise selected',
     'Ab Wheel Rollout',
     'Arnold Press',
     'Back Extension',

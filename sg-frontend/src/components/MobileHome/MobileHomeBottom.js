@@ -10,7 +10,6 @@ import BlackButton from '../presentational/BlackButton'
 import WhiteButton from '../presentational/WhiteButton'
 
 import { MuscleMapFront, MuscleMapBack } from '../MuscleMap'
-import DemoInvite from '../Menu/DemoInvite'
 
 const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     const dispatch = useDispatch()
@@ -18,11 +17,19 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     const session = useSelector(state => state.session)
 
     const percentageParaStyle = {
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'center',
+        margin: '22px 0 28px',
     }
 
-    const buttonSpanStyle = {
-        fontSize: 14
+    const buttonDivStyle = {
+        fontSize: 14,
+        paddingTop: 20,
+        lineHeight: 2.4,
+    }
+
+    const orStyle = {
+        margin: '0 10px'
     }
 
     const saveSession = async () => {
@@ -45,25 +52,23 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
             <div>
                 <p style={ percentageParaStyle }>Muscles targeted: <span id="completionPercentage">0%</span></p>
                 <MuscleMapFront
-                    muscleWidth={132} muscleHeight={256} mapPosition={''}
+                    muscleWidth={ 132 } muscleHeight={ 256 } mapPosition={ '' }
                 />
                 <MuscleMapBack
-                    muscleWidth={132} muscleHeight={256} mapPosition={''}
+                    muscleWidth={ 132 } muscleHeight={ 256 } mapPosition={ '' }
                 />
             </div>
-            <div>
+            <div style={ buttonDivStyle }>
                 { user === null
                     ?
-                    <span style={ buttonSpanStyle }>
-                        <BlackButton text='Log in' handleClick={ () => dispatch(changeCurrentPage('Login')) } /> 
-                        or
-                        <WhiteButton text='Sign up' handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
-                        {
-                            demoInviteActive === true && <DemoInvite deactivateDemo={ deactivateDemo } />
-                        }
+                    <span>
+                        <BlackButton text='Log in' width={ 146 } height={ 38 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
+                        <span style={ orStyle }>or</span>
+                        <WhiteButton text='Sign up' width={ 146 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } /><br />
+                        to submit your workout.
                     </span>
                     :
-                    <BlackButton text='Save session' handleClick={ saveSession } />
+                    <BlackButton text='Save session' width={ 150 } height={ 38 } handleClick={ saveSession } />
                 }
             </div>
         </BottomPanel>

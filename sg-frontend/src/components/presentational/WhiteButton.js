@@ -1,40 +1,33 @@
 import React from 'react'
 
-const WhiteButton = ({ text, handleClick, disabled }) => {
+const WhiteButton = ({ text, handleClick, disabled, width }) => {
 
     const whiteButtonStyle = {
         color: 'black',
         backgroundColor: 'white',
-        width: 150,
+        width: width,
         height: 38,
-
-        fontSize: 21,
-
+        fontSize: 16,
         border: 'solid 1px black',
         borderRadius: 4
     }
 
-    const handleMouseEnter = () => {
-        if (document.querySelector('#whiteButton')) {
-            document.querySelector('#whiteButton').style.color = 'white'
-            document.querySelector('#whiteButton').style.backgroundColor = '#25A2A2'
-            document.querySelector('#whiteButton').style.border = 'solid 1px #25A2A2'
-        }
+    const handleMouseEnter = (e) => {
+        e.target.style.color = 'white'
+        e.target.style.backgroundColor = '#25A2A2'
+        e.target.style.border = 'solid 1px #25A2A2'
     }
 
-    const handleMouseLeave = () => {
-        if (document.querySelector('#whiteButton')) {
-            document.querySelector('#whiteButton').style.color = 'black'
-            document.querySelector('#whiteButton').style.backgroundColor = 'white'
-            document.querySelector('#whiteButton').style.border = 'solid 1px black'
-        }
+    const handleMouseLeave = (e) => {
+        e.target.style.color = 'black'
+        e.target.style.backgroundColor = 'white'
+        e.target.style.border = 'solid 1px black'
     }
 
     return (
         <>
         { disabled === true ?
             <button
-                id='whiteButton'
                 style={ whiteButtonStyle }
                 disabled
             >
@@ -42,10 +35,9 @@ const WhiteButton = ({ text, handleClick, disabled }) => {
             </button>
             :
             <button
-                id='whiteButton'
                 style={ whiteButtonStyle }
-                onMouseEnter={ handleMouseEnter }
-                onMouseLeave={ handleMouseLeave }
+                onMouseEnter={ (e) => handleMouseEnter(e) }
+                onMouseLeave={ (e) => handleMouseLeave(e) }
                 onClick={ handleClick }
             >
                 { text }

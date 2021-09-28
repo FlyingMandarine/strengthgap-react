@@ -20,7 +20,7 @@ const MuscleMapContainer = () => {
                 currentPage !== 'MobileLanding' &&
                 <div onClick={ () => dispatch(changeCurrentPage('MobileHome')) }>Back</div>
             }
-            <Title />
+            <Title marginTop={ 70 } />
             <div style={muscleMapStyle}>
                 <MuscleMapFront mapPosition={'-top-left'}
                     muscleWidth={52} muscleHeight={102}

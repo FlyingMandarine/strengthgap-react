@@ -4,14 +4,24 @@ import { customTurquoise } from '../utils/colors'
 const DemoInvite = ({ deactivateDemo }) => {
 
     const divStyle = {
+        position: 'absolute',
+        bottom: 0,
         fontSize: 12,
         color: 'white',
         backgroundColor: customTurquoise,
         width: '100%',
+        height: 100,
     }
 
     const closeButtonStyle = {
-        float: 'right'
+        float: 'right',
+        fontSize: 27,
+        margin: '18px 18px 0 0',
+    }
+
+    const pStyle = {
+        paddingLeft: 18,
+        lineHeight: 2,
     }
 
     const closeDemoInvite = () => {
@@ -20,10 +30,12 @@ const DemoInvite = ({ deactivateDemo }) => {
 
     return (
         <div style={ divStyle }>
-            <div style={ closeButtonStyle } onClick={ closeDemoInvite }>CLOSE</div>
-            Warning:<br />
-            You won't be able to save this session unless you first log in.<br />
-            Employer? Try this demo account.
+            <i style={ closeButtonStyle } className='fas fa-times' onClick={ closeDemoInvite } />
+            <p style={ pStyle }>
+                <strong>Warning:</strong><br />
+                You won't be able to save this session unless you first log in.<br />
+                Employer? Try this demo account.
+            </p>
         </div>
     )
 }

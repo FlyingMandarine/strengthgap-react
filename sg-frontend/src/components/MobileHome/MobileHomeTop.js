@@ -5,6 +5,7 @@ import { updateSession, emptySession } from '../../reducers/sessionReducer'
 
 import Title from '../presentational/Title'
 import TopPanel from '../presentational/TopPanel'
+import BlackButton from '../presentational/BlackButton'
 
 import { allMuscles, mostMuscles, allExercises, musclesWorked } from '../utils/musclesWorked'
 import { customBlue, customPurple, customTurquoise } from '../utils/colors'
@@ -13,7 +14,7 @@ const MobileHomeTop = ({ activateDemo }) => {
     const dispatch = useDispatch()
     const session = useSelector(state => state.session)
 
-    const [ exercise, setExercise ] = useState('Select')
+    const [ exercise, setExercise ] = useState('No exercise selected')
     const [ exerciseList, setExerciseList ] = useState([])
 
     // Empty the session on component unmount.
@@ -48,8 +49,8 @@ const MobileHomeTop = ({ activateDemo }) => {
                 })
             })
 
-            // We stop there if the user has chosen 'Select' as it is not a valid exercise.
-            if (exerciseSelected === 'Select') {
+            // We stop there if the user has chosen 'No exercise selected' as it is not a valid exercise.
+            if (exerciseSelected === 'No exercise selected') {
                 return
             }
 
@@ -106,25 +107,71 @@ const MobileHomeTop = ({ activateDemo }) => {
         calculatePercentage()
     }, [ session ])
 
+    const todaysSessionStyle = {
+        color: customTurquoise,
+        fontSize: 17,
+        marginLeft: 24,
+    }
+
     const addedExercisesListDivStyle = {
-        maxHeight: 100,
-        overflowY: 'auto'
+        maxHeight: 130,
+        overflowY: 'auto',
+        border: '1px solid darkblue',
+        borderRadius: 6,
+        margin: '0 24px',
     }
 
     const ulStyle = {
+        position: 'relative',
         listStyleType: 'none',
-        margin: 0,
+        marginLeft: 12,
+        fontSize: 14,
         padding: 0,
+        lineHeight: '1.8',
+    }
+
+    const trashIconStyle = {
+        position: 'absolute',
+        fontSize: 12,
+        right: 20,
+        marginTop: 5,
+    }
+
+    const addNewStyle = {
+        fontSize: 13,
+        margin: '25px 0 10px 24px',
+    }
+
+    const exerciseSelectStyle = {
+        border: '1px solid darkblue',
+        borderRadius: 6,
+        margin: '0 24px',
+        width: '87%',
+        height: 39,
+        paddingLeft: 12,
+        paddingRight: 0,
+    }
+
+    const addExerciseDiv = {
+        margin: '15px 0 0 24px',
+    }
+
+    const handleMouseEnter = (e) => {
+        e.target.style.color = 'red'
+    }
+
+    const handleMouseLeave = (e) => {
+        e.target.style.color = 'black'
     }
 
     const reorderAlphabetically = (newExerciseList) => {
-        const exerciseListWithoutSelect = newExerciseList.filter(e => e !== 'Select')
-        const reorderedList = exerciseListWithoutSelect.sort(function(a, b){
-            if(a < b) { return -1 }
-            if(a > b) { return 1 }
+        const exerciseListWithoutSelect = newExerciseList.filter(e => e !== 'No exercise selected')
+        const reorderedList = exerciseListWithoutSelect.sort(function(a, b) {
+            if (a < b) { return -1 }
+            if (a > b) { return 1 }
             return 0
         })
-        reorderedList.unshift('Select')
+        reorderedList.unshift('No exercise selected')
         setExerciseList(reorderedList)
     }
 
@@ -133,21 +180,28 @@ const MobileHomeTop = ({ activateDemo }) => {
         const updatedSession = session.concat(exercise)
         dispatch(updateSession(updatedSession))
         setExerciseList(exerciseList.filter(e => e !== exercise))
-        setExercise('Select')
+        setExercise('No exercise selected')
     }
 
     const removeExercise = (exerciseToRemove) => {
         dispatch(updateSession(session.filter(e => e !== exerciseToRemove)))
         const newExerciseList = exerciseList.concat(exerciseToRemove)
         reorderAlphabetically(newExerciseList)
-        setExercise('Select')
+        setExercise('No exercise selected')
+        document.getElementById('exercise').value = 'No exercise selected'
     }
 
     const displayAddedExercisesList = () => {
         return (
             session.map(e =>
-                <li key={e}>
-                    {e}<button onClick={() => removeExercise(e)}>Remove</button>
+                <li key={ e }>
+                    { e }<i
+                            style={ trashIconStyle }
+                            className='fas fa-trash-alt'
+                            onClick={ () => removeExercise(e) }
+                            onMouseEnter= { (e) => handleMouseEnter(e) }
+                            onMouseLeave= { (e) => handleMouseLeave(e) }
+                        />
                 </li>
             )
         )
@@ -155,26 +209,28 @@ const MobileHomeTop = ({ activateDemo }) => {
 
     return (
             <TopPanel bgColor={ 'white' }>
-                <Title />
-                <p>Today's session:</p>
+                <Title marginTop={ 40 } />
+                <p style={ todaysSessionStyle }>Today's session:</p>
                 <div style={ addedExercisesListDivStyle }>
                     {
                         session.length === 0 ?
-                            <p>No exercise added</p>:
+                            <p style= { ulStyle }>No exercise added</p>:
                             <ul style={ ulStyle }>
                                 { displayAddedExercisesList() }
                             </ul>
                     }
                 </div>
 
-                <p>+ Add new</p>
-                <select name='exercise' onChange={ (event) => setExercise(event.target.value) }>
+                <p style={ addNewStyle }>+ Add new</p>
+                <select style={ exerciseSelectStyle } id='exercise' name='exercise' onChange={ (event) => setExercise(event.target.value) }>
                     { exerciseList.map(e => <option key={ e }>{ e }</option>) }
                 </select>
-                { exercise === 'Select' ?
-                    <button type='button' disabled>Add exercise</button> :
-                    <button type='button' onClick={ addExercise }>Add exercise</button>
-                }
+                <div style={ addExerciseDiv }>
+                    { exercise === 'No exercise selected' ?
+                        <BlackButton text='Add exercise' disabled={ true } width={ 150 } height={ 38 } />:
+                        <BlackButton text='Add exercise' width={ 150 } height={ 38 } handleClick={ addExercise } /> 
+                    }
+                </div>
             </TopPanel>
     )
 }
