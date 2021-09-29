@@ -21,7 +21,7 @@ const HistoryTop = ({ history, updateHistory, currentSession, setNewSession }) =
     }
 
     const selectStyle = {
-        border: '1px solid darkblue',
+        border: '2px solid black',
         borderRadius: 4,
         paddingLeft: 12,
         marginBottom: 24,

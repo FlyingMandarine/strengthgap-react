@@ -11,6 +11,7 @@ const BlackButton = ({ text, handleClick, disabled, fontSize, width, height, ico
         border: 'solid 1px black',
         borderRadius: 4,
         cursor: 'pointer',
+        fontWeight: 500,
     }
 
     const disabledBlackButtonStyle = {
@@ -21,6 +22,7 @@ const BlackButton = ({ text, handleClick, disabled, fontSize, width, height, ico
         fontSize: fontSize,
         border: 'solid 1px grey',
         borderRadius: 4,
+        fontWeight: 500,
     }
 
     const iconStyle = {

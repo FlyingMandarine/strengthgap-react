@@ -6,9 +6,9 @@ const Footer = () => {
         position: 'fixed',
         bottom: '-5%',
         left: '28%',
-
         fontSize: 13,
         color: 'white',
+        fontWeight: 400,
     }
 
     const footerAStyle = {

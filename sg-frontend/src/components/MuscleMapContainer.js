@@ -15,6 +15,7 @@ const MuscleMapContainer = () => {
         fontSize: 17,
         margin: '26px 0 0 22px',
         cursor: 'pointer',
+        fontWeight: 500,
     }
 
     const chevronStyle = {

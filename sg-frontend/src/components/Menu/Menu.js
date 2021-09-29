@@ -37,6 +37,7 @@ const Menu = () => {
     const largeTextStyle = {
         fontSize: 22,
         cursor: 'pointer',
+        fontWeight: 500,
     }
 
     const smallTextStyle = {
@@ -44,6 +45,7 @@ const Menu = () => {
         marginTop: 20,
         marginLeft: 50,
         cursor: 'pointer',
+        fontWeight: 500,
     }
 
     const outerDivStyle = {
@@ -79,7 +81,8 @@ const Menu = () => {
         fontSize: 14,
         marginTop: 20,
         marginLeft: -3,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 400,
     }
 
     const toggleMenu = () => {

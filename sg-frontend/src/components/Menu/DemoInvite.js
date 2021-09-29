@@ -19,9 +19,14 @@ const DemoInvite = ({ deactivateDemo }) => {
         margin: '18px 18px 0 0',
     }
 
+    const warningStyle = {
+        fontWeight: 700,
+    }
+
     const pStyle = {
         paddingLeft: 18,
         lineHeight: 2,
+        fontWeight: 400,
     }
 
     const closeDemoInvite = () => {
@@ -32,7 +37,7 @@ const DemoInvite = ({ deactivateDemo }) => {
         <div style={ divStyle }>
             <i style={ closeButtonStyle } className='fas fa-times' onClick={ closeDemoInvite } />
             <p style={ pStyle }>
-                <strong>Warning:</strong><br />
+                <span style={ warningStyle }>Warning:</span><br />
                 You won't be able to save this session unless you first log in.<br />
                 Employer? Try this demo account.
             </p>

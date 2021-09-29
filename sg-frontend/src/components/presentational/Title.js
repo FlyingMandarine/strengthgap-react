@@ -5,7 +5,8 @@ const Title = ({ marginTop }) => {
     const titleStyle = {
         fontSize: 34,
         paddingLeft: 24,
-        marginTop: marginTop
+        marginTop: marginTop,
+        fontWeight: 500,
     }
 
     return (

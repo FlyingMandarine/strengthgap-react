@@ -20,12 +20,18 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
         fontSize: 16,
         textAlign: 'center',
         margin: '22px 0 28px',
+        fontWeight: 400,
+    }
+
+    const percentageSpanStyle = {
+        fontWeight: 500,
     }
 
     const buttonDivStyle = {
         fontSize: 14,
         paddingTop: 20,
         lineHeight: 2.4,
+        fontWeight: 500,
     }
 
     const orStyle = {
@@ -50,7 +56,7 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     return (
         <BottomPanel bgColor={ '#f4f4f4' }>
             <div>
-                <p style={ percentageParaStyle }>Muscles targeted: <strong><span id="completionPercentage">0%</span></strong></p>
+                <p style={ percentageParaStyle }>Muscles targeted: <span style={ percentageSpanStyle } id="completionPercentage">0%</span></p>
                 <MuscleMapFront
                     muscleWidth={ 132 } muscleHeight={ 256 } mapPosition={ '' }
                 />

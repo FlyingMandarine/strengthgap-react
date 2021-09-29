@@ -10,6 +10,7 @@ const RedButton = ({ text, handleClick, width, height }) => {
         fontSize: 18,
         border: 'solid 1px maroon',
         borderRadius: 4,
+        fontWeight: 500,
     }
 
     const handleMouseEnter = (e) => {

@@ -17,15 +17,17 @@ const ProfileDeleteBottom = () => {
         fontSize: 22,
         marginTop: 50,
         marginBottom: 30,
+        fontWeight: 500,
     }
 
     const inputStyle = {
-        border: '1px solid darkblue',
+        border: '2px solid black',
         borderRadius: 4,
         paddingLeft: 12,
         marginBottom: 24,
         width: '100%',
         height: 40,
+        fontWeight: 400,
     }
 
     const buttonsDivStyle = {

@@ -14,3 +14,19 @@ html {
 
   font: 10px 'Roboto', sans-serif;
 }
+
+#exercise {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+
+  background-image: url('./images/arrow-drop-down.svg');
+  background-repeat: no-repeat;
+  background-position: 98%;
+}
+
+/* For IE10 */
+#exercise::-ms-expand {
+  display: none;
+}

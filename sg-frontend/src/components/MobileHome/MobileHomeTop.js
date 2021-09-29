@@ -111,12 +111,13 @@ const MobileHomeTop = ({ activateDemo }) => {
         color: customTurquoise,
         fontSize: 17,
         marginLeft: 24,
+        fontWeight: 500,
     }
 
     const addedExercisesListDivStyle = {
         maxHeight: 130,
         overflowY: 'auto',
-        border: '1px solid darkblue',
+        border: '2px solid black',
         borderRadius: 4,
         margin: '0 24px',
     }
@@ -128,6 +129,7 @@ const MobileHomeTop = ({ activateDemo }) => {
         fontSize: 14,
         padding: 0,
         lineHeight: '1.8',
+        fontWeight: 400,
     }
 
     const trashIconStyle = {
@@ -140,16 +142,19 @@ const MobileHomeTop = ({ activateDemo }) => {
     const addNewStyle = {
         fontSize: 13,
         margin: '25px 0 10px 24px',
+        fontWeight: 500,
     }
 
     const exerciseSelectStyle = {
-        border: '1px solid darkblue',
+        border: '2px solid black',
         borderRadius: 4,
         margin: '0 24px',
-        width: '87%',
+        width: '87.5%',
         height: 39,
         paddingLeft: 12,
         paddingRight: 0,
+        fontWeight: 500,
+        
     }
 
     const addExerciseDiv = {

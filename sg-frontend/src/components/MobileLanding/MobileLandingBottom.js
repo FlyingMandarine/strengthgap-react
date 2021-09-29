@@ -8,12 +8,14 @@ const MobileLandingBottom = (props) => {
     const h2Style = {
         fontSize: 24,
         marginTop: 55,
+        fontWeight: 700,
     }
 
     const descriptionStyle = {
         fontSize: 13,
         marginBottom: 40,
         lineHeight: 1.4,
+        fontWeight: 500,
     }
 
     return (
