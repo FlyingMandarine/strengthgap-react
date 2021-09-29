@@ -11,8 +11,8 @@ const BottomPanel = (props) => {
     }
 
     return (
-        <div style={bottomPanelStyle}>
-            {props.children}
+        <div style={ bottomPanelStyle }>
+            { props.children }
         </div>
     )
 }

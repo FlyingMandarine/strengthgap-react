@@ -13,6 +13,8 @@ import PasswordChange from './components/PasswordChange/PasswordChange'
 import ProfileDelete from './components/ProfileDelete/ProfileDelete'
 import History from './components/History/History'
 
+import DesktopHome from './components/DesktopHome/DesktopHome'
+
 const App = () => {
     const dispatch = useDispatch()
     const currentPage = useSelector(state => state.page)
@@ -35,8 +37,8 @@ const App = () => {
     if (currentPage === 'MobileLanding') {
         return (
             <>
-                {isMobile && <MobileLanding changePage={changePage}/>}
-                {isDesktop && <p>DESKTOP VERSION NEEDED</p>}
+                { isMobile && <MobileLanding changePage={ changePage } /> }
+                { isDesktop && <DesktopHome changePage={ changePage }/> }
             </>
         )
     } else if (currentPage === 'MobileHome') {

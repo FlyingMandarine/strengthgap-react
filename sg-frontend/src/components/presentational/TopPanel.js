@@ -10,8 +10,8 @@ const TopPanel = (props) => {
     }
 
     return (
-        <div style={topPanelStyle}>
-            {props.children}
+        <div style={ topPanelStyle }>
+            { props.children }
         </div>
     )
 }
