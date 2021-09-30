@@ -15,18 +15,21 @@ html {
   font: 10px 'Roboto', sans-serif;
 }
 
-#exercise {
+#exercise,
+#historySelect {
   /* for Firefox */
   -moz-appearance: none;
   /* for Chrome */
   -webkit-appearance: none;
 
-  background-image: url('./images/arrow-drop-down.svg');
+  background-image: url('./images/arrow-drop-down.png');
   background-repeat: no-repeat;
-  background-position: 98%;
+  background-position: 97.5%;
+  background-size: contain;
 }
 
-/* For IE10 */
-#exercise::-ms-expand {
+/* for IE10 */
+#exercise::-ms-expand,
+#history::-ms-expand {
   display: none;
 }

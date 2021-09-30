@@ -5,15 +5,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { changeCurrentPage } from './reducers/pageReducer'
 import { changeUser } from './reducers/userReducer'
 
-import MobileLanding from './components/MobileLanding/MobileLanding'
-import MobileHome from './components/MobileHome/MobileHome'
-import Login from './components/Login/Login'
-import SignUp from './components/SignUp/SignUp'
-import PasswordChange from './components/PasswordChange/PasswordChange'
-import ProfileDelete from './components/ProfileDelete/ProfileDelete'
-import History from './components/History/History'
+import MobileLanding from './components/Mobile/MobileLanding/MobileLanding'
+import MobileHome from './components/Mobile/MobileHome/MobileHome'
+import MobileLogin from './components/Mobile/MobileLogin/MobileLogin'
+import MobileSignUp from './components/Mobile/MobileSignUp/MobileSignUp'
+import MobilePasswordChange from './components/Mobile/MobilePasswordChange/MobilePasswordChange'
+import MobileProfileDelete from './components/Mobile/MobileProfileDelete/MobileProfileDelete'
+import MobileHistory from './components/Mobile/MobileHistory/MobileHistory'
 
-import DesktopHome from './components/DesktopHome/DesktopHome'
+import DesktopHome from './components/Desktop/DesktopHome/DesktopHome'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -47,23 +47,23 @@ const App = () => {
         )
     } else if (currentPage === 'Login') {
         return (
-            <Login />
+            <MobileLogin />
         )
     } else if (currentPage === 'SignUp') {
         return (
-            <SignUp />
+            <MobileSignUp />
         )
     } else if (currentPage === 'ChangePassword') {
         return (
-            <PasswordChange />
+            <MobilePasswordChange />
         )
     } else if (currentPage === 'DeleteProfile') {
         return (
-            <ProfileDelete />
+            <MobileProfileDelete />
         )
     } else if (currentPage === 'History') {
         return (
-            <History />
+            <MobileHistory />
         )
     }
 }
