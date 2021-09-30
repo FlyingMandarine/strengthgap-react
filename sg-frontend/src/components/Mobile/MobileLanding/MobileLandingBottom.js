@@ -1,9 +1,13 @@
 import React from 'react'
 
+import { useDispatch } from 'react-redux'
+import { changeCurrentPage } from '../../../reducers/pageReducer'
+
 import MobileBlackButton from '../MobilePresentational/MobileBlackButton'
 import MobileBottomPanel from '../MobilePresentational/MobileBottomPanel'
 
-const MobileLandingBottom = (props) => {
+const MobileLandingBottom = () => {
+    const dispatch = useDispatch()
 
     const h2Style = {
         fontSize: 24,
@@ -25,7 +29,7 @@ const MobileLandingBottom = (props) => {
                 A common struggle for people who have just started working out is to ensure that the program they follow will target all muscle groups.<br></br><br></br>
                 Not doing so - for instance, including chest exercises but no back exercises - can lead to muscle imbalances that can be detrimental to your health in the long term.
                 </p>
-                <MobileBlackButton text={ 'Get started' } fontSize={ 18 } width={ 324 } height={ 55 } handleClick={ props.changePage } />
+                <MobileBlackButton text={ 'Get started' } fontSize={ 18 } width={ 324 } height={ 55 } handleClick={ () => dispatch(changeCurrentPage('Home')) } />
         </MobileBottomPanel>
     )
 }

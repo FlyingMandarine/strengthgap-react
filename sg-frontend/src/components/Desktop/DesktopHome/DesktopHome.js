@@ -27,11 +27,11 @@ const DesktopHome = () => {
     return (
         <DesktopAppContainer>
             { user !== null && <DesktopMenu /> }
-            <DesktopHomeLeft activateDemo={ activateDemo } />
-            <DesktopHomeRight demoInviteActive={ demoInviteActive } deactivateDemo={ deactivateDemo } />
             { user === null && demoInviteActive === true &&
                 <DesktopDemoInvite deactivateDemo={ deactivateDemo } />
             }
+            <DesktopHomeLeft activateDemo={ activateDemo } />
+            <DesktopHomeRight demoInviteActive={ demoInviteActive } deactivateDemo={ deactivateDemo } />
             <DesktopFooter />
         </DesktopAppContainer>
     )

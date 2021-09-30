@@ -129,8 +129,8 @@ const MobileHomeTop = ({ activateDemo }) => {
         fontSize: 14,
         padding: 0,
         lineHeight: '1.8',
-        fontWeight: 400,
         margin: '5px 0',
+        fontWeight: 400,
     }
 
     const trashIconStyle = {

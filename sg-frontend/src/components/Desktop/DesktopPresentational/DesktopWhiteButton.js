@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DesktopWhiteButton = ({ text, handleClick, disabled, fontSize, width, height, icon }) => {
+const DesktopWhiteButton = ({ text, handleClick, disabled, fontSize, width, height, icon, iconSize }) => {
 
     const whiteButtonStyle = {
         color: 'black',
@@ -26,7 +26,7 @@ const DesktopWhiteButton = ({ text, handleClick, disabled, fontSize, width, heig
     }
 
     const iconStyle = {
-        fontSize: 14,
+        fontSize: iconSize,
         marginRight: 12,
         marginLeft: 6,
         pointerEvents: 'none',

@@ -4,11 +4,12 @@ const DesktopRightPanel = (props) => {
 
     const rightPanelStyle = {
         backgroundColor: props.bgColor,
+        textAlign: 'center',
         height: '100%',
         width: '50%',
         borderLeft: 'solid 1px black',
         padding: '0 29px',
-        borderRadius: '0 6px 6px 0'
+        borderRadius: '0 6px 6px 0',
     }
 
     return (

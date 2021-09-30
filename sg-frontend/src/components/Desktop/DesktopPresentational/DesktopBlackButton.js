@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, height, icon }) => {
+const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, height, icon, iconSize }) => {
 
     const blackButtonStyle = {
         color: 'white',
@@ -26,7 +26,7 @@ const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, heig
     }
 
     const iconStyle = {
-        fontSize: 16,
+        fontSize: iconSize,
         marginRight: 12,
         pointerEvents: 'none',
     }

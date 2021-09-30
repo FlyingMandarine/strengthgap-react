@@ -31,7 +31,7 @@ const MobileMuscleMapContainer = () => {
         <>
             {
                 currentPage !== 'MobileLanding' &&
-                <div style={ backDiv } onClick={ () => dispatch(changeCurrentPage('MobileHome')) }><i style={ chevronStyle } className='fas fa-chevron-left' />Back</div>
+                <div style={ backDiv } onClick={ () => dispatch(changeCurrentPage('Home')) }><i style={ chevronStyle } className='fas fa-chevron-left' />Back</div>
             }
             <MobileTitle marginTop={ 70 } />
             <div style={muscleMapStyle}>

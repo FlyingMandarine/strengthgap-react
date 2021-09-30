@@ -85,7 +85,7 @@ const MobileProfileDeleteBottom = () => {
             window.localStorage.removeItem('loggedSGUser')
 
             dispatch(logOutUser())
-            dispatch(changeCurrentPage('MobileHome'))
+            dispatch(changeCurrentPage('Home'))
 
         } catch (exception) {
             if (exception.response.status === 401) {

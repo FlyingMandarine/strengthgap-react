@@ -75,7 +75,7 @@ const MobilePasswordChangeBottom = () => {
         try {
             await userService.updateUser(storageInfo, userToUpdate)
 
-            dispatch(changeCurrentPage('MobileHome'))
+            dispatch(changeCurrentPage('Home'))
 
         } catch (exception) {
             console.log(exception)

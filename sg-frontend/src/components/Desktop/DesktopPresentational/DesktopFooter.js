@@ -4,9 +4,9 @@ const DesktopFooter = () => {
 
     const footerLinkStyle = {
         position: 'fixed',
-        bottom: '-5%',
-        left: '43.5%',
-        fontSize: 13,
+        bottom: '-10%',
+        left: '40%',
+        fontSize: 22,
         color: 'white',
         fontWeight: 400,
     }

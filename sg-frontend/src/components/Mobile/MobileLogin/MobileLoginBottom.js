@@ -54,7 +54,7 @@ const MobileLoginBottom = () => {
             )
 
             dispatch(changeUser(event.target.username.value))
-            dispatch(changeCurrentPage('MobileHome'))
+            dispatch(changeCurrentPage('Home'))
 
         } catch (exception) {
             console.log(exception)

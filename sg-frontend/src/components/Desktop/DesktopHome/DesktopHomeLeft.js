@@ -8,6 +8,7 @@ import sessionService from '../../../services/sessions'
 
 import DesktopTitle from '../DesktopPresentational/DesktopTitle'
 import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
+import DesktopBottomLeftPanel from '../DesktopPresentational/DesktopBottomLeftPanel'
 import DesktopBlackButton from '../DesktopPresentational/DesktopBlackButton'
 import DesktopWhiteButton from '../DesktopPresentational/DesktopWhiteButton'
 
@@ -132,15 +133,16 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         color: customTurquoise,
         fontSize: 19,
         fontWeight: 500,
+        marginBottom: 25,
     }
 
     const addedExercisesListDivStyle = {
-        maxHeight: 130,
+        maxHeight: 112,
         overflowY: 'auto',
         border: '2px solid black',
         borderRadius: 4,
         width: 423,
-        height: 40,
+        paddingLeft: 16,
     }
 
     const ulStyle = {
@@ -150,6 +152,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         fontSize: 14,
         padding: 0,
         lineHeight: '1.8',
+        margin: '5px 0',
         fontWeight: 400,
     }
 
@@ -172,13 +175,13 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         width: 285,
         height: 39,
         paddingLeft: 12,
-        paddingRight: 0,
         fontSize: 14,
         fontWeight: 400,
     }
 
     const addExerciseSpan = {
         marginLeft: 10,
+        verticalAlign: 'middle',
     }
 
     const buttonDivStyle = {
@@ -190,11 +193,19 @@ const DesktopHomeLeft = ({ activateDemo }) => {
 
     const bottomLeftSpan = {
         fontSize: 17,
-        fontWeight: 500
+        fontWeight: 500,
     }
 
     const orStyle = {
-        margin: '0 10px'
+        margin: '0 16px',
+    }
+
+    const emptySpanStyle = {
+        marginLeft: 40,
+    }
+
+    const bottomLeftTextSpanStyle = {
+        marginLeft: 17,
     }
 
     const handleMouseEnter = (e) => {
@@ -295,20 +306,25 @@ const DesktopHomeLeft = ({ activateDemo }) => {
                             <DesktopBlackButton text='Add exercise' fontSize={ 16 } width={ 130 } height={ 38 } handleClick={ addExercise } /> 
                         }
                     </span>
-
-                    <div style={ buttonDivStyle }>
-                        { user === null
-                            ?
-                            <span style={ bottomLeftSpan }>
-                                <DesktopBlackButton text='Log in' fontSize={ 16 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
-                                <span style={ orStyle }>or</span>
-                                <DesktopWhiteButton text='Sign up' fontSize={ 16 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } /><br />
-                                to submit your workout.
-                            </span>
-                            :
-                            <DesktopBlackButton text='Save session' fontSize={ 16 } width={ 150 } height={ 56 } handleClick={ saveSession } />
-                        }
-                    </div>
+                    <DesktopBottomLeftPanel>
+                        <div style={ buttonDivStyle }>
+                            { user === null
+                                ?
+                                <span style={ bottomLeftSpan }>
+                                    <DesktopBlackButton text='Log in' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
+                                    <span style={ orStyle }>or</span>
+                                    <DesktopWhiteButton text='Sign up' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
+                                    <span style={ bottomLeftTextSpanStyle }>to submit your workout.</span>
+                                </span>
+                                :
+                                <>
+                                    <DesktopWhiteButton text='My exercise history' fontSize={ 21 } width={ 244 } height={ 56 } icon={ 'fas fa-dumbbell' } iconSize={ 17 } handleClick={ () => dispatch(changeCurrentPage('History')) } />
+                                    <span style={ emptySpanStyle } />
+                                    <DesktopBlackButton text='Save session' fontSize={ 21 } width={ 206 } height={ 56 } icon={ 'fas fa-check' } iconSize={ 20 } handleClick={ saveSession } />
+                                </>
+                            }
+                        </div>
+                    </DesktopBottomLeftPanel>
                 </div>
             </DesktopLeftPanel>
     )

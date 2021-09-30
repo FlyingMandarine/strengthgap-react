@@ -75,7 +75,7 @@ const MobileHistoryBottom = ({ history, updateHistory, currentSession, setNewSes
                         <MobileWhiteButton text='Delete session' fontSize={ 16 } width={ 160 } height={ 50 } icon={ 'fas fa-trash-alt' } handleClick={ deleteSession } />
                 }
                 <span style={ emptySpan }></span>
-                <MobileBlackButton text='New session' fontSize={ 16 } width={ 160 } height={ 50 } icon={ 'fas fa-plus' } handleClick={ () => dispatch(changeCurrentPage('MobileHome')) } />
+                <MobileBlackButton text='New session' fontSize={ 16 } width={ 160 } height={ 50 } icon={ 'fas fa-plus' } handleClick={ () => dispatch(changeCurrentPage('Home')) } />
             </div>
         </MobileBottomPanel>
     )

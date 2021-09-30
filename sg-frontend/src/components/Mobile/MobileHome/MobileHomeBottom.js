@@ -38,7 +38,11 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     }
 
     const orStyle = {
-        margin: '0 10px'
+        margin: '0 10px',
+    }
+
+    const buttonSpanStyle = {
+        marginLeft: -178,
     }
 
     const saveSession = async () => {
@@ -71,12 +75,12 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
                 <div style={ buttonDivStyle }>
                     { user === null
                         ?
-                        <span>
+                        <>
                             <MobileBlackButton text='Log in' fontSize={ 16 } width={ 146 } height={ 38 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
                             <span style={ orStyle }>or</span>
                             <MobileWhiteButton text='Sign up' fontSize={ 16 } width={ 146 } height={ 38 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } /><br />
-                            to submit your workout.
-                        </span>
+                            <span style={ buttonSpanStyle }> to submit your workout.</span>
+                        </>
                         :
                         <div>
                             <MobileBlackButton text='Save session' fontSize={ 16 } width={ 255 } height={ 50 } icon={ 'fas fa-check' } handleClick={ saveSession } />

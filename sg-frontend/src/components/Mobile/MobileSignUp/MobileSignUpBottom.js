@@ -90,7 +90,7 @@ const MobileSignUpBottom = () => {
                 'loggedSGUser', JSON.stringify(userToLogIn)
             )
 
-            dispatch(changeCurrentPage('MobileHome'))
+            dispatch(changeCurrentPage('Home'))
 
         } catch (exception) {
             if (exception.response.data.error.includes('expected `username` to be unique')) {

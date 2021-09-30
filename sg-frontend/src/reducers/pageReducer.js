@@ -6,8 +6,8 @@ export const changeCurrentPage = (page) => {
 
 const pageReducer = (state = 'MobileLanding', action) => {
     switch (action.type) {
-        case 'MobileHome':
-            return 'MobileHome'
+        case 'Home':
+            return 'Home'
         case 'Login':
             return 'Login'
         case 'SignUp':

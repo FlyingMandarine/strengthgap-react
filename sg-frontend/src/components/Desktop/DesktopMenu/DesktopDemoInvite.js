@@ -5,18 +5,13 @@ const DesktopDemoInvite = ({ deactivateDemo }) => {
 
     const divStyle = {
         position: 'absolute',
-        bottom: 0,
-        fontSize: 12,
+        top: 46,
+        left: '50.05%',
         color: 'white',
         backgroundColor: customTurquoise,
-        width: '100%',
-        height: 100,
-    }
-
-    const closeButtonStyle = {
-        float: 'right',
-        fontSize: 27,
-        margin: '18px 18px 0 0',
+        fontSize: 14,
+        width: 395,
+        height: 90,
     }
 
     const warningStyle = {
@@ -24,18 +19,13 @@ const DesktopDemoInvite = ({ deactivateDemo }) => {
     }
 
     const pStyle = {
-        paddingLeft: 18,
-        lineHeight: 2,
+        paddingLeft: 14,
+        lineHeight: 1.4,
         fontWeight: 400,
-    }
-
-    const closeDemoInvite = () => {
-        deactivateDemo()
     }
 
     return (
         <div style={ divStyle }>
-            <i style={ closeButtonStyle } className='fas fa-times' onClick={ closeDemoInvite } />
             <p style={ pStyle }>
                 <span style={ warningStyle }>Warning:</span><br />
                 You won't be able to save this session unless you first log in.<br />

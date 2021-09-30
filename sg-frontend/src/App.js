@@ -2,7 +2,6 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { changeCurrentPage } from './reducers/pageReducer'
 import { changeUser } from './reducers/userReducer'
 
 import MobileLanding from './components/Mobile/MobileLanding/MobileLanding'
@@ -30,20 +29,19 @@ const App = () => {
         dispatch(changeUser(storageInfo.username))
     }
 
-    const changePage = () => (
-        dispatch(changeCurrentPage('MobileHome'))
-    )
-
     if (currentPage === 'MobileLanding') {
         return (
             <>
-                { isMobile && <MobileLanding changePage={ changePage } /> }
-                { isDesktop && <DesktopHome changePage={ changePage }/> }
+                { isMobile && <MobileLanding /> }
+                { isDesktop && <DesktopHome /> }
             </>
         )
-    } else if (currentPage === 'MobileHome') {
+    } else if (currentPage === 'Home') {
         return (
-            <MobileHome />
+            <>
+                { isMobile && <MobileHome /> }
+                { isDesktop && <DesktopHome /> }
+            </>
         )
     } else if (currentPage === 'Login') {
         return (

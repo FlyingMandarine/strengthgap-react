@@ -109,10 +109,10 @@ const MobileMenu = () => {
                     {
                         user === null
                             ?
-                            <div style={ homeDivStyle } onClick={ () => dispatch(changeCurrentPage('MobileHome')) }><i style={ smallIconStyle } className='fas fa-home' />Home</div>
+                            <div style={ homeDivStyle } onClick={ () => dispatch(changeCurrentPage('Home')) }><i style={ smallIconStyle } className='fas fa-home' />Home</div>
                             :
                             <>
-                                <div style={ homeDivStyle } onClick={ () => dispatch(changeCurrentPage('MobileHome')) }><i style={ smallIconStyle } className='fas fa-home' />Home</div>
+                                <div style={ homeDivStyle } onClick={ () => dispatch(changeCurrentPage('Home')) }><i style={ smallIconStyle } className='fas fa-home' />Home</div>
                                 <div style={ largeTextStyle } onClick={ () => dispatch(changeCurrentPage('History')) }><i style={ smallIconStyle } className='fas fa-dumbbell' />History</div>
                             </>
                     }

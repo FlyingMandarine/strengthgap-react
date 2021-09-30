@@ -5,7 +5,6 @@ const DesktopAppContainer = (props) => {
     const divStyle = {
         backgroundColor: 'white',
         display: 'flex',
-        flexDirection: 'row',
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -15,7 +14,7 @@ const DesktopAppContainer = (props) => {
         width: 1400,
 
         border: 'solid 3px black',
-        borderRadius: 6
+        borderRadius: 6,
     }
 
     return (
