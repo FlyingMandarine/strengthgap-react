@@ -7,7 +7,7 @@ import { DesktopMuscleMapFront, DesktopMuscleMapBack } from '../DesktopMuscleMap
 const DesktopHomeRight = ({ demoInviteActive, deactivateDemo }) => {
 
     const divStyle = {
-        marginTop: '30%',
+        marginTop: '28%',
     }
 
     const percentageParaStyle = {

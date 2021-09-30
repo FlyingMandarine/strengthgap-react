@@ -3,19 +3,20 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
 
-import userService from '../../../services/users'
 import loginService from '../../../services/login'
+import userService from '../../../services/users'
 
-import MobileBottomPanel from '../MobilePresentational/MobileBottomPanel'
-import MobileBlackButton from '../MobilePresentational/MobileBlackButton'
-import MobileWhiteButton from '../MobilePresentational/MobileWhiteButton'
+import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
+import DesktopBlackButton from '../DesktopPresentational/DesktopBlackButton'
+import DesktopWhiteButton from '../DesktopPresentational/DesktopWhiteButton'
+import DesktopBackButton from '../DesktopPresentational/DesktopBackButton'
 
-const MobileSignUpBottom = () => {
+const DesktopSignUpLeft = () => {
     const dispatch = useDispatch()
 
     const titleStyle = {
-        fontSize: 24,
-        marginTop: 50,
+        fontSize: 28,
+        marginTop: 280,
         marginBottom: 30,
         fontWeight: 500,
     }
@@ -23,20 +24,21 @@ const MobileSignUpBottom = () => {
     const inputStyle = {
         border: '2px solid black',
         borderRadius: 4,
+        fontSize: 14,
         paddingLeft: 12,
         marginBottom: 24,
-        width: '100%',
+        width: 360,
         height: 40,
         fontWeight: 400,
     }
 
     const buttonsDivStyle = {
-        fontSize: 16,
+        fontSize: 17,
         marginTop: 26,
     }
 
     const orStyle = {
-        margin: '0 25px',
+        margin: '0 21px',
         fontWeight: 500,
     }
 
@@ -108,7 +110,9 @@ const MobileSignUpBottom = () => {
     }
 
     return (
-        <MobileBottomPanel bgColor={ 'white' }>
+        <DesktopLeftPanel bgColor={ 'white' } paddingLeft={ 90 }>
+            <DesktopBackButton />
+
             <p style={ titleStyle }>Sign up</p>
 
             <form onSubmit={ submitSignUp }>
@@ -116,13 +120,13 @@ const MobileSignUpBottom = () => {
                 <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
                 <input style={ inputStyle } type='password' name='confirmPassword' placeholder='Confirm Password' /><br />
                 <div style={ buttonsDivStyle }>
-                    <MobileBlackButton text='Sign up' fontSize={ 16 } width={ 130 } height={ 50 } />
+                    <DesktopBlackButton text='Sign up' fontSize={ 21 } width={ 150 } height={ 56 } />
                     <span style={ orStyle }>or</span>
-                    <MobileWhiteButton text='Log in' fontSize={ 16 } width={ 130 } height={ 50 } handleClick={ redirectToLogin } />
+                    <DesktopWhiteButton text='Log in' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ redirectToLogin } />
                 </div>
             </form>
-        </MobileBottomPanel>
+        </DesktopLeftPanel>
     )
 }
 
-export default MobileSignUpBottom
+export default DesktopSignUpLeft

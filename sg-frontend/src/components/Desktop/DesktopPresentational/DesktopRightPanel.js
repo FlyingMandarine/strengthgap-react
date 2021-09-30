@@ -8,7 +8,6 @@ const DesktopRightPanel = (props) => {
         height: '100%',
         width: '50%',
         borderLeft: 'solid 1px black',
-        padding: '0 29px',
         borderRadius: '0 6px 6px 0',
     }
 

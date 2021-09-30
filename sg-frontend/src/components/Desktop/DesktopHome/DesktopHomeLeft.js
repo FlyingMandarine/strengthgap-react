@@ -277,7 +277,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     return (
             <DesktopLeftPanel bgColor={ 'white' }>
                 <div style={ containerDivStyle }>
-                    <DesktopTitle marginTop={ 50 } />
+                    <DesktopTitle fontSize={ 58 } marginTop={ 50 } />
 
                     <h2 style={ h2Style }>A Tool to Check for Muscle Imbalance</h2>
                     <p style={ descriptionStyle }>

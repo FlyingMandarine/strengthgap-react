@@ -13,6 +13,11 @@ import MobileProfileDelete from './components/Mobile/MobileProfileDelete/MobileP
 import MobileHistory from './components/Mobile/MobileHistory/MobileHistory'
 
 import DesktopHome from './components/Desktop/DesktopHome/DesktopHome'
+import DesktopLogin from './components/Desktop/DesktopLogin/DesktopLogin'
+import DesktopSignUp from './components/Desktop/DesktopSignUp/DesktopSignUp'
+import DesktopPasswordChange from './components/Desktop/DesktopPasswordChange/DesktopPasswordChange'
+import DesktopProfileDelete from './components/Desktop/DesktopProfileDelete/DesktopProfileDelete'
+import DesktopHistory from './components/Desktop/DesktopHistory/DesktopHistory'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -45,23 +50,38 @@ const App = () => {
         )
     } else if (currentPage === 'Login') {
         return (
-            <MobileLogin />
+            <>
+                { isMobile && <MobileLogin /> }
+                { isDesktop && <DesktopLogin /> }
+            </>
         )
     } else if (currentPage === 'SignUp') {
         return (
-            <MobileSignUp />
+            <>
+                { isMobile && <MobileSignUp /> }
+                { isDesktop && <DesktopSignUp /> }
+            </>
         )
     } else if (currentPage === 'ChangePassword') {
         return (
-            <MobilePasswordChange />
+            <>
+                { isMobile && <MobilePasswordChange /> }
+                { isDesktop && <DesktopPasswordChange /> }
+            </>
         )
     } else if (currentPage === 'DeleteProfile') {
         return (
-            <MobileProfileDelete />
+            <>
+                { isMobile && <MobileProfileDelete /> }
+                { isDesktop && <DesktopProfileDelete /> }
+            </>
         )
     } else if (currentPage === 'History') {
         return (
-            <MobileHistory />
+            <>
+                { isMobile && <MobileHistory /> }
+                { isDesktop && <DesktopHistory /> }
+            </>
         )
     }
 }

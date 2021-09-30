@@ -1,9 +1,9 @@
 import React from 'react'
 
-const DesktopTitle = ({ marginTop }) => {
+const DesktopTitle = ({ fontSize, marginTop }) => {
 
     const titleStyle = {
-        fontSize: 58,
+        fontSize: fontSize,
         marginTop: marginTop,
         marginBottom: 16,
         fontWeight: 500,

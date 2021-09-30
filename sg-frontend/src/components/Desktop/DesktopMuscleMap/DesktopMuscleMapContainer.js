@@ -1,71 +1,101 @@
 import React from 'react'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { changeCurrentPage } from '../reducers/pageReducer'
-
-import { DesktopMuscleMapBack, DesktopMuscleMapFront } from './MobileMuscleMap'
-import DesktopTitle from './Desktop/DesktopPresentational/DesktopTitle'
+import { DesktopMuscleMapBack, DesktopMuscleMapFront } from './DesktopMuscleMap'
+import DesktopTitle from '../DesktopPresentational/DesktopTitle'
 
 const DesktopMuscleMapContainer = () => {
-    const dispatch = useDispatch()
-    const currentPage = useSelector(state => state.page)
-
-    const backDiv = {
-        position: 'absolute',
-        fontSize: 17,
-        margin: '26px 0 0 22px',
-        cursor: 'pointer',
-        fontWeight: 500,
-    }
-
-    const chevronStyle = {
-        fontSize: 12,
-        marginRight: 8,
-    }
 
     const muscleMapStyle = {
-        margin: '30px 0 22px'
+        margin: '24px 0 9px',
+    }
+
+    const thirdRowStyle = {
+        margin: '31px 0 8px'
     }
 
     return (
         <>
-            {
-                currentPage !== 'MobileLanding' &&
-                <div style={ backDiv } onClick={ () => dispatch(changeCurrentPage('MobileHome')) }><i style={ chevronStyle } className='fas fa-chevron-left' />Back</div>
-            }
-            <DesktopTitle marginTop={ 70 } />
-            <div style={muscleMapStyle}>
-                <DesktopMuscleMapFront mapPosition={'-top-left'}
-                    muscleWidth={52} muscleHeight={102}
+            <div style={ muscleMapStyle }>
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapBack mapPosition={'-top-left'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapFront mapPosition={'-top-middle'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapBack mapPosition={'-top-right'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapFront mapPosition={'-top-right'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
             </div>
             <div>
-                <DesktopMuscleMapFront mapPosition={'-bottom-left'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapBack mapPosition={'-bottom-left'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapFront mapPosition={'-bottom-middle'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapBack mapPosition={'-bottom-right'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
-                <DesktopMuscleMapFront mapPosition={'-bottom-right'}
-                    muscleWidth={52} muscleHeight={102}
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+            </div>
+
+                <DesktopTitle fontSize={ 44 } marginTop={ 36 } />
+
+            <div style={ thirdRowStyle }>
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+            </div>
+            <div>
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapFront
+                    muscleWidth={ 87 } muscleHeight={ 169 }
+                />
+                <DesktopMuscleMapBack
+                    muscleWidth={ 87 } muscleHeight={ 169 }
                 />
             </div>
         </>
