@@ -2,16 +2,22 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { changeCurrentPage } from './reducers/pageReducer'
 import { changeUser } from './reducers/userReducer'
 
-import MobileLanding from './components/MobileLanding/MobileLanding'
-import MobileHome from './components/MobileHome/MobileHome'
-import Login from './components/Login/Login'
-import SignUp from './components/SignUp/SignUp'
-import PasswordChange from './components/PasswordChange/PasswordChange'
-import ProfileDelete from './components/ProfileDelete/ProfileDelete'
-import History from './components/History/History'
+import MobileLanding from './components/Mobile/MobileLanding/MobileLanding'
+import MobileHome from './components/Mobile/MobileHome/MobileHome'
+import MobileLogin from './components/Mobile/MobileLogin/MobileLogin'
+import MobileSignUp from './components/Mobile/MobileSignUp/MobileSignUp'
+import MobilePasswordChange from './components/Mobile/MobilePasswordChange/MobilePasswordChange'
+import MobileProfileDelete from './components/Mobile/MobileProfileDelete/MobileProfileDelete'
+import MobileHistory from './components/Mobile/MobileHistory/MobileHistory'
+
+import DesktopHome from './components/Desktop/DesktopHome/DesktopHome'
+import DesktopLogin from './components/Desktop/DesktopLogin/DesktopLogin'
+import DesktopSignUp from './components/Desktop/DesktopSignUp/DesktopSignUp'
+import DesktopPasswordChange from './components/Desktop/DesktopPasswordChange/DesktopPasswordChange'
+import DesktopProfileDelete from './components/Desktop/DesktopProfileDelete/DesktopProfileDelete'
+import DesktopHistory from './components/Desktop/DesktopHistory/DesktopHistory'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -28,40 +34,54 @@ const App = () => {
         dispatch(changeUser(storageInfo.username))
     }
 
-    const changePage = () => (
-        dispatch(changeCurrentPage('MobileHome'))
-    )
-
     if (currentPage === 'MobileLanding') {
         return (
             <>
-                {isMobile && <MobileLanding changePage={changePage}/>}
-                {isDesktop && <p>DESKTOP VERSION NEEDED</p>}
+                { isMobile && <MobileLanding /> }
+                { isDesktop && <DesktopHome /> }
             </>
         )
-    } else if (currentPage === 'MobileHome') {
+    } else if (currentPage === 'Home') {
         return (
-            <MobileHome />
+            <>
+                { isMobile && <MobileHome /> }
+                { isDesktop && <DesktopHome /> }
+            </>
         )
     } else if (currentPage === 'Login') {
         return (
-            <Login />
+            <>
+                { isMobile && <MobileLogin /> }
+                { isDesktop && <DesktopLogin /> }
+            </>
         )
     } else if (currentPage === 'SignUp') {
         return (
-            <SignUp />
+            <>
+                { isMobile && <MobileSignUp /> }
+                { isDesktop && <DesktopSignUp /> }
+            </>
         )
     } else if (currentPage === 'ChangePassword') {
         return (
-            <PasswordChange />
+            <>
+                { isMobile && <MobilePasswordChange /> }
+                { isDesktop && <DesktopPasswordChange /> }
+            </>
         )
     } else if (currentPage === 'DeleteProfile') {
         return (
-            <ProfileDelete />
+            <>
+                { isMobile && <MobileProfileDelete /> }
+                { isDesktop && <DesktopProfileDelete /> }
+            </>
         )
     } else if (currentPage === 'History') {
         return (
-            <History />
+            <>
+                { isMobile && <MobileHistory /> }
+                { isDesktop && <DesktopHistory /> }
+            </>
         )
     }
 }

@@ -14,3 +14,22 @@ html {
 
   font: 10px 'Roboto', sans-serif;
 }
+
+#exercise,
+#historySelect {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+
+  background-image: url('./images/arrow-drop-down.png');
+  background-repeat: no-repeat;
+  background-position: 97.5%;
+  background-size: 30px;
+}
+
+/* for IE10 */
+#exercise::-ms-expand,
+#history::-ms-expand {
+  display: none;
+}

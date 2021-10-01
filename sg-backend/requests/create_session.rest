@@ -8,5 +8,5 @@ Content-Type: application/json
         "Behind The Back Cable Curl",
         "Bent Arm Barbell Pullover"
     ],
-    "percent": "21%"
+    "percent": 21
 }
