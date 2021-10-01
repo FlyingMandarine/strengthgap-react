@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react'
 
-import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
+import { useDispatch } from 'react-redux'
+import { changeCurrentPage } from '../../../reducers/pageReducer'
+
+import removeService from '../../../services/sessions'
 
 import { allMuscles, musclesWorked } from '../../utils/musclesWorked'
-import { customBlue, customPurple, customTurquoise } from '../../utils/colors'
+import { customPurple, customTurquoise } from '../../utils/colors'
+
+import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
+import DesktopBottomLeftPanel from '../DesktopPresentational/DesktopBottomLeftPanel'
+import DesktopBlackButton from '../DesktopPresentational/DesktopBlackButton'
 
 const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSession }) => {
-
-    const containerDivStyle = {
-        padding: '0 24px',
-    }
+    const dispatch = useDispatch()
 
     const titleStyle = {
-        fontSize: 34,
-        margin: '40px 0 28px',
+        fontSize: 49,
+        margin: '87px 0 56px',
         fontWeight: 500,
     }
 
@@ -26,16 +30,19 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
         border: '2px solid black',
         borderRadius: 4,
         paddingLeft: 12,
-        marginBottom: 24,
-        width: '100%',
-        height: 40,
+        marginBottom: 37,
+        width: 423,
+        height: 74,
+        fontSize: 17,
         fontWeight: 400,
     }
 
     const exercisesDivStyle = {
         backgroundColor: '#F4F4F4',
         borderRadius: 4,
-        fontSize: 15,
+        width: 423,
+        minHeight: 102,
+        fontSize: 19,
         padding: 16,
         fontWeight: 700,
     }
@@ -44,12 +51,21 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
         overflowY: 'auto',
         margin: 0,
         padding: 0,
-        maxHeight: 136,
+        maxHeight: 237,
+        fontSize: 17,
         fontWeight: 500,
     }
 
     const liStyle = {
-        marginTop: 15,
+        marginTop: 21,
+    }
+
+    const deleteButtonStyle = {
+        margin: '23px 0 0 229px',
+    }
+
+    const buttonsDivStyle = {
+        margin: '24px 0 0 -290px',
     }
 
     useEffect(() => {
@@ -90,7 +106,7 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
                     document.getElementById(muscle).style.fill = customPurple
                 }
                 else {
-                    document.getElementById(muscle).style.fill = customBlue
+                    document.getElementById(muscle).style.fill = customTurquoise
                 }
             })
         })
@@ -108,31 +124,59 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
         setNewSession(selectedSession)
     }
 
+    const deleteSession = async () => {
+        try {
+            const storageInfo = JSON.parse(window.localStorage.getItem('loggedSGUser'))
+
+            await removeService.removeSession(storageInfo.token, currentSession.id)
+
+            const newHistory = history.filter(s => s.id !== currentSession.id)
+
+            updateHistory(newHistory)
+        } catch (exception) {
+            // TO-DO: Make sure the UI displays this error and then logs the user out rather than simply a console log.
+            if (exception.response.data.error === 'token expired') {
+                console.log('Your session has expired. Please log in again to perform this action.')
+            }
+        }
+    }
+
     return (
-        <DesktopLeftPanel bgColor={ 'white' }>
-            <div style={ containerDivStyle }>
-                <div style={ titleStyle }>My Exercise History</div>
+        <DesktopLeftPanel bgColor={ 'white' } paddingLeft={ 100 }>
+            <h1 style={ titleStyle }>My Exercise History</h1>
 
-                <p style={ selectWorkoutStyle }>Select a workout</p>
+            <p style={ selectWorkoutStyle }>Select a workout</p>
 
-                <select style={ selectStyle } id='historySelect' onChange={ (e) => displaySession(e) }>
-                    <option>No workout selected</option>
+            <select style={ selectStyle } id='historySelect' onChange={ (e) => displaySession(e) }>
+                <option>No workout selected</option>
+                {
+                    history.map(s => <option key={ s.id } data-key={ s.id }>{ s.percent }% on { s.date }</option>)
+                }
+            </select>
+
+            <div style={ exercisesDivStyle }>
+                Exercises logged
+                <hr />
+                <ul style={ ulStyle }>
                     {
-                        history.map(s => <option key={ s.id } data-key={ s.id }>{ s.percent }% on { s.date }</option>)
+                        currentSession.exercises &&
+                        currentSession.exercises.map(ex => <li style={ liStyle } key={ ex }>{ ex }</li>)
                     }
-                </select>
-
-                <div style={ exercisesDivStyle }>
-                    Exercises logged
-                    <hr />
-                    <ul style={ ulStyle }>
-                        {
-                            currentSession.exercises &&
-                            currentSession.exercises.map(ex => <li style={ liStyle } key={ ex }>{ ex }</li>)
-                        }
-                    </ul>
-                </div>
+                </ul>
             </div>
+
+            {
+                currentSession.length !== 0 &&
+                <div style={ deleteButtonStyle }>
+                    <DesktopBlackButton text='Delete this session' fontSize={ 16 } width={ 194 } height={ 38 } icon={ 'fas fa-trash-alt' } handleClick={ deleteSession } />
+                </div>
+            }
+            
+            <DesktopBottomLeftPanel>
+            <div style={ buttonsDivStyle }>
+                <DesktopBlackButton text='New session' fontSize={ 21 } width={ 206 } height={ 56 } icon={ 'fas fa-plus' } handleClick={ () => dispatch(changeCurrentPage('Home')) } />
+            </div>
+            </DesktopBottomLeftPanel>
         </DesktopLeftPanel>
     )
 }

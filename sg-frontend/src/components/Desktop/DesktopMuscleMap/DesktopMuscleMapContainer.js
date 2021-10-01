@@ -17,7 +17,7 @@ const DesktopMuscleMapContainer = () => {
         <>
             <div style={ muscleMapStyle }>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
                     muscleWidth={ 87 } muscleHeight={ 169 }
@@ -37,7 +37,7 @@ const DesktopMuscleMapContainer = () => {
             </div>
             <div>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
                     muscleWidth={ 87 } muscleHeight={ 169 }
@@ -60,7 +60,7 @@ const DesktopMuscleMapContainer = () => {
 
             <div style={ thirdRowStyle }>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
                     muscleWidth={ 87 } muscleHeight={ 169 }
@@ -80,7 +80,7 @@ const DesktopMuscleMapContainer = () => {
             </div>
             <div>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
                     muscleWidth={ 87 } muscleHeight={ 169 }

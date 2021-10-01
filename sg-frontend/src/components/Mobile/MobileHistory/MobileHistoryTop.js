@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import MobileTopPanel from '../MobilePresentational/MobileTopPanel'
 
 import { allMuscles, musclesWorked } from '../../utils/musclesWorked'
-import { customBlue, customPurple, customTurquoise } from '../../utils/colors'
+import { customPurple, customTurquoise } from '../../utils/colors'
 
 const MobileHistoryTop = ({ history, updateHistory, currentSession, setNewSession }) => {
 
@@ -90,7 +90,7 @@ const MobileHistoryTop = ({ history, updateHistory, currentSession, setNewSessio
                     document.getElementById(muscle).style.fill = customPurple
                 }
                 else {
-                    document.getElementById(muscle).style.fill = customBlue
+                    document.getElementById(muscle).style.fill = customTurquoise
                 }
             })
         })

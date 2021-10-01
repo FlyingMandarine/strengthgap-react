@@ -191,8 +191,15 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         fontWeight: 500,
     }
 
-    const bottomLeftSpan = {
+    const loggedOutSpan = {
         fontSize: 17,
+        marginLeft: 28,
+        fontWeight: 500,
+    }
+
+    const loggedInSpan = {
+        fontSize: 17,
+        marginLeft: -30,
         fontWeight: 500,
     }
 
@@ -310,18 +317,18 @@ const DesktopHomeLeft = ({ activateDemo }) => {
                         <div style={ buttonDivStyle }>
                             { user === null
                                 ?
-                                <span style={ bottomLeftSpan }>
+                                <span style={ loggedOutSpan }>
                                     <DesktopBlackButton text='Log in' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
                                     <span style={ orStyle }>or</span>
                                     <DesktopWhiteButton text='Sign up' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
                                     <span style={ bottomLeftTextSpanStyle }>to submit your workout.</span>
                                 </span>
                                 :
-                                <>
+                                <span style={ loggedInSpan }>
                                     <DesktopWhiteButton text='My exercise history' fontSize={ 21 } width={ 244 } height={ 56 } icon={ 'fas fa-dumbbell' } iconSize={ 17 } handleClick={ () => dispatch(changeCurrentPage('History')) } />
                                     <span style={ emptySpanStyle } />
                                     <DesktopBlackButton text='Save session' fontSize={ 21 } width={ 206 } height={ 56 } icon={ 'fas fa-check' } iconSize={ 20 } handleClick={ saveSession } />
-                                </>
+                                </span>
                             }
                         </div>
                     </DesktopBottomLeftPanel>

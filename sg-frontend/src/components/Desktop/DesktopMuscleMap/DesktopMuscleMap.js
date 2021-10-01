@@ -22,7 +22,7 @@ const DesktopMuscleMapFront = ({ mapPosition, muscleWidth, muscleHeight,  margin
     }
 
     const spanStyle = {
-        margin: margin
+        margin: margin,
     }
 
     const muscleMapFill = [

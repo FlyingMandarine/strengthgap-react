@@ -25,7 +25,7 @@ html {
   background-image: url('./images/arrow-drop-down.png');
   background-repeat: no-repeat;
   background-position: 97.5%;
-  background-size: contain;
+  background-size: 30px;
 }
 
 /* for IE10 */

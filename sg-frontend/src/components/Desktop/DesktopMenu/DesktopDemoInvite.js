@@ -12,6 +12,7 @@ const DesktopDemoInvite = ({ deactivateDemo }) => {
         fontSize: 14,
         width: 395,
         height: 90,
+        borderRadius: '0 6px 6px 0',
     }
 
     const warningStyle = {
