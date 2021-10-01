@@ -114,9 +114,9 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     }, [ session ])
 
     const containerDivStyle = {
-        marginLeft: 90,
+        marginLeft: '12.85%',
     }
-    
+
     const h2Style = {
         fontSize: 22,
         fontWeight: 500,
@@ -284,7 +284,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     return (
             <DesktopLeftPanel bgColor={ 'white' }>
                 <div style={ containerDivStyle }>
-                    <DesktopTitle fontSize={ 58 } marginTop={ 50 } />
+                    <DesktopTitle fontSize={ 58 } marginTop={ '8.5%' } />
 
                     <h2 style={ h2Style }>A Tool to Check for Muscle Imbalance</h2>
                     <p style={ descriptionStyle }>
