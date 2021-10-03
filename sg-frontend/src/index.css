@@ -1,5 +1,13 @@
+:root {
+    font-size: 62.5%;
+}
+
 html {
     box-sizing: border-box;
+}
+  
+body {
+    font-size: 0.8rem;
 }
 
 *, *:before, *:after {
@@ -38,10 +46,19 @@ html {
     width: 1050px;
 }
 
+li:last-child .li-hr {
+    color: red !important;
+    visibility: hidden;
+}
+
 @media (min-width: 1451px) and (min-height: 900px) {
 
+    body {
+        font-size: 1rem;
+    }
+
     .desktop-container {
-        height: 870px !important;
-        width: 1400px !important;
+        height: 870px;
+        width: 1400px;
     }
 }

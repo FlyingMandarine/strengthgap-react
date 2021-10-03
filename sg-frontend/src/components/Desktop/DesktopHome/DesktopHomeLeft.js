@@ -118,13 +118,13 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     }
 
     const h2Style = {
-        fontSize: 22,
+        fontSize: '2.2em',
         fontWeight: 500,
     }
 
     const descriptionStyle = {
-        fontSize: 13,
-        margin: '45px 104px 40px 0',
+        fontSize: '1.3em',
+        margin: '7% 20% 6% 0',
         lineHeight: 1.4,
         fontWeight: 500,
     }
@@ -133,16 +133,18 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         color: customTurquoise,
         fontSize: 19,
         fontWeight: 500,
-        marginBottom: 25,
+        marginBottom: '4%',
     }
 
     const addedExercisesListDivStyle = {
-        maxHeight: 112,
+        minHeight: 40,
+        maxHeight: 244,
         overflowY: 'auto',
         border: '2px solid black',
         borderRadius: 4,
         width: 423,
         paddingLeft: 16,
+        lineHeight: 1.8,
     }
 
     const ulStyle = {
@@ -151,9 +153,15 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         marginLeft: 12,
         fontSize: 14,
         padding: 0,
-        lineHeight: '1.8',
+        
         margin: '5px 0',
         fontWeight: 400,
+    }
+
+    const liHrStyle = {
+        color: 'grey',
+        width: '96%',
+        marginLeft: 0,
     }
 
     const trashIconStyle = {
@@ -165,7 +173,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
 
     const addNewStyle = {
         fontSize: 13,
-        margin: '28px 0 10px',
+        margin: '4.5% 0 1.8%',
         fontWeight: 500,
     }
 
@@ -268,15 +276,20 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     const displayAddedExercisesList = () => {
         return (
             session.map(e =>
-                <li key={ e }>
-                    { e }<i
-                            style={ trashIconStyle }
-                            className='fas fa-trash-alt'
-                            onClick={ () => removeExercise(e) }
-                            onMouseEnter= { (e) => handleMouseEnter(e) }
-                            onMouseLeave= { (e) => handleMouseLeave(e) }
-                        />
-                </li>
+                <>
+                    <li key={ e }>
+                        { e }<i
+                                style={ trashIconStyle }
+                                className='fas fa-trash-alt'
+                                onClick={ () => removeExercise(e) }
+                                onMouseEnter= { (e) => handleMouseEnter(e) }
+                                onMouseLeave= { (e) => handleMouseLeave(e) }
+                            />
+                    </li>
+                    <li>
+                        <hr style={ liHrStyle } className='li-hr' />
+                    </li>
+                </>
             )
         )
     }
@@ -284,7 +297,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     return (
             <DesktopLeftPanel bgColor={ 'white' }>
                 <div style={ containerDivStyle }>
-                    <DesktopTitle fontSize={ 58 } marginTop={ '8.5%' } />
+                    <DesktopTitle fontSize={ '5.8em' } marginTop={ '8.5%' } />
 
                     <h2 style={ h2Style }>A Tool to Check for Muscle Imbalance</h2>
                     <p style={ descriptionStyle }>
