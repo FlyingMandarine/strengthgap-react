@@ -4,7 +4,7 @@ const DesktopBottomLeftPanel = (props) => {
 
     const divStyle = {
         position: 'absolute',
-        bottom: 24,
+        bottom: '2.8%',
         left: 0,
         width: '50%',
         textAlign: 'center',

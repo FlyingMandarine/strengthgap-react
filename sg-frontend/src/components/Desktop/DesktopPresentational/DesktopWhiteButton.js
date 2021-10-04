@@ -27,8 +27,8 @@ const DesktopWhiteButton = ({ text, handleClick, disabled, fontSize, width, heig
 
     const iconStyle = {
         fontSize: iconSize,
-        marginRight: 12,
-        marginLeft: 6,
+        marginRight: '5%',
+        marginLeft: '2%',
         pointerEvents: 'none',
     }
 

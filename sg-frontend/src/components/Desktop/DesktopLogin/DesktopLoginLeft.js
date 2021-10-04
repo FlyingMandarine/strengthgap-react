@@ -15,9 +15,9 @@ const DesktopLoginLeft = () => {
     const dispatch = useDispatch()
 
     const titleStyle = {
-        fontSize: 28,
-        marginTop: 280,
-        marginBottom: 30,
+        fontSize: '2.8em',
+        marginTop: '46.5%',
+        marginBottom: '5%',
         fontWeight: 500,
     }
 
@@ -27,18 +27,18 @@ const DesktopLoginLeft = () => {
         fontSize: 14,
         paddingLeft: 12,
         marginBottom: 24,
-        width: 360,
+        width: '59%',
         height: 40,
         fontWeight: 400,
     }
 
     const buttonsDivStyle = {
-        fontSize: 17,
         marginTop: 26,
     }
 
     const orStyle = {
-        margin: '0 21px',
+        fontSize: '1.7em',
+        margin: '0 3.1%',
         fontWeight: 500,
     }
 
@@ -78,9 +78,9 @@ const DesktopLoginLeft = () => {
                 <input style={ inputStyle } name='username' placeholder='Username' /><br />
                 <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
                 <div style={ buttonsDivStyle }>
-                    <DesktopBlackButton text='Log in' fontSize={ 21 } width={ 150 } height={ 56 } />
+                    <DesktopBlackButton text='Log in' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
                     <span style={ orStyle }>or</span>
-                    <DesktopWhiteButton text='Sign up' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ redirectToSignUp } />
+                    <DesktopWhiteButton text='Sign up' fontSize={ '2.1em' } width={ '25%' } height={ 56 } handleClick={ redirectToSignUp } />
                 </div>
             </form>
         </DesktopLeftPanel>

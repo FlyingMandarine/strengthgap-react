@@ -27,7 +27,7 @@ const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, heig
 
     const iconStyle = {
         fontSize: iconSize,
-        marginRight: 15,
+        marginRight: '8%',
         pointerEvents: 'none',
     }
 

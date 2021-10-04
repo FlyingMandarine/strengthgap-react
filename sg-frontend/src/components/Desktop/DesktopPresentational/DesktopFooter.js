@@ -4,15 +4,15 @@ const DesktopFooter = () => {
 
     const footerLinkStyle = {
         position: 'fixed',
-        bottom: '-10%',
+        bottom: '-7.5%',
         left: '40%',
-        fontSize: 22,
+        fontSize: '2.2em',
         color: 'white',
         fontWeight: 400,
     }
 
     const footerAStyle = {
-        color: 'white'
+        color: 'white',
     }
 
     return (

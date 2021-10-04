@@ -14,9 +14,9 @@ const DesktopPasswordChangeLeft = () => {
     const user = useSelector(state => state.user)
 
     const titleStyle = {
-        fontSize: 28,
-        marginTop: 280,
-        marginBottom: 30,
+        fontSize: '2.8em',
+        marginTop: '46.5%',
+        marginBottom: '5%',
         fontWeight: 500,
     }
 
@@ -25,15 +25,14 @@ const DesktopPasswordChangeLeft = () => {
         borderRadius: 4,
         fontSize: 14,
         paddingLeft: 12,
-        marginBottom: 24,
-        width: 360,
+        marginBottom: '4%',
+        width: '59%',
         height: 40,
         fontWeight: 400,
     }
 
     const buttonsDivStyle = {
-        fontSize: 17,
-        marginTop: 26,
+        marginTop: '4%',
     }
 
     const validatePasswordChange = (newPassword, confirmNewPassword) => {
@@ -94,7 +93,7 @@ const DesktopPasswordChangeLeft = () => {
                 <input style={ inputStyle }  type='password' name='newPassword' placeholder='New Password' /><br />
                 <input style={ inputStyle }  type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
                 <div style={ buttonsDivStyle }>
-                    <DesktopBlackButton text='Confirm' fontSize={ 21 } width={ 150 } height={ 56 } />
+                    <DesktopBlackButton text='Confirm' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
                 </div>
             </form>
         </DesktopLeftPanel>

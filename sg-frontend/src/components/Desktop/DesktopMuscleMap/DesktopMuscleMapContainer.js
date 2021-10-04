@@ -6,96 +6,96 @@ import DesktopTitle from '../DesktopPresentational/DesktopTitle'
 const DesktopMuscleMapContainer = () => {
 
     const muscleMapStyle = {
-        margin: '24px 0 9px',
+        margin: '3.5% 0 1.3%',
     }
 
     const thirdRowStyle = {
-        margin: '31px 0 8px'
+        margin: '4.4% 0 1.2%',
     }
 
     return (
         <>
             <div style={ muscleMapStyle }>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
             </div>
             <div>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
             </div>
 
-                <DesktopTitle fontSize={ 44 } marginTop={ 36 } />
+                <DesktopTitle fontSize={ '4.4em' } marginTop={ '5.2%' } />
 
             <div style={ thirdRowStyle }>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
             </div>
             <div>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 } margin={ '0 20px 0 0' }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' } margin={ '0 20px 0 0' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapFront
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12.5%' } muscleHeight={ '12%' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 87 } muscleHeight={ 169 }
+                    muscleWidth={ '12%' } muscleHeight={ '12%' }
                 />
             </div>
         </>

@@ -7,14 +7,15 @@ const DesktopBackButton = () => {
     const dispatch = useDispatch()
 
     const chevronStyle = {
-        fontSize: 12,
+        fontSize: '72%',
         marginRight: 8,
     }
 
     const backDiv = {
         position: 'absolute',
-        fontSize: 17,
-        marginTop: 76,
+        fontSize: '1.7em',
+        //marginTop: 76,
+        marginTop: '5.5%',
         cursor: 'pointer',
         fontWeight: 500,
     }

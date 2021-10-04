@@ -46,9 +46,17 @@ html {
     width: 1050px;
 }
 
-li:last-child .li-hr {
-    color: red !important;
+ul hr:first-child {
     visibility: hidden;
+    margin: 0px;
+}
+
+#added-exercises {
+    max-height: 123px;
+}
+
+#home-right-div {
+    margin-top: 14%;
 }
 
 @media (min-width: 1451px) and (min-height: 900px) {
@@ -60,5 +68,17 @@ li:last-child .li-hr {
     .desktop-container {
         height: 870px;
         width: 1400px;
+    }
+
+    #added-exercises {
+        max-height: 244px;
+    }
+
+    #home-right-div {
+        margin-top: 28%;
+    }
+
+    #home-percentage-para {
+        margin-top: 12.2%;
     }
 }
