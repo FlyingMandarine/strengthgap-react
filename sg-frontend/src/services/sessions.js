@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/sessions'
+const baseUrl = '/api/sessions'
 
 const fetchSessions = async (user) => {
     const response = await axios.get(`${baseUrl}/${user}`)
