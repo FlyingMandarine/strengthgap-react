@@ -2,7 +2,7 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { changeUser } from './reducers/userReducer'
+import { activateDemoMode, changeUser } from './reducers/userReducer'
 
 import MobileLanding from './components/Mobile/MobileLanding/MobileLanding'
 import MobileHome from './components/Mobile/MobileHome/MobileHome'
@@ -32,6 +32,8 @@ const App = () => {
     if (user === null && window.localStorage.getItem('loggedSGUser')) {
         const storageInfo = JSON.parse(window.localStorage.getItem('loggedSGUser'))
         dispatch(changeUser(storageInfo.username))
+    } else if (user === 'guest') {
+        dispatch(activateDemoMode())
     }
 
     if (currentPage === 'MobileLanding') {

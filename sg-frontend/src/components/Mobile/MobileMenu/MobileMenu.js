@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+
+import { activateDemoMode } from '../../../reducers/userReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { changeCurrentPage } from '../../../reducers/pageReducer'
@@ -87,14 +89,24 @@ const MobileMenu = () => {
         fontWeight: 400,
     }
 
+    const demoAccountSpanStyle = {
+        textDecoration: 'underline',
+        cursor: 'pointer',
+    }
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen)
     }
 
     const logOut = () => {
         window.localStorage.removeItem('loggedSGUser')
+        window.localStorage.removeItem('loggedSGUserGuest')
         dispatch(logOutUser())
         setMenuOpen(false)
+    }
+
+    const activateDemo = () => {
+        dispatch(activateDemoMode())
     }
 
     return (
@@ -124,7 +136,7 @@ const MobileMenu = () => {
                             <>
                                 <div style={ smallTextStyle } onClick={ () => dispatch(changeCurrentPage('Login')) }>Log in</div>
                                 <div style={ smallTextStyle } onClick={ () => dispatch(changeCurrentPage('SignUp')) }>Sign up</div>   
-                                <div style={ demoInviteDivStyle }>Employer? Try this demo account.</div> 
+                                <div style={ demoInviteDivStyle }>Employer? Try this <span style={ demoAccountSpanStyle } onClick={ activateDemo }>demo account</span>.</div> 
                             </>
                             :
                             <>

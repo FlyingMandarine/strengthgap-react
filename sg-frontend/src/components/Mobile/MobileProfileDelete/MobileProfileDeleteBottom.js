@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
 import { logOutUser } from '../../../reducers/userReducer'
 
@@ -12,6 +12,7 @@ import MobileRedButton from '../MobilePresentational/MobileRedButton'
 
 const MobileProfileDeleteBottom = () => {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const titleStyle = {
         fontSize: 22,
@@ -33,6 +34,12 @@ const MobileProfileDeleteBottom = () => {
     const buttonsDivStyle = {
         fontSize: 16,
         marginTop: 26,
+    }
+
+    const guestDivStyle = {
+        fontSize: 20,
+        marginTop: 100,
+        lineHeight: 1.4,
     }
 
     const validateProfileDelete = (username, password) => {
@@ -98,13 +105,20 @@ const MobileProfileDeleteBottom = () => {
         <MobileBottomPanel bgColor={ 'white' }>
             <p style={ titleStyle }>Enter your username and password to delete your profile.</p>
 
-            <form onSubmit={ deleteProfile }>
-                <input style={ inputStyle } type='username' name='username' placeholder='Username' /><br />
-                <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
-                <div style={ buttonsDivStyle }>
-                    <MobileRedButton text='Delete profile' fontSize={ 16 } width={ 150 } height={ 38 } />
-                </div>
-            </form>
+            {
+                user === 'guest'
+                ?
+                <div style={ guestDivStyle }>You cannot delete your guest account.</div>
+                :
+                <form onSubmit={ deleteProfile }>
+                    <input style={ inputStyle } type='username' name='username' placeholder='Username' /><br />
+                    <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
+                    <div style={ buttonsDivStyle }>
+                        <MobileRedButton text='Delete profile' fontSize={ 16 } width={ 150 } height={ 38 } />
+                    </div>
+                </form>
+            }
+
         </MobileBottomPanel>
     )
 }

@@ -3,13 +3,12 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
 
-import sessionService from '../../../services/sessions'
-
 import MobileBottomPanel from '../MobilePresentational/MobileBottomPanel'
 import MobileBlackButton from '../MobilePresentational/MobileBlackButton'
 import MobileWhiteButton from '../MobilePresentational/MobileWhiteButton'
 
 import { MobileMuscleMapFront, MobileMuscleMapBack } from '../MobileMuscleMap/MobileMuscleMap'
+import { saveSessionHelper } from '../../utils/helperFunctions'
 
 const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
     const dispatch = useDispatch()
@@ -45,17 +44,8 @@ const MobileHomeBottom = ({ demoInviteActive, deactivateDemo }) => {
         marginLeft: -178,
     }
 
-    const saveSession = async () => {
-        const percentage = document.getElementById('completionPercentage').textContent
-        const formattedPercentage = percentage.substring(0, percentage.length - 1)
-
-        const sessionToSave = {
-            username: user,
-            exercises: session,
-            percent: formattedPercentage
-        }
-
-        await sessionService.recordSession(sessionToSave)
+    const saveSession = async () => {        
+        await saveSessionHelper(user, session)
 
         dispatch(changeCurrentPage('History'))
     }

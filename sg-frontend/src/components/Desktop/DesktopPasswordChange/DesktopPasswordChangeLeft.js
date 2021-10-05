@@ -35,6 +35,11 @@ const DesktopPasswordChangeLeft = () => {
         marginTop: '4%',
     }
 
+    const guestDivStyle = {
+        fontSize: '1.8em',
+        marginTop: 100,
+    }
+
     const validatePasswordChange = (newPassword, confirmNewPassword) => {
         let validationFailed
 
@@ -89,13 +94,20 @@ const DesktopPasswordChangeLeft = () => {
 
             <p style={ titleStyle }>Change password</p>
 
-            <form onSubmit={ changePassword }>
-                <input style={ inputStyle }  type='password' name='newPassword' placeholder='New Password' /><br />
-                <input style={ inputStyle }  type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
-                <div style={ buttonsDivStyle }>
-                    <DesktopBlackButton text='Confirm' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
-                </div>
-            </form>
+            {
+                user === 'guest'
+                ?
+                <div style={ guestDivStyle }>You cannot change your password while logged in as a guest.</div>
+                :
+                <form onSubmit={ changePassword }>
+                    <input style={ inputStyle }  type='password' name='newPassword' placeholder='New Password' /><br />
+                    <input style={ inputStyle }  type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
+                    <div style={ buttonsDivStyle }>
+                        <DesktopBlackButton text='Confirm' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
+                    </div>
+                </form>
+            }
+
         </DesktopLeftPanel>
     )
 }

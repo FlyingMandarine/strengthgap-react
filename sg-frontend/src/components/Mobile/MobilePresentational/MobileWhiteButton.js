@@ -62,7 +62,7 @@ const MobileWhiteButton = ({ text, handleClick, disabled, fontSize, width, heigh
                 style={ whiteButtonStyle }
                 onMouseEnter={ (e) => handleMouseEnter(e) }
                 onMouseLeave={ (e) => handleMouseLeave(e) }
-                onClick={ handleClick }
+                onClick={ (e) => handleClick(e) }
             >
                 {
                     icon &&

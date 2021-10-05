@@ -7,7 +7,14 @@ export const changeUser = (user) => {
 
 export const logOutUser = () => {
     return {
-        type: 'LOGGED OUT'
+        type: 'LOGGED OUT',
+    }
+}
+
+export const activateDemoMode = () => {
+    return {
+        type: 'ACTIVATE DEMO',
+        user: 'guest',
     }
 }
 
@@ -17,6 +24,8 @@ const userReducer = (state = null, action) => {
             return action.user
         case 'LOGGED OUT':
             return null
+        case 'ACTIVATE DEMO':
+            return action.user
         default:
             return state
     }

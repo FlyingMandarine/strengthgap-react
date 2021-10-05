@@ -1,7 +1,12 @@
 import React from 'react'
+
+import { useDispatch } from 'react-redux'
+import { activateDemoMode } from '../../../reducers/userReducer'
+
 import { customTurquoise } from '../../utils/colors'
 
 const MobileDemoInvite = ({ deactivateDemo }) => {
+    const dispatch = useDispatch()
 
     const divStyle = {
         position: 'absolute',
@@ -29,8 +34,17 @@ const MobileDemoInvite = ({ deactivateDemo }) => {
         fontWeight: 400,
     }
 
+    const demoAccountSpanStyle = {
+        textDecoration: 'underline',
+        cursor: 'pointer',
+    }
+
     const closeDemoInvite = () => {
         deactivateDemo()
+    }
+
+    const activateDemo = () => {
+        dispatch(activateDemoMode())
     }
 
     return (
@@ -39,7 +53,7 @@ const MobileDemoInvite = ({ deactivateDemo }) => {
             <p style={ pStyle }>
                 <span style={ warningStyle }>Warning:</span><br />
                 You won't be able to save this session unless you first log in.<br />
-                Employer? Try this demo account.
+                Employer? Try this <span style={ demoAccountSpanStyle } onClick={ activateDemo }>demo account</span>.
             </p>
         </div>
     )
