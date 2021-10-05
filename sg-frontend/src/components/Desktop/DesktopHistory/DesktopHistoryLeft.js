@@ -16,13 +16,13 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
     const dispatch = useDispatch()
 
     const titleStyle = {
-        fontSize: 49,
-        margin: '87px 0 56px',
+        fontSize: '4.9em',
+        margin: '14.5% 0 9%',
         fontWeight: 500,
     }
 
     const selectWorkoutStyle = {
-        fontSize: 13,
+        fontSize: '1.3em',
         fontWeight: 500,
     }
 
@@ -30,20 +30,20 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
         border: '2px solid black',
         borderRadius: 4,
         paddingLeft: 12,
-        marginBottom: 37,
-        width: 423,
-        height: 74,
-        fontSize: 17,
+        marginBottom: '6%',
+        width: '71.1%',
+        height: '8.6%',
+        fontSize: '1.7em',
         fontWeight: 400,
     }
 
     const exercisesDivStyle = {
         backgroundColor: '#F4F4F4',
         borderRadius: 4,
-        width: 423,
-        minHeight: 102,
-        fontSize: 19,
-        padding: 16,
+        width: '71.1%',
+        minHeight: '12%',
+        fontSize: '1.9em',
+        padding: '2.7%',
         fontWeight: 700,
     }
 
@@ -51,8 +51,7 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
         overflowY: 'auto',
         margin: 0,
         padding: 0,
-        maxHeight: 237,
-        fontSize: 17,
+        fontSize: '.9em',
         fontWeight: 500,
     }
 
@@ -61,11 +60,11 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
     }
 
     const deleteButtonStyle = {
-        margin: '23px 0 0 229px',
+        margin: '4% 0 0 38.5%',
     }
 
     const buttonsDivStyle = {
-        margin: '24px 0 0 -290px',
+        margin: '3.4% 0 0 -41.5%',
     }
 
     useEffect(() => {
@@ -142,7 +141,7 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
     }
 
     return (
-        <DesktopLeftPanel bgColor={ 'white' } paddingLeft={ 100 }>
+        <DesktopLeftPanel bgColor={ 'white' } paddingLeft={ '7.2%' }>
             <h1 style={ titleStyle }>My Exercise History</h1>
 
             <p style={ selectWorkoutStyle }>Select a workout</p>
@@ -157,7 +156,7 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
             <div style={ exercisesDivStyle }>
                 Exercises logged
                 <hr />
-                <ul style={ ulStyle }>
+                <ul style={ ulStyle } id='history-ul'>
                     {
                         currentSession.exercises &&
                         currentSession.exercises.map(ex => <li style={ liStyle } key={ ex }>{ ex }</li>)
@@ -168,13 +167,13 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
             {
                 currentSession.length !== 0 &&
                 <div style={ deleteButtonStyle }>
-                    <DesktopBlackButton text='Delete this session' fontSize={ 16 } width={ 194 } height={ 38 } icon={ 'fas fa-trash-alt' } handleClick={ deleteSession } />
+                    <DesktopBlackButton text='Delete this session' fontSize={ '1.6em' } width={ '53%' } height={ 38 } icon={ 'fas fa-trash-alt' } handleClick={ deleteSession } />
                 </div>
             }
             
             <DesktopBottomLeftPanel>
             <div style={ buttonsDivStyle }>
-                <DesktopBlackButton text='New session' fontSize={ 21 } width={ 206 } height={ 56 } icon={ 'fas fa-plus' } handleClick={ () => dispatch(changeCurrentPage('Home')) } />
+                <DesktopBlackButton text='New session' fontSize={ '2.1em' } width={ '21%' } height={ 56 } icon={ 'fas fa-plus' } handleClick={ () => dispatch(changeCurrentPage('Home')) } />
             </div>
             </DesktopBottomLeftPanel>
         </DesktopLeftPanel>

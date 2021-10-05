@@ -59,6 +59,19 @@ ul hr:first-child {
     margin-top: 14%;
 }
 
+#history-ul {
+    max-height: 150px;
+}
+
+#history-right-div {
+    margin-top: 8%;
+    margin-left: 2%;
+}
+
+#history-percentage-para {
+    margin-top: 6%;
+}
+
 @media (min-width: 1451px) and (min-height: 900px) {
 
     body {
@@ -80,5 +93,18 @@ ul hr:first-child {
 
     #home-percentage-para {
         margin-top: 12.2%;
+    }
+
+    #history-ul {
+        max-height: 237px;
+    }
+
+    #history-right-div {
+        margin-top: 14%;
+        margin-left: 6.9%;
+    }
+
+    #history-percentage-para {
+        margin-top: 17%;
     }
 }
