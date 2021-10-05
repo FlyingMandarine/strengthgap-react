@@ -24,8 +24,8 @@ const App = () => {
     const currentPage = useSelector(state => state.page)
     const user = useSelector(state => state.user)
 
-    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-    const isDesktop = useMediaQuery({ query: '(min-width: 1225px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 1075px)' })
+    const isDesktop = useMediaQuery({ query: '(min-width: 1076px)' })
 
     // If the user is logged in and the app is restarted, we check if there is
     // a user stored in localStorage; if so, we store the username in the store.

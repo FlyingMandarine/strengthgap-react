@@ -14,7 +14,7 @@ const DesktopMenu = () => {
         position: 'absolute',
         top: 34,
         right: 43,
-        fontSize: 35,
+        fontSize: '3.5em',
         marginTop: 0,
         cursor: 'pointer',
     }
@@ -23,7 +23,7 @@ const DesktopMenu = () => {
         position: 'absolute',
         top: 34,
         right: 47,
-        fontSize: 35,
+        fontSize: '3.5em',
         marginTop: 0,
         cursor: 'pointer',
     }
@@ -31,11 +31,11 @@ const DesktopMenu = () => {
     const textStyle = {
         position: 'absolute',
         top: 40,
-        right: 126,
+        right: '9%',
     }
 
     const smallTextStyle = {
-        fontSize: 19,
+        fontSize: '1.9em',
         marginLeft: 50,
         cursor: 'pointer',
         fontWeight: 500,

@@ -5,13 +5,15 @@ const DesktopDemoInvite = ({ deactivateDemo }) => {
 
     const divStyle = {
         position: 'absolute',
-        top: 46,
+        top: '5%',
         left: '50.05%',
         color: 'white',
         backgroundColor: customTurquoise,
-        fontSize: 14,
-        width: 395,
-        height: 90,
+        fontSize: '1.4em',
+        //width: 395,
+        width: '31%',
+        height: '10.4%',
+        //height: 90,
         borderRadius: '0 6px 6px 0',
     }
 

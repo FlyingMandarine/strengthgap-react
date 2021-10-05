@@ -10,15 +10,12 @@ const DesktopAppContainer = (props) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
 
-        height: 870,
-        width: 1400,
-
         border: 'solid 3px black',
         borderRadius: 6,
     }
 
     return (
-        <div style={ divStyle }>
+        <div style={ divStyle } className='desktop-container'>
             { props.children }
         </div>
     )

@@ -1,35 +1,110 @@
+:root {
+    font-size: 62.5%;
+}
+
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+  
+body {
+    font-size: 0.8rem;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 html {
-  background: url("images/SG-background.jpeg") no-repeat center center fixed;
-  /* TO-DO: Remember to give attribution! Link to the image for more info: https://unsplash.com/photos/cGNCepznaV8
-  TO-DO: Attribution to give in credits somewhere perhaps? "Photo by <a href="https://unsplash.com/photos/KFIjzXYg1RM">Jeremy Bishop</a> on <a href="https://unsplash.com/">Unsplash</a>" */
-  background-size: cover;
-
-  font: 10px 'Roboto', sans-serif;
+    background: url("images/SG-background.jpeg") no-repeat center center fixed;
+    /* TO-DO: Remember to give attribution! Link to the image for more info: https://unsplash.com/photos/cGNCepznaV8
+    TO-DO: Attribution to give in credits somewhere perhaps? "Photo by <a href="https://unsplash.com/photos/KFIjzXYg1RM">Jeremy Bishop</a> on <a href="https://unsplash.com/">Unsplash</a>" */
+    background-size: cover;
+    font: 10px 'Roboto', sans-serif;
 }
 
 #exercise,
 #historySelect {
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
 
-  background-image: url('./images/arrow-drop-down.png');
-  background-repeat: no-repeat;
-  background-position: 97.5%;
-  background-size: 30px;
+    background-image: url('./images/arrow-drop-down.png');
+    background-repeat: no-repeat;
+    background-position: 97.5%;
+    background-size: 30px;
 }
 
 /* for IE10 */
 #exercise::-ms-expand,
 #history::-ms-expand {
-  display: none;
+    display: none;
+}
+
+.desktop-container {
+    height: 652.5px;
+    width: 1050px;
+}
+
+ul hr:first-child {
+    visibility: hidden;
+    margin: 0px;
+}
+
+#added-exercises {
+    max-height: 123px;
+}
+
+#home-right-div {
+    margin-top: 14%;
+}
+
+#history-ul {
+    max-height: 150px;
+}
+
+#history-right-div {
+    margin-top: 8%;
+    margin-left: 2%;
+}
+
+#history-percentage-para {
+    margin-top: 6%;
+}
+
+@media (min-width: 1451px) and (min-height: 900px) {
+
+    body {
+        font-size: 1rem;
+    }
+
+    .desktop-container {
+        height: 870px;
+        width: 1400px;
+    }
+
+    #added-exercises {
+        max-height: 244px;
+    }
+
+    #home-right-div {
+        margin-top: 28%;
+    }
+
+    #home-percentage-para {
+        margin-top: 12.2%;
+    }
+
+    #history-ul {
+        max-height: 237px;
+    }
+
+    #history-right-div {
+        margin-top: 14%;
+        margin-left: 6.9%;
+    }
+
+    #history-percentage-para {
+        margin-top: 17%;
+    }
 }

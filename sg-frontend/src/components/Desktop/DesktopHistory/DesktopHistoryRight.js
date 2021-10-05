@@ -19,13 +19,10 @@ const DesktopHistoryRight = ({ history, updateHistory, currentSession, setNewSes
 
     const showingFrontBackStyle = {
         position: 'absolute',
-        marginTop: '14%',
-        marginLeft: '6.9%',
     }
 
     const percentageParaStyle = {
-        fontSize: 22,
-        marginTop: 85,
+        fontSize: '2.2em',
         fontWeight: 400,
     }
 
@@ -41,10 +38,10 @@ const DesktopHistoryRight = ({ history, updateHistory, currentSession, setNewSes
             <div><DesktopMuscleMapContainer /></div>
             <div style={ hidingFrontBackStyle }>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 226 } muscleHeight={ 440 } mapPosition={ '' } margin={ '0 52px 0 0' }
+                    muscleWidth={ '44.7%' } muscleHeight={ 440 } mapPosition={ '' } margin={ '0 5.2em 0 0' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 226 } muscleHeight={ 440 } mapPosition={ '' }
+                    muscleWidth={ '44.7%' } muscleHeight={ 440 } mapPosition={ '' }
                 />
                 <p style={ percentageParaStyle }>Muscles targeted: <span style={ percentageSpanStyle } id="completionPercentage">0%</span></p>
             </div>
@@ -52,14 +49,14 @@ const DesktopHistoryRight = ({ history, updateHistory, currentSession, setNewSes
             :
             <>
             <div style={ hidingMuscleMapContainerStyle }><DesktopMuscleMapContainer /></div>
-            <div style={ showingFrontBackStyle }>
+            <div style={ showingFrontBackStyle } id='history-right-div'>
                 <DesktopMuscleMapFront
-                    muscleWidth={ 226 } muscleHeight={ 440 } mapPosition={ '' } margin={ '0 52px 0 0' }
+                    muscleWidth={ '44%' } muscleHeight={ 440 } mapPosition={ '' } margin={ '0 5.2em 0 0' }
                 />
                 <DesktopMuscleMapBack
-                    muscleWidth={ 226 } muscleHeight={ 440 } mapPosition={ '' }
+                    muscleWidth={ '44%' } muscleHeight={ 440 } mapPosition={ '' }
                 />
-                <p style={ percentageParaStyle }>Muscles targeted: <span style={ percentageSpanStyle } id="completionPercentage">0%</span></p>
+                <p style={ percentageParaStyle } id='history-percentage-para'>Muscles targeted: <span style={ percentageSpanStyle } id="completionPercentage">0%</span></p>
             </div>
             </>
             }

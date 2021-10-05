@@ -114,35 +114,36 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     }, [ session ])
 
     const containerDivStyle = {
-        marginLeft: 90,
+        marginLeft: '12.85%',
     }
-    
+
     const h2Style = {
-        fontSize: 22,
+        fontSize: '2.2em',
         fontWeight: 500,
     }
 
     const descriptionStyle = {
-        fontSize: 13,
-        margin: '45px 104px 40px 0',
+        fontSize: '1.3em',
+        margin: '7% 20% 6% 0',
         lineHeight: 1.4,
         fontWeight: 500,
     }
 
     const todaysSessionStyle = {
         color: customTurquoise,
-        fontSize: 19,
+        fontSize: '1.9em',
         fontWeight: 500,
-        marginBottom: 25,
+        marginBottom: '4%',
     }
 
     const addedExercisesListDivStyle = {
-        maxHeight: 112,
+        minHeight: 42,
         overflowY: 'auto',
         border: '2px solid black',
         borderRadius: 4,
-        width: 423,
+        width: '70%',
         paddingLeft: 16,
+        lineHeight: 1.8,
     }
 
     const ulStyle = {
@@ -151,9 +152,15 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         marginLeft: 12,
         fontSize: 14,
         padding: 0,
-        lineHeight: '1.8',
+        
         margin: '5px 0',
         fontWeight: 400,
+    }
+
+    const liHrStyle = {
+        backgroundColor: 'grey',
+        width: '96%',
+        marginLeft: 0,
     }
 
     const trashIconStyle = {
@@ -164,15 +171,15 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     }
 
     const addNewStyle = {
-        fontSize: 13,
-        margin: '28px 0 10px',
+        fontSize: '1.3em',
+        margin: '4.5% 0 1.8%',
         fontWeight: 500,
     }
 
     const exerciseSelectStyle = {
         border: '2px solid black',
         borderRadius: 4,
-        width: 285,
+        width: '47%',
         height: 39,
         paddingLeft: 12,
         fontSize: 14,
@@ -181,38 +188,39 @@ const DesktopHomeLeft = ({ activateDemo }) => {
 
     const addExerciseSpan = {
         marginLeft: 10,
-        verticalAlign: 'middle',
     }
 
     const buttonDivStyle = {
-        fontSize: 14,
-        paddingTop: 20,
-        lineHeight: 2.4,
+        //fontSize: 14,
+        paddingTop: '3%',
+        //lineHeight: 2.4,
         fontWeight: 500,
     }
 
     const loggedOutSpan = {
-        fontSize: 17,
+        //fontSize: 17,
         marginLeft: 28,
         fontWeight: 500,
     }
 
     const loggedInSpan = {
-        fontSize: 17,
-        marginLeft: -30,
+        //fontSize: 17,
+        marginLeft: '-4%',
         fontWeight: 500,
     }
 
     const orStyle = {
         margin: '0 16px',
+        fontSize: '1.7em',
     }
 
     const emptySpanStyle = {
-        marginLeft: 40,
+        marginLeft: '8%',
     }
 
     const bottomLeftTextSpanStyle = {
         marginLeft: 17,
+        fontSize: '1.7em',
     }
 
     const handleMouseEnter = (e) => {
@@ -268,15 +276,18 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     const displayAddedExercisesList = () => {
         return (
             session.map(e =>
-                <li key={ e }>
-                    { e }<i
-                            style={ trashIconStyle }
-                            className='fas fa-trash-alt'
-                            onClick={ () => removeExercise(e) }
-                            onMouseEnter= { (e) => handleMouseEnter(e) }
-                            onMouseLeave= { (e) => handleMouseLeave(e) }
-                        />
-                </li>
+                <React.Fragment key={ e }>
+                    <hr style={ liHrStyle } className='li-hr' />
+                    <li>
+                        { e }<i
+                                style={ trashIconStyle }
+                                className='fas fa-trash-alt'
+                                onClick={ () => removeExercise(e) }
+                                onMouseEnter= { (e) => handleMouseEnter(e) }
+                                onMouseLeave= { (e) => handleMouseLeave(e) }
+                            />
+                    </li>
+                </React.Fragment>
             )
         )
     }
@@ -284,7 +295,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     return (
             <DesktopLeftPanel bgColor={ 'white' }>
                 <div style={ containerDivStyle }>
-                    <DesktopTitle fontSize={ 58 } marginTop={ 50 } />
+                    <DesktopTitle fontSize={ '5.8em' } marginTop={ '8.5%' } />
 
                     <h2 style={ h2Style }>A Tool to Check for Muscle Imbalance</h2>
                     <p style={ descriptionStyle }>
@@ -293,7 +304,7 @@ const DesktopHomeLeft = ({ activateDemo }) => {
                     </p>
 
                     <p style={ todaysSessionStyle }>Today's session:</p>
-                    <div style={ addedExercisesListDivStyle }>
+                    <div style={ addedExercisesListDivStyle } id='added-exercises'>
                         {
                             session.length === 0 ?
                                 <p style= { ulStyle }>No exercise added</p>:
@@ -309,8 +320,8 @@ const DesktopHomeLeft = ({ activateDemo }) => {
                     </select>
                     <span style={ addExerciseSpan }>
                         { exercise === 'No exercise selected' ?
-                            <DesktopBlackButton text='Add exercise' fontSize={ 16 } width={ 130 } height={ 38 } disabled={ true } />:
-                            <DesktopBlackButton text='Add exercise' fontSize={ 16 } width={ 130 } height={ 38 } handleClick={ addExercise } /> 
+                            <DesktopBlackButton text='Add exercise' fontSize={ '1.6em' } width={ '21%' } height={ 38 } disabled={ true } />:
+                            <DesktopBlackButton text='Add exercise' fontSize={ '1.6em' } width={ '21%' } height={ 38 } handleClick={ addExercise } /> 
                         }
                     </span>
                     <DesktopBottomLeftPanel>
@@ -318,16 +329,16 @@ const DesktopHomeLeft = ({ activateDemo }) => {
                             { user === null
                                 ?
                                 <span style={ loggedOutSpan }>
-                                    <DesktopBlackButton text='Log in' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
+                                    <DesktopBlackButton text='Log in' fontSize={ '2.1em' } width={ '21.5%' } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('Login')) } />
                                     <span style={ orStyle }>or</span>
-                                    <DesktopWhiteButton text='Sign up' fontSize={ 21 } width={ 150 } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
+                                    <DesktopWhiteButton text='Sign up' fontSize={ '2.1em' } width={ '21.5%' } height={ 56 } handleClick={ () => dispatch(changeCurrentPage('SignUp')) } />
                                     <span style={ bottomLeftTextSpanStyle }>to submit your workout.</span>
                                 </span>
                                 :
                                 <span style={ loggedInSpan }>
-                                    <DesktopWhiteButton text='My exercise history' fontSize={ 21 } width={ 244 } height={ 56 } icon={ 'fas fa-dumbbell' } iconSize={ 17 } handleClick={ () => dispatch(changeCurrentPage('History')) } />
+                                    <DesktopWhiteButton text='My exercise history' fontSize={ '2.1em' } width={ '35%' } height={ 56 } icon={ 'fas fa-dumbbell' } iconSize={ '83%' } handleClick={ () => dispatch(changeCurrentPage('History')) } />
                                     <span style={ emptySpanStyle } />
-                                    <DesktopBlackButton text='Save session' fontSize={ 21 } width={ 206 } height={ 56 } icon={ 'fas fa-check' } iconSize={ 20 } handleClick={ saveSession } />
+                                    <DesktopBlackButton text='Save session' fontSize={ '2.1em' } width={ '29.7%' } height={ 56 } icon={ 'fas fa-check' } iconSize={ '95%' } handleClick={ saveSession } />
                                 </span>
                             }
                         </div>

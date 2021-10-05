@@ -10,7 +10,7 @@ const DesktopTitle = ({ fontSize, marginTop }) => {
     }
 
     return (
-        <h1 style={ titleStyle }>Strength Gap</h1>
+        <h1 style={ titleStyle } className='sg-title'>Strength Gap</h1>
     )
 }
 
