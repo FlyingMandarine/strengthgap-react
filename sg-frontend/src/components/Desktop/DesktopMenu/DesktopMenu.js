@@ -48,6 +48,7 @@ const DesktopMenu = () => {
 
     const logOut = () => {
         window.localStorage.removeItem('loggedSGUser')
+        window.localStorage.removeItem('loggedSGUserGuest')
         dispatch(logOutUser())
         setMenuOpen(false)
     }

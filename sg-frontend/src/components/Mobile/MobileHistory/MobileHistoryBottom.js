@@ -1,18 +1,18 @@
 import React from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
-
-import removeService from '../../../services/sessions'
 
 import MobileBottomPanel from '../MobilePresentational/MobileBottomPanel'
 import MobileBlackButton from '../MobilePresentational/MobileBlackButton'
 import MobileWhiteButton from '../MobilePresentational/MobileWhiteButton'
 
 import { MobileMuscleMapFront, MobileMuscleMapBack } from '../MobileMuscleMap/MobileMuscleMap'
+import { deleteSessionHelper } from '../../utils/helperFunctions'
 
 const MobileHistoryBottom = ({ history, updateHistory, currentSession, setNewSession }) => {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const bottomPanelStyle = {
         textAlign: 'center',
@@ -40,21 +40,9 @@ const MobileHistoryBottom = ({ history, updateHistory, currentSession, setNewSes
         marginRight: -7,
     }
 
-    const deleteSession = async () => {
-        try {
-            const storageInfo = JSON.parse(window.localStorage.getItem('loggedSGUser'))
-
-            await removeService.removeSession(storageInfo.token, currentSession.id)
-
-            const newHistory = history.filter(s => s.id !== currentSession.id)
-
-            updateHistory(newHistory)
-        } catch (exception) {
-            // TO-DO: Make sure the UI displays this error and then logs the user out rather than simply a console log.
-            if (exception.response.data.error === 'token expired') {
-                console.log('Your session has expired. Please log in again to perform this action.')
-            }
-        }
+    const deleteSession = async (e) => {
+        e.target.style.color = 'black'
+        deleteSessionHelper(history, currentSession, updateHistory, user)
     }
 
     return (

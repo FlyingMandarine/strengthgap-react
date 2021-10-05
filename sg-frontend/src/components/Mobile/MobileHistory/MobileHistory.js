@@ -25,8 +25,13 @@ const MobileHistory = () => {
 
     useEffect(() => {
         const getHistory = async () => {
-            const newHistory = await sessionService.fetchSessions(user)
-            updateHistory(newHistory)
+            if (user === 'guest') {
+                const newHistory = JSON.parse(localStorage.getItem('loggedSGUserGuest')) || []
+                updateHistory(newHistory)
+            } else {
+                const newHistory = await sessionService.fetchSessions(user)
+                updateHistory(newHistory)
+            }
         }
 
         getHistory()

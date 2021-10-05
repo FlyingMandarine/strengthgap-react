@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
 import { logOutUser } from '../../../reducers/userReducer'
 
@@ -13,6 +13,7 @@ import DesktopBackButton from '../DesktopPresentational/DesktopBackButton'
 
 const DesktopProfileDeleteLeft = () => {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const titleStyle = {
         fontSize: '2.8em',
@@ -35,6 +36,11 @@ const DesktopProfileDeleteLeft = () => {
 
     const buttonsDivStyle = {
         marginTop: '4%',
+    }
+
+    const guestDivStyle = {
+        fontSize: '2em',
+        marginTop: 100,
     }
 
     const validateProfileDelete = (username, password) => {
@@ -102,13 +108,20 @@ const DesktopProfileDeleteLeft = () => {
 
             <p style={ titleStyle }>Enter your username and password<br />to delete your profile.</p>
 
-            <form onSubmit={ deleteProfile }>
-                <input style={ inputStyle } type='username' name='username' placeholder='Username' /><br />
-                <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
-                <div style={ buttonsDivStyle }>
-                    <DesktopBlackButton text='Delete profile' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
-                </div>
-            </form>
+            {
+                user === 'guest'
+                ?
+                <div style={ guestDivStyle }>You cannot delete your guest account.</div>
+                :
+                <form onSubmit={ deleteProfile }>
+                    <input style={ inputStyle } type='username' name='username' placeholder='Username' /><br />
+                    <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
+                    <div style={ buttonsDivStyle }>
+                        <DesktopBlackButton text='Delete profile' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
+                    </div>
+                </form>
+            }
+
         </DesktopLeftPanel>
     )
 }

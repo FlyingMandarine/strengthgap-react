@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateSession, emptySession } from '../../../reducers/sessionReducer'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
 
-import sessionService from '../../../services/sessions'
 
 import DesktopTitle from '../DesktopPresentational/DesktopTitle'
 import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
@@ -14,6 +13,7 @@ import DesktopWhiteButton from '../DesktopPresentational/DesktopWhiteButton'
 
 import { allMuscles, mostMuscles, allExercises, musclesWorked } from '../../utils/musclesWorked'
 import { customBlue, customPurple, customTurquoise } from '../../utils/colors'
+import { saveSessionHelper } from '../../utils/helperFunctions'
 
 const DesktopHomeLeft = ({ activateDemo }) => {
     const dispatch = useDispatch()
@@ -191,20 +191,16 @@ const DesktopHomeLeft = ({ activateDemo }) => {
     }
 
     const buttonDivStyle = {
-        //fontSize: 14,
         paddingTop: '3%',
-        //lineHeight: 2.4,
         fontWeight: 500,
     }
 
     const loggedOutSpan = {
-        //fontSize: 17,
         marginLeft: 28,
         fontWeight: 500,
     }
 
     const loggedInSpan = {
-        //fontSize: 17,
         marginLeft: '-4%',
         fontWeight: 500,
     }
@@ -258,17 +254,8 @@ const DesktopHomeLeft = ({ activateDemo }) => {
         document.getElementById('exercise').value = 'No exercise selected'
     }
 
-    const saveSession = async () => {
-        const percentage = document.getElementById('completionPercentage').textContent
-        const formattedPercentage = percentage.substring(0, percentage.length - 1)
-
-        const sessionToSave = {
-            username: user,
-            exercises: session,
-            percent: formattedPercentage
-        }
-
-        await sessionService.recordSession(sessionToSave)
+    const saveSession = async () => {        
+        await saveSessionHelper(user, session)
 
         dispatch(changeCurrentPage('History'))
     }

@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPage } from '../../../reducers/pageReducer'
-
-import removeService from '../../../services/sessions'
-
-import { allMuscles, musclesWorked } from '../../utils/musclesWorked'
-import { customPurple, customTurquoise } from '../../utils/colors'
 
 import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
 import DesktopBottomLeftPanel from '../DesktopPresentational/DesktopBottomLeftPanel'
 import DesktopBlackButton from '../DesktopPresentational/DesktopBlackButton'
 
+import { allMuscles, musclesWorked } from '../../utils/musclesWorked'
+import { customPurple, customTurquoise } from '../../utils/colors'
+import { deleteSessionHelper } from '../../utils/helperFunctions'
+
 const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSession }) => {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const titleStyle = {
         fontSize: '4.9em',
@@ -124,20 +124,7 @@ const DesktopHistoryLeft = ({ history, updateHistory, currentSession, setNewSess
     }
 
     const deleteSession = async () => {
-        try {
-            const storageInfo = JSON.parse(window.localStorage.getItem('loggedSGUser'))
-
-            await removeService.removeSession(storageInfo.token, currentSession.id)
-
-            const newHistory = history.filter(s => s.id !== currentSession.id)
-
-            updateHistory(newHistory)
-        } catch (exception) {
-            // TO-DO: Make sure the UI displays this error and then logs the user out rather than simply a console log.
-            if (exception.response.data.error === 'token expired') {
-                console.log('Your session has expired. Please log in again to perform this action.')
-            }
-        }
+        deleteSessionHelper(history, currentSession, updateHistory, user)
     }
 
     return (

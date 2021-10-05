@@ -32,7 +32,13 @@ const MobilePasswordChangeBottom = () => {
     const buttonsDivStyle = {
         fontSize: 16,
         marginTop: 26,
-    }    
+    }
+
+    const guestDivStyle = {
+        fontSize: 20,
+        marginTop: 100,
+        lineHeight: 1.4,
+    }
 
     const validatePasswordChange = (newPassword, confirmNewPassword) => {
         let validationFailed
@@ -85,13 +91,21 @@ const MobilePasswordChangeBottom = () => {
     return (
         <MobileBottomPanel bgColor={ 'white' }>
             <p style={ titleStyle }>Change password</p>
-            <form onSubmit={ changePassword }>
-                <input style={ inputStyle }  type='password' name='newPassword' placeholder='New Password' /><br />
-                <input style={ inputStyle }  type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
-                <div style={ buttonsDivStyle }>
-                    <MobileBlackButton text='Confirm' fontSize={ 16 } width={ 130 } height={ 50 } />
-                </div>
-            </form>
+
+            {
+                user === 'guest'
+                ?
+                <div style={ guestDivStyle }>You cannot change your password while logged in as a guest.</div>
+                :
+                <form onSubmit={ changePassword }>
+                    <input style={ inputStyle }  type='password' name='newPassword' placeholder='New Password' /><br />
+                    <input style={ inputStyle }  type='password' name='confirmNewPassword' placeholder='Confirm New Password' /><br />
+                    <div style={ buttonsDivStyle }>
+                        <MobileBlackButton text='Confirm' fontSize={ 16 } width={ 130 } height={ 50 } />
+                    </div>
+                </form>
+            }
+
         </MobileBottomPanel>
     )
 }
