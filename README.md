@@ -1,5 +1,16 @@
 # Strength Gap
 
+![Strength Gap's main menu as seen on a desktop computer](sg-frontend/src/images/sg-github.JPG?raw=true "Strength Gap")
+
+## Table of Content
+- [What is Strength Gap](#what-is-strength-gap)
+- [Installing Strength Gap](#installing-strength-gap)
+- [Running Strength Gap](#running-strength-gap)
+- [Contributions](#contributions)
+- [License](#license)
+
+## What is Strength Gap
+
 *A project made with the MERN stack (MongoDB, Express, React, Node.js) with a healthy dose of Redux and Jest.*
 
 Gyms can be intimidating, especially for newcomers. Strength Gap is my attempt at alleviating one concern: *What should I do there?*
@@ -10,7 +21,7 @@ It comes complete with a registration feature to save, edit, and delete your wor
 
 **Check the [live demo](https://www.patrice-hermenault.com).**
 
-## Installing
+## Installing Strength Gap
 
 All you will need to proceed is git and the latest version of node.js.
 
@@ -43,7 +54,7 @@ SECRET=SG-TEST-PASSWORD
 
 And you should be ready to go.
 
-## Executing program
+## Running Strength Gap
 
 1. If you'd like to run the app with all back-end functionality, open a terminal window, go into sg-backend and start the server:
 
@@ -65,14 +76,6 @@ All code by me, Patrice Hermenault. Any bugs, questions or suggestions, feel fre
 
 Design by Martina Brillante.
 
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details.
