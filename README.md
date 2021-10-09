@@ -1,10 +1,10 @@
 # Strength Gap
 
-A project made with the MERN stack (MongoDB, Express, React, Node.js) with a healthy dose of Redux and Jest.
+*A project made with the MERN stack (MongoDB, Express, React, Node.js) with a healthy dose of Redux and Jest.*
 
 Gyms can be intimidating, especially for newcomers. Strength Gap is my attempt at alleviating one concern: *What should I do there?*
 
-It allows the user to select any exercise and see which muscle group they primarily target, and then combine those exercises to check for potential gaps in your exercise routine.
+It allows you to select any exercise and see which muscle group they primarily target, and then combine those exercises to check for potential gaps in your exercise routine.
 
 It comes complete with a registration feature to save, edit, and delete your workouts.
 
@@ -47,11 +47,15 @@ And you should be ready to go.
 
 1. If you'd like to run the app with all back-end functionality, open a terminal window, go into sg-backend and start the server:
 
-    npm run dev
+```
+npm run dev
+```
 
 2. To run the front-end, open another terminal window (keep the previous one running!), go into sg-frontend and simply run:
 
-    npm start
+```
+npm start
+```
 
 And that should do it!
 
