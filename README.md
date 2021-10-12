@@ -6,7 +6,6 @@
 - [What is Strength Gap](#what-is-strength-gap)
 - [Installing Strength Gap](#installing-strength-gap)
 - [Running Strength Gap](#running-strength-gap)
-- [What Went Right](#what-went-right)
 - [What Needs Improving](#what-needs-improving)
 - [Contributions](#contributions)
 - [License](#license)
@@ -72,17 +71,25 @@ npm start
 
 And that should do it!
 
-## What Went Right
-
-This section will contain a short explanation of what tricky parts of the project I've managed to tackle. Check back again soon!
-
 ## What Needs Improving
 
-This section will contain a to-do list of features yet to implement, with a few snippets of code which I believe could be improved. Check back again soon!
+Strength Gap is a work in progress. Here is a list of features I'd like to implement over time:
+
+:white_large_square: Introduce more breakpoints and responsivity - the app is too large for small phones as it is, for instance.
+
+:white_large_square: Cool animations and transitions are still needed; I could use a custom React library to help, but I'll try to do it all by hand instead. I will probably implement most of them using a traditional CSS stylesheet, and will activate said animations/transitions by changing their HTML classes using React.
+
+:white_large_square: There are currently no notifications for either completing an action successfully (such as logging in or saving a workout) or for errors (connection timing out, wrong password input...). Right now, those errors are output to the console, which is obviously not good practice. I'd like a nice toaster pop-up to take care of that.
+
+:white_large_square: I'm happy with the Jest back-end testing so far, but there is no end-to-end testing of the front end. I'd like to implement at least some basic testing functionality using Cypress.
+
+:white_large_square: Even though the app's code is relatively clear, I'd like to rewrite it using TypeScript if only to get some more practice.
+
+:white_large_square: I have a list of over 200 exercises that can be selected; right now, however, only about 10% have had their muscle groups mapped. I'll slowly add to the list over time until most exercises in existence are covered. The aim here is for most users to be able to add all their exercises without experiencing frustration at not being able to add an exercise not present in the list.
 
 ## Contributions
 
-All code by me, Patrice Hermenault. Any bugs, questions or suggestions, feel free to reach me at hermenaultpatrice@gmail.com.
+All code by me, Patrice Hermenault. Any bugs, questions or suggestions, feel free to reach out at hermenaultpatrice@gmail.com.
 
 Design by Martina Brillante.
 
