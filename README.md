@@ -6,6 +6,8 @@
 - [What is Strength Gap](#what-is-strength-gap)
 - [Installing Strength Gap](#installing-strength-gap)
 - [Running Strength Gap](#running-strength-gap)
+- [What Went Right](#what-went-right)
+- [What Needs Improving](#what-needs-improving)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -69,6 +71,14 @@ npm start
 ```
 
 And that should do it!
+
+## What Went Right
+
+This section will contain a short explanation of what tricky parts of the project I've managed to tackle. Check back again soon!
+
+## What Needs Improving
+
+This section will contain a to-do list of features yet to implement, with a few snippets of code which I believe could be improved. Check back again soon!
 
 ## Contributions
 
