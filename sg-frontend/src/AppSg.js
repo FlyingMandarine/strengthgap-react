@@ -19,7 +19,7 @@ import DesktopPasswordChange from './components/Desktop/DesktopPasswordChange/De
 import DesktopProfileDelete from './components/Desktop/DesktopProfileDelete/DesktopProfileDelete'
 import DesktopHistory from './components/Desktop/DesktopHistory/DesktopHistory'
 
-const App = () => {
+const AppSg = () => {
     const dispatch = useDispatch()
     const currentPage = useSelector(state => state.page)
     const user = useSelector(state => state.user)
@@ -88,4 +88,4 @@ const App = () => {
     }
 }
 
-export default App
+export default AppSg
