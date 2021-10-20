@@ -1,28 +1,41 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const WhiteButtonActive = styled.button`
+    color: black;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+        color: white;
+        background-color: #25A2A2;
+        border: solid 1px #25A2A2;
+    }
+`
+
+const WhiteButtonInactive = styled.button`
+    color: black;
+    background-color: grey;
+    border: solid 1px grey;
+    border-radius: 4px;
+    font-weight: 500;
+`
 
 const MobileWhiteButton = ({ text, handleClick, disabled, fontSize, width, height, icon }) => {
 
     const whiteButtonStyle = {
-        color: 'black',
-        backgroundColor: 'white',
         width: width,
         height: height,
         fontSize: fontSize,
-        border: 'solid 1px black',
-        borderRadius: 4,
-        cursor: 'pointer',
-        fontWeight: 500,
     }
 
     const disabledWhiteButtonStyle = {
-        color: 'black',
-        backgroundColor: 'grey',
         width: width,
         height: height,
         fontSize: fontSize,
-        border: 'solid 1px grey',
-        borderRadius: 4,
-        fontWeight: 500,
     }
 
     const iconStyle = {
@@ -32,22 +45,10 @@ const MobileWhiteButton = ({ text, handleClick, disabled, fontSize, width, heigh
         pointerEvents: 'none',
     }
 
-    const handleMouseEnter = (e) => {
-        e.target.style.color = 'white'
-        e.target.style.backgroundColor = '#25A2A2'
-        e.target.style.border = 'solid 1px #25A2A2'
-    }
-
-    const handleMouseLeave = (e) => {
-        e.target.style.color = 'black'
-        e.target.style.backgroundColor = 'white'
-        e.target.style.border = 'solid 1px black'
-    }
-
     return (
         <>
         { disabled === true ?
-            <button
+            <WhiteButtonInactive
                 style={ disabledWhiteButtonStyle }
                 disabled
             >
@@ -56,12 +57,10 @@ const MobileWhiteButton = ({ text, handleClick, disabled, fontSize, width, heigh
                     <i style={ iconStyle } className={ icon } />
                 }
                 { text }
-            </button>
+            </WhiteButtonInactive>
             :
-            <button
+            <WhiteButtonActive
                 style={ whiteButtonStyle }
-                onMouseEnter={ (e) => handleMouseEnter(e) }
-                onMouseLeave={ (e) => handleMouseLeave(e) }
                 onClick={ (e) => handleClick(e) }
             >
                 {
@@ -69,7 +68,7 @@ const MobileWhiteButton = ({ text, handleClick, disabled, fontSize, width, heigh
                     <i style={ iconStyle } className={ icon } />
                 }
                 { text }
-            </button>
+            </WhiteButtonActive>
         }
         </>
     )

@@ -1,28 +1,40 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const BlackButtonActive = styled.button`
+    color: white;
+    background-color: black;
+    border: solid 1px black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+        background-color: #25A2A2;
+        border: solid 1px #25A2A2;
+    }
+`
+
+const BlackButtonInactive = styled.button`
+    color: white;
+    background-color: grey;
+    border: solid 1px grey;
+    border-radius: 4px;
+    font-weight: 500;
+`
 
 const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, height, icon, iconSize }) => {
 
     const blackButtonStyle = {
-        color: 'white',
-        backgroundColor: 'black',
+        fontSize: fontSize,
         width: width,
         height: height,
-        fontSize: fontSize,
-        border: 'solid 1px black',
-        borderRadius: 4,
-        cursor: 'pointer',
-        fontWeight: 500,
     }
 
     const disabledBlackButtonStyle = {
-        color: 'white',
-        backgroundColor: 'grey',
         width: width,
         height: height,
         fontSize: fontSize,
-        border: 'solid 1px grey',
-        borderRadius: 4,
-        fontWeight: 500,
     }
 
     const iconStyle = {
@@ -31,30 +43,18 @@ const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, heig
         pointerEvents: 'none',
     }
 
-    const handleMouseEnter = (e) => {
-        e.target.style.backgroundColor = '#25A2A2'
-        e.target.style.border = 'solid 1px #25A2A2'
-    }
-
-    const handleMouseLeave = (e) => {
-        e.target.style.backgroundColor = 'black'
-        e.target.style.border = 'solid 1px black'
-    }
-
     return (
         <>
         { disabled === true ?
-            <button
+            <BlackButtonInactive
                 style={ disabledBlackButtonStyle }
                 disabled
             >
                 { text }
-            </button>
+            </BlackButtonInactive>
             :
-            <button
+            <BlackButtonActive
                 style={ blackButtonStyle }
-                onMouseEnter={ (e) => handleMouseEnter(e) }
-                onMouseLeave={ (e) => handleMouseLeave(e) }
                 onClick={ handleClick }
             >
                 {
@@ -62,7 +62,7 @@ const DesktopBlackButton = ({ text, handleClick, disabled, fontSize, width, heig
                     <i style={ iconStyle } className={ icon } />
                 }
                 { text }
-            </button>
+            </BlackButtonActive>
         }
         </>
     )

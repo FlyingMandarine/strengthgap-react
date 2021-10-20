@@ -1,37 +1,34 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const DesktopRedButton = ({ text, handleClick, width, height }) => {
+const RedButtonActive = styled.button`
+    color: white;
+    background-color: maroon;
+    border: solid 1px maroon;
+    border-radius: 4px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: red;
+        border: solid 1px red;
+    }
+`
+
+const DesktopRedButton = ({ text, handleClick, fontSize, width, height }) => {
 
     const redButtonStyle = {
-        color: 'white',
-        backgroundColor: 'maroon',
         width: width,
         height: height,
-        fontSize: 18,
-        border: 'solid 1px maroon',
-        borderRadius: 4,
-        fontWeight: 500,
-    }
-
-    const handleMouseEnter = (e) => {
-        e.target.style.backgroundColor = 'red'
-        e.target.style.border = 'solid 1px red'
-    }
-
-    const handleMouseLeave = (e) => {
-        e.target.style.backgroundColor = 'maroon'
-        e.target.style.border = 'solid 1px maroon'
+        fontSize: fontSize,
     }
 
     return (
-        <button
+        <RedButtonActive
             style={ redButtonStyle }
-            onMouseEnter={ (e) => handleMouseEnter(e) }
-            onMouseLeave={ (e) => handleMouseLeave(e) }
             onClick={ handleClick }
         >
-            {text}
-        </button>
+            { text }
+        </RedButtonActive>
     )
 }
 

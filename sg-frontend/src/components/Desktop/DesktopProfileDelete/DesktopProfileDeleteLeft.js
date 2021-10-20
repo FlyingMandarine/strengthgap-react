@@ -8,8 +8,8 @@ import loginService from '../../../services/login'
 import userService from '../../../services/users'
 
 import DesktopLeftPanel from '../DesktopPresentational/DesktopLeftPanel'
-import DesktopBlackButton from '../DesktopPresentational/DesktopBlackButton'
 import DesktopBackButton from '../DesktopPresentational/DesktopBackButton'
+import DesktopRedButton from '../DesktopPresentational/DesktopRedButton'
 
 const DesktopProfileDeleteLeft = () => {
     const dispatch = useDispatch()
@@ -117,7 +117,7 @@ const DesktopProfileDeleteLeft = () => {
                     <input style={ inputStyle } type='username' name='username' placeholder='Username' /><br />
                     <input style={ inputStyle } type='password' name='password' placeholder='Password' /><br />
                     <div style={ buttonsDivStyle }>
-                        <DesktopBlackButton text='Delete profile' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
+                        <DesktopRedButton text='Delete profile' fontSize={ '2.1em' } width={ '25%' } height={ 56 } />
                     </div>
                 </form>
             }
