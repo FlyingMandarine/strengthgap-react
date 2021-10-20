@@ -20,7 +20,7 @@ It allows you to select any exercise and see which muscle group they primarily t
 
 It comes complete with a registration feature to save, edit, and delete your workouts.
 
-**Check the [live demo](https://www.patrice-hermenault.com).**
+**Check the [live demo](https://strength-gap.herokuapp.com/).**
 
 ## Installing Strength Gap
 
@@ -85,7 +85,7 @@ Strength Gap is a work in progress. Here is a list of features I'd like to imple
 
 :white_large_square: Even though the app's code is relatively clear, I'd like to rewrite it using TypeScript if only to get some more practice.
 
-:white_large_square: I have a list of over 200 exercises that can be selected; right now, however, only about 10% have had their muscle groups mapped. I'll slowly add to the list over time until most exercises in existence are covered. The aim here is for most users to be able to add all their exercises without experiencing frustration at not being able to add an exercise not present in the list.
+:white_large_square: I have a list of over 200 exercises that can be selected; right now, however, only about 10% have had their muscle groups mapped. I'll slowly add to the list over time until most exercises in existence are covered.
 
 ## Contributions
 

@@ -44,6 +44,5 @@
   "devDependencies": {
     "eslint": "^7.32.0"
   },
-  "proxy": "http://localhost:3001",
-  "homepage": "/strengthgap"
+  "proxy": "http://localhost:3001"
 }
